@@ -86,7 +86,6 @@ body {
 	display: none;
 }
 
-
 /* :hover */
 
 .mobile-menu-anchor:hover, .menu-anchor:hover {
@@ -100,6 +99,40 @@ body {
 	display: none;
 }
 
+/* Play button */
+
+.play-button {
+	height: 50px;
+	width: 200px;
+	margin: 150px auto 50px auto;
+	background-color: #21B121;
+}
+
+.button-text {
+	font-size: 24px;
+	padding: 11px;
+	margin: 0 auto;
+	color: white;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+/* Character selection panel */
+
+.character-selection-panel {
+	display: none;
+	width: 100%;
+	margin: 100px auto 50px auto;
+	background-color: blue;
+	overflow: hidden;
+}
+
+.character-card {
+	height: 200px;
+	width: 250px;
+	background-color: red;
+	margin: 10px auto;
+}
 
 
 
