@@ -1,0 +1,114 @@
+
+/* ------ global variables ------ */
+
+body {
+	font-family: arial;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.page-wrapper {
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+	background-color: white;
+}
+
+/* fixed-top-menu-bar and menu-header(s) */
+
+.fixed-top-menu-bar {
+	position: fixed;
+	height: 60px;
+	width: 100%;
+	top: 0px;
+	background-color: #364A5A;
+	z-index: 999;
+}
+
+/* mobile menu */
+
+.mobile-menu-button-container {
+	height: 50px;
+	width: 50px;
+	margin: 5px auto;
+	float: left;
+}
+
+.mobile-menu-button {
+	height: 100%;
+	width: 100%;
+	background-image: url('https://ddiostips.files.wordpress.com/2013/12/burger.png?w=470');
+	background-size: cover;
+	background-position: center;
+}
+
+.mobile-menu {
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 44px;
+	left: 0;
+	background-color: #455B6D;
+	z-index: 998;
+}
+
+.top-menu-header {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mobile-header, .desktop-header {
+	font-size: 28px;
+	margin: 0;
+	padding: 15px 20px 10px;
+	text-align: center;
+	color: white;
+}
+
+.mobile-menu-anchor, .menu-anchor {
+	display: block;
+	width: 100%;
+	margin-left: -40px;
+	padding: 15px;
+	color: white;
+	text-decoration: none;
+	border-bottom: 1px solid #364A5A;
+}
+
+.mobile-menu-item {
+	font-size: 16px;
+	letter-spacing: 1px;
+	list-style: none;
+}
+
+.desktop-header {
+	display: none;
+}
+
+
+/* :hover */
+
+.mobile-menu-anchor:hover, .menu-anchor:hover {
+	color: #364A5A;
+	background-color: #FEDA20;
+}
+
+/* Altenate Menu */
+
+.alternate.menu, .alternate.menu-anchor, .alternate.menu-item {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
