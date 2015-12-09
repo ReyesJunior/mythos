@@ -2,6 +2,10 @@
 
 $(document).ready(function () {
 
+// promp User when page loads
+
+prompt ()
+
 // Global JS
 
 // Toggle Mobile menu when clicking mobile-menu-button
@@ -24,8 +28,16 @@ $('a').click(function() {
   $('.mobile-menu').hide();
 });
 
+// When play button is pressed 
+
+$('.button-text').click(function () {
+  $('.play-button').hide();
+  $('.character-selection-panel').show();
+
+});
+
 // On window resize 
-  $(window).resize(function(){
+ /* $(window).resize(function(){
      var width = $(window).width();
      if(width >= x){
    
@@ -33,10 +45,7 @@ $('a').click(function() {
      else{
          
      }
-  }).resize() // Trigger resize function on page load
-
-
-
+  }).resize() // Trigger resize function on page load */
 
 }); // End of $(document).ready function
 
