@@ -130,10 +130,61 @@ body {
 .character-card {
 	height: 200px;
 	width: 250px;
-	background-color: red;
 	margin: 10px auto;
 }
 
+/* Knight */
+
+.knight.character-card {
+	background-color: red;
+}
+
+/* Archer */
+
+.archer.character-card {
+	background-color: green;
+}
+
+/* Mage */
+
+.mage.character-card {
+	background-color: orange;
+}
+
+
+/* Level selection panel */
+
+.level-selection-panel {
+	display: none;
+	width: 100%;
+	margin: 100px auto 50px auto;
+	background-color: blue;
+	overflow: hidden;
+}
+
+.level-card {
+	height: 200px;
+	width: 250px;
+	margin: 10px auto;
+}
+
+/* Cave */
+
+.cave.level-card {
+	background-color: black;
+}
+
+/* Forrest */
+
+.forrest.level-card {
+	background-color: lime;
+}
+
+/* City */
+
+.city.level-card {
+	background-color: yellow;
+}
 
 
 
