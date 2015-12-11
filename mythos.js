@@ -24,8 +24,7 @@ $('a').click(function() {
 // When play button is pressed 
 $('.button-text').click(function () {
   $('.play-button').hide();
-  // alert User to select character
-  alert ("Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL.")
+  $('.character-select.textbox-container').show();
   $('.character-selection-panel').show();
 });
 
@@ -33,7 +32,8 @@ $('.button-text').click(function () {
 $('.character-card').click(function () {
   $('.character-selection-panel').hide();
   // alert User to select level
-  alert ("Please select a level from the following LEVEL SELECTION PANEL.")
+  $('.character-select.textbox-container').hide();
+  $('.level-select.textbox-container').show();
   $('.level-selection-panel').show();
 });
 
@@ -41,16 +41,26 @@ $('.character-card').click(function () {
 $('#cave').on('click', function() {
   $('.page-wrapper').css('background-color', 'black');
   $('.level-selection-panel').hide();
+  $('.level-select.textbox-container').hide();
+  $('.combat-card-stage').show();
+  $('.combat.textbox-container').show();
 });
 $('#forrest').on('click', function() {
   $('.page-wrapper').css('background-color', 'lime');
   $('.level-selection-panel').hide();
+  $('.level-select.textbox-container').hide();
+  $('.combat-card-stage').show();
+  $('.combat.textbox-container').show();
 });
 $('#city').on('click', function() {
   $('.page-wrapper').css('background-color', 'yellow');
   $('.level-selection-panel').hide();
+  $('.level-select.textbox-container').hide();
+  $('.combat-card-stage').show();
+  $('.combat.textbox-container').show();
 });
 
+//When level is selected and combat-card-stage is 'visible'
 
 // On window resize 
  /* $(window).resize(function(){
