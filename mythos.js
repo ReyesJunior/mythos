@@ -37,6 +37,21 @@ $('.character-card').click(function () {
   $('.level-selection-panel').show();
 });
 
+//Change background image of site (depending on which level-card was selected)
+$('#cave').on('click', function() {
+  $('.page-wrapper').css('background-color', 'black');
+  $('.level-selection-panel').hide();
+});
+$('#forrest').on('click', function() {
+  $('.page-wrapper').css('background-color', 'lime');
+  $('.level-selection-panel').hide();
+});
+$('#city').on('click', function() {
+  $('.page-wrapper').css('background-color', 'yellow');
+  $('.level-selection-panel').hide();
+});
+
+
 // On window resize 
  /* $(window).resize(function(){
      var width = $(window).width();
