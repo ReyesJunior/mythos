@@ -117,76 +117,79 @@ body {
 	letter-spacing: 1px;
 }
 
-/* Character selection panel */
+/* textboxes */
 
-.character-selection-panel {
+.textbox-container {
+	display: none;
+	height: 300px;
+	width: 90%;
+	margin: 100px auto 50px auto;
+	background-color: red
+}
+
+.combat.textbox-container {
+	height: 200px;
+}
+
+.textbox-prompt {
+	margin: 0;
+	padding: 15px 20px 25px;
+	font-size: 18px;
+	line-height: 24px;
+}
+
+/* Character selection panel &  Level selection panel */
+
+.character-selection-panel, .level-selection-panel {
 	display: none;
 	width: 100%;
-	margin: 100px auto 50px auto;
+	margin: 50px auto;
 	background-color: blue;
 	overflow: hidden;
 }
 
-.character-card {
-	height: 200px;
+.character-card, .level-card {
+	height: 300px;
 	width: 250px;
 	margin: 10px auto;
 }
 
-/* Knight */
+/* Characters & Levels */
 
+/* Knight */
 .knight.character-card {
 	background-color: red;
 }
-
 /* Archer */
-
 .archer.character-card {
 	background-color: green;
 }
-
 /* Mage */
-
 .mage.character-card {
 	background-color: orange;
 }
-
-
-/* Level selection panel */
-
-.level-selection-panel {
-	display: none;
-	width: 100%;
-	margin: 100px auto 50px auto;
-	background-color: blue;
-	overflow: hidden;
-}
-
-.level-card {
-	height: 200px;
-	width: 250px;
-	margin: 10px auto;
-}
-
 /* Cave */
-
 .cave.level-card {
 	background-color: black;
 }
-
 /* Forrest */
-
 .forrest.level-card {
 	background-color: lime;
 }
-
 /* City */
-
 .city.level-card {
 	background-color: yellow;
 }
 
+/* combat cards */
 
+.combat-card-stage {
+	display: none;
+	height: 300px;
+	width: 250px;
+	margin: 50px auto;
+	border: 2px solid red;
+}
 
 
 
