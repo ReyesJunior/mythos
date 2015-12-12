@@ -25,6 +25,24 @@ body {
 	z-index: 999;
 }
 
+.top-menu-header {
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.mobile-header, .desktop-header {
+	font-size: 28px;
+	margin: 0;
+	padding: 15px 20px 10px;
+	text-align: center;
+	color: white;
+}
+
+.desktop-header {
+	display: none;
+}
+
 /* mobile menu */
 
 .mobile-menu-button-container {
@@ -52,20 +70,6 @@ body {
 	z-index: 998;
 }
 
-.top-menu-header {
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-}
-
-.mobile-header, .desktop-header {
-	font-size: 28px;
-	margin: 0;
-	padding: 15px 20px 10px;
-	text-align: center;
-	color: white;
-}
-
 .mobile-menu-anchor, .menu-anchor {
 	display: block;
 	width: 100%;
@@ -82,10 +86,6 @@ body {
 	list-style: none;
 }
 
-.desktop-header {
-	display: none;
-}
-
 /* :hover */
 
 .mobile-menu-anchor:hover, .menu-anchor:hover {
@@ -93,24 +93,57 @@ body {
 	background-color: #FEDA20;
 }
 
-/* Altenate Menu */
+/* Alternate Menu */
 
 .alternate.menu, .alternate.menu-anchor, .alternate.menu-item {
 	display: none;
 }
 
-/* Play button */
+/* Site Sections */
 
-.play-button {
+.section {
+	display: none;
+	overflow: hidden;
+	border-bottom: 1px solid #CCCACA;
+}
+
+.landing.section {
+	display: block;
+	margin-top: 60px;
+}
+
+.character-selection.section {
+	background-color: white;
+}
+
+.level-selection.section {
+	background-color: white;
+}
+
+.pre-combat.section {
+	background-color: white;
+}
+
+.combat.section {
+	background-color: white;
+}
+
+/* button */
+
+.play-button, .start-match-button, .show-characters-button, .show-levels-button {
 	height: 50px;
 	width: 200px;
-	margin: 150px auto 50px auto;
-	background-color: #21B121;
+	margin: 50px auto;
+	background-color: #0088cc;
+}
+
+.show-characters-button, .show-levels-button, .start-match-button {
+	margin: 25px auto;
 }
 
 .button-text {
-	font-size: 24px;
-	padding: 11px;
+	font-size: 18px;
+	padding: 14px;
 	margin: 0 auto;
 	color: white;
 	text-align: center;
@@ -120,31 +153,28 @@ body {
 /* textboxes */
 
 .textbox-container {
-	display: none;
-	height: 300px;
-	width: 90%;
-	margin: 100px auto 50px auto;
-	background-color: red
+	height: 180px;
+	margin: 25px auto;
 }
 
-.combat.textbox-container {
-	height: 200px;
+.character-select.textbox-container {
+	height: 300px;
 }
 
 .textbox-prompt {
 	margin: 0;
-	padding: 15px 20px 25px;
-	font-size: 18px;
+	padding: 15px 25px 20px;
+	font-size: 16px;
+	color: #4C4C4C;
 	line-height: 24px;
 }
 
-/* Character selection panel &  Level selection panel */
+/* Character selection &  Level selection panel */
 
 .character-selection-panel, .level-selection-panel {
 	display: none;
 	width: 100%;
-	margin: 50px auto;
-	background-color: blue;
+	margin: 25px auto 50px auto;
 	overflow: hidden;
 }
 
@@ -181,13 +211,15 @@ body {
 	background-color: yellow;
 }
 
+/*///////////////////////////////////////////////////////////////////////////// Combat Page */
+
 /* combat cards */
 
 .combat-card-stage {
 	display: none;
 	height: 300px;
 	width: 250px;
-	margin: 50px auto;
+	margin: 25px auto 50px auto;
 	border: 2px solid red;
 }
 
