@@ -26,41 +26,60 @@
 			</ul> <!-- End of alternate menu -->
 		</div> <!-- End of fixed-top-menu-bar -->
 <!-- Play button -->
-		<div class="play-button">
-			<h4 class="button-text">Play</h4>
+		<div class="landing section">
+			<div class="play-button">
+				<h4 class="button-text">Play</h4>
+			</div>
 		</div>
-<!-- text-boxes -->
-		<div class="character-select textbox-container">
-			<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
+<!-- Character-selection section -->
+		<div class="character-selection section">
+			<div class="character-select textbox-container">
+				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
+			</div>
+			<div class="show-characters-button">
+				<h4 class="button-text">Show Heroes</h4>
+			</div>
+			<div class="character-selection-panel">
+				<div class="knight character-card">KNIGHT</div>
+				<div class="archer character-card">ARCHER</div>
+				<div class="mage character-card">MAGE</div>
+			</div>
 		</div>
-		<div class="level-select textbox-container">
-			<h4 class="textbox-prompt">You have selected the _____. ________ _______ ________ ______ ___ _____ _____ ____ _____. Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
+<!-- Level-selection section -->
+		<div class="level-selection section">
+			<div class="level-select textbox-container">
+				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span>. Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
+			</div>
+			<div class="show-levels-button">
+				<h4 class="button-text">Show Levels</h4>
+			</div>
+			<div class="level-selection-panel">
+				<div id="cave" class="cave level-card">CAVE</div>
+				<div id="forrest" class="forrest level-card">FORREST</div>
+				<div id="city" class="city level-card">CITY</div>
+			</div>
 		</div>
-		<div class="combat textbox-container">
-			<h4 class="textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
-		</div>
-<!-- Character Panels -->
-		<div class="character-selection-panel">
-			<div class="knight character-card">KNIGHT</div>
-			<div class="archer character-card">ARCHER</div>
-			<div class="mage character-card">MAGE</div>
-		</div>
-<!-- Level Panels -->
-		<div class="level-selection-panel">
-			<div id="cave" class="cave level-card">CAVE</div>
-			<div id="forrest" class="forrest level-card">FORREST</div>
-			<div id="city" class="city level-card">CITY</div>
+<!-- pre-combat summary panel -->
+		<div class="pre-combat section">
+			<div class="pre-combat textbox-container">
+				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span> and will travel to the <span class="selected-level"></span>. It is a dangerous quest, be wary of any mythical beasts that you may encounter!</h4>
+			</div>
+			<div class="start-match-button">
+				<h4 class="button-text">Start Match</h4>
+			</div>
 		</div>
 <!-- combat cards -->
-		<div class="combat-card-stage">
+		<div class="combat section">
+			<div class="combat textbox-container">
+				<h4 class="textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
+			</div>
+			<div class="combat-card-stage">
+			</div>
+			<div class="boss combat-card">
+			</div>
+			<div class="user combat-card-">
+			</div>
 		</div>
-		<div class="boss combat-card">
-		</div>
-		<div class="user combat-card-">
-		</div>
-
-
-
 	</div><!-- End of homepage-wrapper -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
