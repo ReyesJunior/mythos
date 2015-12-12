@@ -22,45 +22,70 @@ $('a').click(function() {
 });
 
 // When play button is pressed 
-$('.button-text').click(function () {
+$('.play-button').click(function () {
   $('.play-button').hide();
-  $('.character-select.textbox-container').show();
-  $('.character-selection-panel').show();
+  $('.character-selection.section').slideDown(500);
+});
+
+// Show character button
+$('.show-characters-button').click(function () {
+    $(this).hide();
+    $('.character-select.textbox-container').show();
+  $('.character-selection-panel').slideDown(500);
 });
 
 // When character is selected 
 $('.character-card').click(function () {
-  $('.character-selection-panel').hide();
-  // alert User to select level
   $('.character-select.textbox-container').hide();
+  $('.show-characters-button').show();
+  $('.character-selection-panel').slideUp();
+  $('.level-selection.section').slideDown(500);
+  $('.character-card').removeClass('active');
+  $(this).addClass('active');
+
+  if($('.knight').hasClass('active')) {
+    $('.selected-character').text('knight');
+  }
+  else if($('.archer').hasClass('active')) {
+    $('.selected-character').text('archer');
+  }
+  else if($('.mage').hasClass('active')) {
+    $('.selected-character').text('mage');
+  };
+});
+
+// Show level button
+$('.show-levels-button').click(function () {
+  $(this).hide();
   $('.level-select.textbox-container').show();
-  $('.level-selection-panel').show();
+  $('.level-selection-panel').slideDown(500);
 });
 
 //Change background image of site (depending on which level-card was selected)
-$('#cave').on('click', function() {
-  $('.page-wrapper').css('background-color', 'black');
-  $('.level-selection-panel').hide();
+$('.level-card').click(function () {
   $('.level-select.textbox-container').hide();
-  $('.combat-card-stage').show();
-  $('.combat.textbox-container').show();
-});
-$('#forrest').on('click', function() {
-  $('.page-wrapper').css('background-color', 'lime');
-  $('.level-selection-panel').hide();
-  $('.level-select.textbox-container').hide();
-  $('.combat-card-stage').show();
-  $('.combat.textbox-container').show();
-});
-$('#city').on('click', function() {
-  $('.page-wrapper').css('background-color', 'yellow');
-  $('.level-selection-panel').hide();
-  $('.level-select.textbox-container').hide();
-  $('.combat-card-stage').show();
-  $('.combat.textbox-container').show();
+  $('.show-levels-button').show();
+  $('.level-selection-panel').slideUp();
+  $('.pre-combat.section').slideDown(500);
+  $('.level-card').removeClass('active');
+  $(this).addClass('active');
+
+  if($('#cave').hasClass('active')) {
+    $('.page-wrapper').css('background-color', 'black');
+    $('.selected-level').text('cave');
+  }
+  else if($('#forrest').hasClass('active')) {
+    $('.page-wrapper').css('background-color', 'lime');
+    $('.selected-level').text('forrest');
+  }
+  else if($('#city').hasClass('active')) {
+    $('.page-wrapper').css('background-color', 'yellow');
+    $('.selected-level').text('city');
+  };
 });
 
-//When level is selected and combat-card-stage is 'visible'
+
+// pre-combat summary panel
 
 // On window resize 
  /* $(window).resize(function(){
