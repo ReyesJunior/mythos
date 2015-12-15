@@ -99,7 +99,7 @@ body {
 	display: none;
 }
 
-/* Site Sections */
+/* Mythos Sections */
 
 .section {
 	display: none;
@@ -108,11 +108,11 @@ body {
 }
 
 .landing.section {
-	display: block;
 	margin-top: 60px;
 }
 
 .character-selection.section {
+	margin-top: 60px;
 	background-color: white;
 }
 
@@ -125,44 +125,31 @@ body {
 }
 
 .combat.section {
+	display: block;
+	margin-top: 60px;
 	background-color: white;
 }
 
-/* button */
+/* buttons */
 
-.play-button, .start-match-button, .show-characters-button, .show-levels-button {
-	height: 50px;
+.play-button, .start-match-button, .show-characters-button, .show-levels-button, .load-match-button {
 	width: 200px;
-	margin: 50px auto;
-	background-color: #0088cc;
-}
-
-.show-characters-button, .show-levels-button, .start-match-button {
-	margin: 25px auto;
-}
-
-.button-text {
 	font-size: 18px;
 	padding: 14px;
-	margin: 0 auto;
 	color: white;
+	margin: 50px auto;
+	background-color: #0088cc;
 	text-align: center;
-	letter-spacing: 1px;
 }
 
 /* textboxes */
 
 .textbox-container {
-	height: 180px;
 	margin: 25px auto;
 }
 
-.character-select.textbox-container {
-	height: 300px;
-}
-
 .textbox-prompt {
-	margin: 0;
+	margin: 0 auto;
 	padding: 15px 25px 20px;
 	font-size: 16px;
 	color: #4C4C4C;
@@ -213,14 +200,67 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////// Combat Page */
 
-/* combat cards */
+/* combat stage */
 
-.combat-card-stage {
-	display: none;
+.combat-stage {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  
+}
+
+/* combat-card */
+
+.combat-card {
+    position: absolute;
+    width: 90%;
+    height: 502px;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid black;
+    left: 5%;
+    top: 50px;
+}
+
+.character-image {
 	height: 300px;
-	width: 250px;
-	margin: 25px auto 50px auto;
-	border: 2px solid red;
+	margin: 0;
+    background-color: #8A2BE2;
+}
+
+.character-content-panel {
+	height: 202px;
+	margin: 0;
+	background-color: red;
+	overflow: hidden;
+}
+
+.moves-button {
+	height: 20px;
+	width: 130px;
+	font-size: 15px;
+	padding: 14px;
+	color: white;
+	margin: 2px auto;
+	background-color: #0088cc;
+	text-align: center;
+}
+
+
+#user-character {
+    background-color: green;
+    left: -150%;
+}
+
+#stage {
+    background-color: yellow;
+}
+
+#randomized-character {
+    background-color: red;
+    left: 150%;
 }
 
 

@@ -27,18 +27,17 @@
 		</div> <!-- End of fixed-top-menu-bar -->
 <!-- Play button -->
 		<div class="landing section">
-			<div class="play-button">
-				<h4 class="button-text">Play</h4>
+			<div class="landing textbox-container">
+				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
 			</div>
+			<div class="play-button">Play</div>
 		</div>
 <!-- Character-selection section -->
 		<div class="character-selection section">
 			<div class="character-select textbox-container">
 				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
 			</div>
-			<div class="show-characters-button">
-				<h4 class="button-text">Show Heroes</h4>
-			</div>
+			<div class="show-characters-button">Show Heroes</div>
 			<div class="character-selection-panel">
 				<div class="knight character-card">KNIGHT</div>
 				<div class="archer character-card">ARCHER</div>
@@ -50,9 +49,7 @@
 			<div class="level-select textbox-container">
 				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span>. Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
 			</div>
-			<div class="show-levels-button">
-				<h4 class="button-text">Show Levels</h4>
-			</div>
+			<div class="show-levels-button">Show Levels</div>
 			<div class="level-selection-panel">
 				<div id="cave" class="cave level-card">CAVE</div>
 				<div id="forrest" class="forrest level-card">FORREST</div>
@@ -64,20 +61,33 @@
 			<div class="pre-combat textbox-container">
 				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span> and will travel to the <span class="selected-level"></span>. It is a dangerous quest, be wary of any mythical beasts that you may encounter!</h4>
 			</div>
-			<div class="start-match-button">
-				<h4 class="button-text">Start Match</h4>
-			</div>
-		</div>
+			<div class="load-match-button">Begin Quest</div>
+		</div> 
 <!-- combat cards -->
 		<div class="combat section">
 			<div class="combat textbox-container">
 				<h4 class="textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
-			</div>
-			<div class="combat-card-stage">
-			</div>
-			<div class="boss combat-card">
-			</div>
-			<div class="user combat-card-">
+			</div> 
+			<div class="combat-stage">
+				<div id="stage" class="stage combat-card">Match start</div>
+			    <div id="user-character" class="user combat-card">
+			    	<div class="user character-image"></div>
+			    	<div class="user character-content-panel">
+			    		<div class="user moves-button">Move 1</div>
+				    	<div class="user moves-button">Move 2</div>
+				    	<div class="user moves-button">Move 3</div>
+				    	<div class="user moves-button">Move 4</div>
+			    	</div>
+			    </div>
+			    <div id="randomized-character" class="boss combat-card">
+			    	<div class="boss character-image"></div>
+			    	<div class="boss character-content-panel">
+			    		<div class="boss moves-button">Boss Move 1</div>
+				    	<div class="boss moves-button">Boss Move 2</div>
+				    	<div class="boss moves-button">Boss Move 3</div>
+				    	<div class="boss moves-button">Boss Move 4</div>
+			    	</div>
+			    </div>	    
 			</div>
 		</div>
 	</div><!-- End of homepage-wrapper -->

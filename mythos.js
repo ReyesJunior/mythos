@@ -23,7 +23,7 @@ $('a').click(function() {
 
 // When play button is pressed 
 $('.play-button').click(function () {
-  $('.play-button').hide();
+  $('.landing.section').hide();
   $('.character-selection.section').slideDown(500);
 });
 
@@ -38,7 +38,7 @@ $('.show-characters-button').click(function () {
 $('.character-card').click(function () {
   $('.character-select.textbox-container').hide();
   $('.show-characters-button').show();
-  $('.character-selection-panel').slideUp();
+  $('.character-selection-panel').slideUp(500);
   $('.level-selection.section').slideDown(500);
   $('.character-card').removeClass('active');
   $(this).addClass('active');
@@ -65,7 +65,7 @@ $('.show-levels-button').click(function () {
 $('.level-card').click(function () {
   $('.level-select.textbox-container').hide();
   $('.show-levels-button').show();
-  $('.level-selection-panel').slideUp();
+  $('.level-selection-panel').slideUp(500);
   $('.pre-combat.section').slideDown(500);
   $('.level-card').removeClass('active');
   $(this).addClass('active');
@@ -85,18 +85,73 @@ $('.level-card').click(function () {
 });
 
 
-// pre-combat summary panel
+// pre-combat section
+
+$('.load-match-button').on('click', function() {
+  $('.character-selection.section').hide();
+  $('.level-selection.section').hide();
+  $('.pre-combat.section').hide();
+  $('.combat.section').slideDown(500);
+});
+
+// Combat section
+
+$('#stage').click(function() {
+  $(this).hide();
+  $('#user-character').animate({left:'5%'}, 500);
+});
+
+// toggle alternating combat cards between attacks
+
+$('#user-character').click(function() {
+  $(this).animate({
+      left: '-150%',
+    }, 500 );
+  $('#randomized-character').animate({
+      left: '5%',
+    }, 500 );
+});
+
+$('#randomized-character').click(function() {
+  $(this).animate({
+      left: '150%',
+    }, 500 );
+  $('#user-character').animate({
+      left: '5%',
+    }, 500 );
+});
+
+
 
 // On window resize 
  /* $(window).resize(function(){
      var width = $(window).width();
      if(width >= x){
    
+
+
+
+} else if ($(this).offset().left < $('.combat-stage').width()) {
+          $(this).animate({
+              left: '50%',
+          }, 500 );
+
+
+
+
      }
      else{
          
      }
   }).resize() // Trigger resize function on page load */
+
+////////////////////////////////////////////// After Level is Loaded and Pre-Combat Section slide's up
+//////////////////////////////////////////////
+// Combat Start 
+$('.start-match-button').click(function() {
+  $(this).hide();
+  return mythosCombatFunction ();
+})
 
 }); // End of $(document).ready function
 
