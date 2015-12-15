@@ -68,57 +68,69 @@
 			<div class="combat textbox-container">
 				<h4 class="textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
 			</div> 
+
+
 			<div class="combat-stage">
+<!-- Center Stage Card -->
 				<div id="stage" class="stage combat-card">Match start</div>
+
+<!-- User Selected-Character combat-card -->
 			    <div id="user-character" class="user combat-card">
 			    	<div class="user character-image"></div>
 			    	<div class="user character-content-panel">
 			    		<div class="user moves-button">
-			    			<p class="user move-name">Move 1</p>
-			    			<p class="user move-counter">5/5</p>
+			    			<p class="user move-1 move-name">Move 1</p>
+			    			<p class="user counter-1 move-counter">5/5</p>
 			    		</div>
 			    		<div class="user moves-button">
-			    			<p class="user move-name">Move 2</p>
-			    			<p class="user move-counter">10/10</p>
+			    			<p class="user move-2 move-name">Move 2</p>
+			    			<p class="user counter-2 move-counter">10/10</p>
 			    		</div>
 			    		<div class="user moves-button">
-			    			<p class="user move-name">Move 3</p>
-			    			<p class="user move-counter">5/5</p>
+			    			<p class="user move-3 move-name">Move 3</p>
+			    			<p class="user counter-3 move-counter">5/5</p>
 			    		</div>
 			    		<div class="user moves-button">
-			    			<p class="user move-name">Move 4</p>
-			    			<p class="user move-counter">1/1</p>
+			    			<p class="user move-4 move-name">Move 4</p>
+			    			<p class="user counter-4 move-counter">1/1</p>
 			    		</div>
 			    	</div>
-			    </div>
+			    </div> <!-- End of User Combat-Card -->
+
+<!-- Button with event listener -->
+				<button class="js-random-character" type="button">Get Random Character</button>
+<!-- Randomized Boss-Character combat-card -->
 			    <div id="randomized-character" class="boss combat-card">
+			    	<div class="boss character-name"></div>
 			    	<div class="boss character-image"></div>
-			    	<div class="boss character-content-panel">
 			    		<div class="boss character-content-panel">
-			    		<div class="boss moves-button">
-			    			<p class="boss move-name">Move 1</p>
-			    			<p class="boss move-counter">5/5</p>
-			    		</div>
-			    		<div class="boss moves-button">
-			    			<p class="boss move-name">Move 2</p>
-			    			<p class="boss move-counter">10/10</p>
-			    		</div>
-			    		<div class="boss moves-button">
-			    			<p class="boss move-name">Move 3</p>
-			    			<p class="boss move-counter">5/5</p>
-			    		</div>
-			    		<div class="boss moves-button">
-			    			<p class="boss move-name">Move 4</p>
-			    			<p class="boss move-counter">1/1</p>
+			    			<div class="boss moves-button">
+				    			<p class="boss move-1 move-name">Move 1</p>
+				    			<p class="boss counter-1 move-counter">5/5</p>
+				    		</div>
+				    		<div class="boss moves-button">
+				    			<p class="boss move-2 move-name">Move 2</p>
+				    			<p class="boss counter-2 move-counter">10/10</p>
+				    		</div>
+				    		<div class="boss moves-button">
+				    			<p class="boss move-3 move-name">Move 3</p>
+				    			<p class="boss counter-3 move-counter">5/5</p>
+				    		</div>
+				    		<div class="boss moves-button">
+				    			<p class="boss move-4 move-name">Move 4</p>
+				    			<p class="boss counter-4 move-counter">1/1</p>
+				    		</div>
 			    		</div>
 			    	</div>
-			    	</div>
-			    </div>	    
+			    </div> <!-- End of Combat-stage -->    
 			</div>
 		</div>
 	</div><!-- End of homepage-wrapper -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+	<script src="http://underscorejs.org/underscore-min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript" src="mythos.js"></script>
 </body>
 </html>
