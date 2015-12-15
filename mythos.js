@@ -145,13 +145,131 @@ $('#randomized-character').click(function() {
      }
   }).resize() // Trigger resize function on page load */
 
-////////////////////////////////////////////// After Level is Loaded and Pre-Combat Section slide's up
-//////////////////////////////////////////////
-// Combat Start 
-$('.start-match-button').click(function() {
-  $(this).hide();
-  return mythosCombatFunction ();
-})
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// After Level is Loaded and Pre-Combat Section slide's up
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Boss character Data
+
+var array = [
+  {
+    name: 'Medusa',
+    description:'Blah Blah Blah. Blah Blah Blah Blah Blah Blah Blah Blah Blah. Blah Blah BlahBlah Blah BlahBlah Blah Blah. Blah Blah Blah.',
+    move_one: 'Gorgon\'s Glare',
+    move_two: 'Slash',
+    move_three: 'Corrode Sting',
+    move_four: 'Serpant\s Bite',
+    move_counter_one: '5/5',
+    move_counter_two: '10/10',
+    move_counter_three: '5/5',
+    move_counter_four: '1/1',
+    background_image: 'url',
+  },
+  {
+    name: 'Dragon',
+    description:'Blah Blah Blah. Blah Blah Blah Blah Blah Blah Blah Blah Blah. Blah Blah BlahBlah Blah BlahBlah Blah Blah. Blah Blah Blah.',
+    move_one: 'Razor Wing',
+    move_two: 'Dragon Claw',
+    move_three: 'Blaze',
+    move_four: 'Tail Whip',
+    move_counter_one: '5/5',
+    move_counter_two: '10/10',
+    move_counter_three: '5/5',
+    move_counter_four: '1/1',
+    background_image: 'url',
+  },
+  {
+    name: 'Cerberus',
+    description:'Blah Blah Blah. Blah Blah Blah Blah Blah Blah Blah Blah Blah. Blah Blah BlahBlah Blah BlahBlah Blah Blah. Blah Blah Blah.',
+    move_one: 'Triple Bite',
+    move_two: 'Fang',
+    move_three: 'Maul',
+    move_four: 'Sinister Bark',
+    move_counter_one: '5/5',
+    move_counter_two: '10/10',
+    move_counter_three: '5/5',
+    move_counter_four: '1/1',
+    background_image: 'url',
+  },
+  {
+    name: 'Hydra',
+    description:'Blah Blah Blah. Blah Blah Blah Blah Blah Blah Blah Blah Blah. Blah Blah BlahBlah Blah BlahBlah Blah Blah. Blah Blah Blah.',
+    move_one: 'Vicious Bite',
+    move_two: 'Thrash',
+    move_three: 'Hydra Flank',
+    move_four: 'Regenerate',
+    move_counter_one: '5/5',
+    move_counter_two: '10/10',
+    move_counter_three: '5/5',
+    move_counter_four: '1/1',
+    background_image: 'url',
+  },
+  {
+    name: 'Minotaur',
+    description:'Blah Blah Blah. Blah Blah Blah Blah Blah Blah Blah Blah Blah. Blah Blah BlahBlah Blah BlahBlah Blah Blah. Blah Blah Blah.',
+    move_one: 'Frenzy Horn',
+    move_two: 'Trample',
+    move_three: 'Bull Rush',
+    move_four: 'Axe Charge',
+    move_counter_one: '5/5',
+    move_counter_two: '10/10',
+    move_counter_three: '5/5',
+    move_counter_four: '1/1',
+    background_image: 'url',
+  }
+];
+
+// Cache jQuery
+var $RandomizedBossCharacterContainer = $( '.boss.combat-card' );
+
+function getRandomBossCharacter () {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+// Use underscore with inlined template
+function addRandomBossCharacterWithTemplates () {
+  var template = [
+    '<div class="boss character-name"><%= name %></div>',
+      '<div class="boss character-image"><%= background_image %></div>',
+        '<div class="boss character-content-panel">',
+          '<div class="boss moves-button">',
+            '<p class="boss move-1 move-name"><%= move_one %></p>',
+            '<p class="boss counter-1 move-counter"><%= move_counter_one %></p>',
+          '</div>',
+          '<div class="boss moves-button">',
+            '<p class="boss move-2 move-name"><%= move_two %></p>',
+            '<p class="boss counter-2 move-counter"><%= move_counter_two %></p>',
+          '</div>',
+          '<div class="boss moves-button">',
+            '<p class="boss move-3 move-name"><%= move_three %></p>',
+            '<p class="boss counter-3 move-counter"><%= move_counter_three %></p>',
+          '</div>',
+          '<div class="boss moves-button">',
+            '<p class="boss move-4 move-name"><%= move_four %></p>',
+            '<p class="boss counter-4 move-counter"><%= move_counter_four %></p>',
+          '</div>',
+      '</div>',
+    '</div>',
+  ].join( '' );
+
+  var boss = getRandomBossCharacter();
+  var compiledTemplate = _.template( template );
+  var compiledHTML = compiledTemplate( boss );
+  console.log( compiledHTML );
+  $RandomizedBossCharacterContainer.html( compiledHTML );
+}
+
+$( '.js-random-character' ).on( 'click',
+  addRandomBossCharacterWithTemplates
+);
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// User character Data
 
 }); // End of $(document).ready function
 
