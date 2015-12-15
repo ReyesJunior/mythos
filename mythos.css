@@ -211,17 +211,37 @@ body {
     overflow: hidden;  
 }
 
+#user-character {
+    background-color: green;
+    left: -150%;
+}
+
+#stage {
+    background-color: lime;
+}
+
+#randomized-character {
+    background-color: red;
+    left: 150%;
+}
+
 /* combat-card */
 
 .combat-card {
     position: absolute;
     width: 90%;
-    height: 502px;
+    height: 485px;
     font-size: 18px;
     text-align: center;
     border: 2px solid black;
     left: 5%;
     top: 50px;
+}
+
+.stage.combat-card {
+	height: 35px;
+	padding-top: 10px;
+	font-size: 20px;
 }
 
 .character-image {
@@ -231,37 +251,37 @@ body {
 }
 
 .character-content-panel {
-	height: 202px;
+	height: 185px;
 	margin: 0;
 	background-color: red;
 	overflow: hidden;
 }
 
 .moves-button {
-	height: 20px;
-	width: 130px;
+	height: 45px;
 	font-size: 15px;
-	padding: 14px;
 	color: white;
-	margin: 2px auto;
+	margin: 1px auto;
 	background-color: #0088cc;
 	text-align: center;
+	overflow: hidden;
 }
 
-
-#user-character {
-    background-color: green;
-    left: -150%;
+.move-name, .move-counter {
+	width: 65%;
+    height: 100%;
+    float: left;
+    margin: 0;
+    padding-top: 12px;
+    background-color: #008080;
 }
 
-#stage {
-    background-color: yellow;
+.move-counter {
+	width: 35%;
+	float: right;
+	background-color: orange;
 }
 
-#randomized-character {
-    background-color: red;
-    left: 150%;
-}
 
 
 
