@@ -39,9 +39,9 @@
 			</div>
 			<div class="show-characters-button">Show Heroes</div>
 			<div class="character-selection-panel">
-				<div class="knight character-card">KNIGHT</div>
-				<div class="archer character-card">ARCHER</div>
-				<div class="mage character-card">MAGE</div>
+				<div id="knight" class="user character-card">KNIGHT</div>
+				<div id="archer" class="user character-card">ARCHER</div>
+				<div id="mage" class="user character-card">MAGE</div>
 			</div>
 		</div>
 <!-- Level-selection section -->
@@ -51,9 +51,9 @@
 			</div>
 			<div class="show-levels-button">Show Levels</div>
 			<div class="level-selection-panel">
-				<div id="cave" class="cave level-card">CAVE</div>
-				<div id="forrest" class="forrest level-card">FORREST</div>
-				<div id="city" class="city level-card">CITY</div>
+				<div id="cave" class="level-card">CAVE</div>
+				<div id="forrest" class="level-card">FORREST</div>
+				<div id="city" class="level-card">CITY</div>
 			</div>
 		</div>
 <!-- pre-combat summary panel -->
@@ -66,39 +66,34 @@
 <!-- combat cards -->
 		<div class="combat section">
 			<div class="combat textbox-container">
-				<h4 class="textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
+				<h4 class="combat textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
 			</div> 
-
-
 			<div class="combat-stage">
 <!-- Center Stage Card -->
 				<div id="stage" class="stage combat-card">Match start</div>
-
-<!-- User Selected-Character combat-card -->
+<!-- User-Selected Character combat-card -->
 			    <div id="user-character" class="user combat-card">
+			    	<div class="user character-name"></div>
 			    	<div class="user character-image"></div>
-			    	<div class="user character-content-panel">
-			    		<div class="user moves-button">
-			    			<p class="user move-1 move-name">Move 1</p>
-			    			<p class="user counter-1 move-counter">5/5</p>
-			    		</div>
-			    		<div class="user moves-button">
-			    			<p class="user move-2 move-name">Move 2</p>
-			    			<p class="user counter-2 move-counter">10/10</p>
-			    		</div>
-			    		<div class="user moves-button">
-			    			<p class="user move-3 move-name">Move 3</p>
-			    			<p class="user counter-3 move-counter">5/5</p>
-			    		</div>
-			    		<div class="user moves-button">
-			    			<p class="user move-4 move-name">Move 4</p>
-			    			<p class="user counter-4 move-counter">1/1</p>
+			    		<div class="user character-content-panel">
+			    			<div class="user moves-button">
+				    			<p class="user move-1 move-name">Move 1</p>
+				    			<p class="user counter-1 move-counter">5/5</p>
+				    		</div>
+				    		<div class="user moves-button">
+				    			<p class="user move-2 move-name">Move 2</p>
+				    			<p class="user counter-2 move-counter">10/10</p>
+				    		</div>
+				    		<div class="user moves-button">
+				    			<p class="user move-3 move-name">Move 3</p>
+				    			<p class="user counter-3 move-counter">5/5</p>
+				    		</div>
+				    		<div class="user moves-button">
+				    			<p class="user move-4 move-name">Move 4</p>
+				    			<p class="user counter-4 move-counter">1/1</p>
+				    		</div>
 			    		</div>
 			    	</div>
-			    </div> <!-- End of User Combat-Card -->
-
-<!-- Button with event listener -->
-				<button class="js-random-character" type="button">Get Random Character</button>
 <!-- Randomized Boss-Character combat-card -->
 			    <div id="randomized-character" class="boss combat-card">
 			    	<div class="boss character-name"></div>
@@ -122,7 +117,7 @@
 				    		</div>
 			    		</div>
 			    	</div>
-			    </div> <!-- End of Combat-stage -->    
+			    </div> <!-- End of Combat stage -->    
 			</div>
 		</div>
 	</div><!-- End of homepage-wrapper -->
