@@ -26,9 +26,9 @@
 			</ul> <!-- End of alternate menu -->
 		</div> <!-- End of fixed-top-menu-bar -->
 <!-- Play button -->
-		<div class="landing section">
-			<div class="landing textbox-container">
-				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
+		<div class="first section">
+			<div class="first textbox-container">
+				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below to begin ybour QUEST. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter in your adventure!</h4>
 			</div>
 			<div class="play-button">Play</div>
 		</div>
@@ -37,86 +37,85 @@
 			<div class="character-select textbox-container">
 				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
 			</div>
-			<div class="show-characters-button">Show Heroes</div>
-			<div class="character-selection-panel">
-				<div id="knight" class="user character-card">KNIGHT</div>
-				<div id="archer" class="user character-card">ARCHER</div>
-				<div id="mage" class="user character-card">MAGE</div>
+			<div class="show-heroes-button">Show Heroes</div>
+			<div class="character-selection-panel js-character-selection">
 			</div>
 		</div>
 <!-- Level-selection section -->
 		<div class="level-selection section">
 			<div class="level-select textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span>. Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
+				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> . Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
 			</div>
 			<div class="show-levels-button">Show Levels</div>
-			<div class="level-selection-panel">
-				<div id="cave" class="level-card">CAVE</div>
-				<div id="forrest" class="level-card">FORREST</div>
-				<div id="city" class="level-card">CITY</div>
+			<div class="level-selection-panel js-level-selection">
 			</div>
 		</div>
 <!-- pre-combat summary panel -->
 		<div class="pre-combat section">
 			<div class="pre-combat textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-character"></span> and will travel to the <span class="selected-level"></span>. It is a dangerous quest, be wary of any mythical beasts that you may encounter!</h4>
+				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> and will travel to the <span class="selected-level"></span> . It is a dangerous quest, be wary of any mythical beasts that you may encounter!</h4>
 			</div>
-			<div class="load-match-button">Begin Quest</div>
+			<div class="start-quest-button">Begin Quest</div>
 		</div> 
 <!-- combat cards -->
 		<div class="combat section">
-			<div class="combat textbox-container">
-				<h4 class="combat textbox-prompt">Combat Combat Combat! Combat Combat Combat! Combat Combat Combat! Combat Combat Combat!</h4>
+			<div class="combat-1 textbox-container">
+				<h4 class="combat-1 textbox-prompt">Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 !</h4>
+				<div class="first combat-continue-button">Continue</div>
+			</div>
+			<div class="combat-2 textbox-container">
+				<h4 class="combat textbox-prompt">Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 Combat-2 !</h4>
+				<div class="second combat-continue-button">Continue</div>
 			</div> 
 			<div class="combat-stage">
 <!-- Center Stage Card -->
-				<div id="stage" class="stage combat-card">Match start</div>
+				<div id="stage" class="stage combat-card">Defend yourself!</div>
 <!-- User-Selected Character combat-card -->
-			    <div id="user-character" class="user combat-card">
-			    	<div class="user character-name"></div>
-			    	<div class="user character-image"></div>
-			    		<div class="user character-content-panel">
-			    			<div class="user moves-button">
-				    			<p class="user move-1 move-name">Move 1</p>
-				    			<p class="user counter-1 move-counter">5/5</p>
-				    		</div>
-				    		<div class="user moves-button">
-				    			<p class="user move-2 move-name">Move 2</p>
-				    			<p class="user counter-2 move-counter">10/10</p>
-				    		</div>
-				    		<div class="user moves-button">
-				    			<p class="user move-3 move-name">Move 3</p>
-				    			<p class="user counter-3 move-counter">5/5</p>
-				    		</div>
-				    		<div class="user moves-button">
-				    			<p class="user move-4 move-name">Move 4</p>
-				    			<p class="user counter-4 move-counter">1/1</p>
-				    		</div>
+			    <div id="hero-character" class="hero combat-card">
+			    	<div class="hero character-name"></div>
+			    	<div class="hero character-image"></div>
+		    		<div class="hero character-content-panel">
+		    			<div class="hero moves-button">
+			    			<p class="hero move-1 move-name"></p>
+			    			<p class="hero counter-1 move-counter"></p>
 			    		</div>
-			    	</div>
-<!-- Randomized Boss-Character combat-card -->
-			    <div id="randomized-character" class="boss combat-card">
-			    	<div class="boss character-name"></div>
-			    	<div class="boss character-image"></div>
-			    		<div class="boss character-content-panel">
-			    			<div class="boss moves-button">
-				    			<p class="boss move-1 move-name">Move 1</p>
-				    			<p class="boss counter-1 move-counter">5/5</p>
-				    		</div>
-				    		<div class="boss moves-button">
-				    			<p class="boss move-2 move-name">Move 2</p>
-				    			<p class="boss counter-2 move-counter">10/10</p>
-				    		</div>
-				    		<div class="boss moves-button">
-				    			<p class="boss move-3 move-name">Move 3</p>
-				    			<p class="boss counter-3 move-counter">5/5</p>
-				    		</div>
-				    		<div class="boss moves-button">
-				    			<p class="boss move-4 move-name">Move 4</p>
-				    			<p class="boss counter-4 move-counter">1/1</p>
-				    		</div>
+			    		<div class="hero moves-button">
+			    			<p class="hero move-2 move-name"></p>
+			    			<p class="hero counter-2 move-counter"></p>
 			    		</div>
-			    	</div>
+			    		<div class="hero moves-button">
+			    			<p class="hero move-3 move-name"></p>
+			    			<p class="hero counter-3 move-counter"></p>
+			    		</div>
+			    		<div class="hero moves-button">
+			    			<p class="hero move-4 move-name"></p>
+			    			<p class="hero counter-4 move-counter"></p>
+			    		</div>
+			   		</div>
+			    </div>
+<!-- Randomized Villain combat-card -->
+			    <div id="randomized-character" class="villain combat-card">
+			    	<div class="villain character-name"></div>
+			    	<div class="villain character-image"></div>
+		    		<div class="villain character-content-panel">
+		    			<div class="villain moves-button">
+			    			<p class="villain move-1 move-name">Move 1</p>
+			    			<p class="villain counter-1 move-counter">5/5</p>
+			    		</div>
+			    		<div class="villain moves-button">
+			    			<p class="villain move-2 move-name">Move 2</p>
+			    			<p class="villain counter-2 move-counter">10/10</p>
+			    		</div>
+			    		<div class="villain moves-button">
+			    			<p class="villain move-3 move-name">Move 3</p>
+			    			<p class="villain counter-3 move-counter">5/5</p>
+			    		</div>
+			    		<div class="villain moves-button">
+			    			<p class="villain move-4 move-name">Move 4</p>
+			    			<p class="villain counter-4 move-counter">1/1</p>
+			    		</div>
+		    		</div>
+		    	</div><!-- End of villain combat-card -->
 			    </div> <!-- End of Combat stage -->    
 			</div>
 		</div>
@@ -126,6 +125,7 @@
 
 	<script src="http://underscorejs.org/underscore-min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="chars.js"></script>
 	<script type="text/javascript" src="mythos.js"></script>
 </body>
 </html>
