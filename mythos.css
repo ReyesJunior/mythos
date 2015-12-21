@@ -107,12 +107,12 @@ body {
 	border-bottom: 1px solid #CCCACA;
 }
 
-.landing.section {
+.first.section {
+	display: block;
 	margin-top: 60px;
 }
 
 .character-selection.section {
-	display: block;
 	margin-top: 60px;
 	background-color: white;
 }
@@ -132,7 +132,7 @@ body {
 
 /* buttons */
 
-.play-button, .start-match-button, .show-characters-button, .show-levels-button, .load-match-button {
+.play-button, .start-quest-button, .show-heroes-button, .show-levels-button, .combat-continue-button  {
 	width: 200px;
 	font-size: 18px;
 	padding: 14px;
@@ -156,6 +156,18 @@ body {
 	line-height: 24px;
 }
 
+.selected-hero {
+	background-color: red;
+	color: white;
+	padding: 2px 5px;
+}
+
+.selected-level {
+	background-color: blue;
+	color: white;
+	padding: 2px 5px;
+}
+
 /* Character selection &  Level selection panel */
 
 .character-selection-panel, .level-selection-panel {
@@ -171,34 +183,70 @@ body {
 	margin: 10px auto;
 }
 
-/* Characters & Levels */
+/* ///////////////////////////////////////////////////////////////////////////// Heroes */
 
 /* Knight */
-#knight.character-card {
+.knight.character-card {
 	background-color: red;
 }
 /* Archer */
-#archer.character-card {
+.archer.character-card {
 	background-color: green;
 }
 /* Mage */
-#mage.character-card {
+.doctor.character-card {
 	background-color: orange;
 }
+/* Knight */
+.templar.character-card {
+	background-color: red;
+}
+/* Archer */
+.trapper.character-card {
+	background-color: green;
+}
+
+/*///////////////////////////////////////////////////////////////////////////// Levels */
+
 /* Cave */
-#cave.level-card {
+.cave.level-card {
 	background-color: black;
 }
 /* Forrest */
-#forrest.level-card {
+.forrest.level-card {
 	background-color: lime;
 }
 /* City */
-#city.level-card {
+.city.level-card {
+	background-color: yellow;
+}
+/* Cave */
+.mountain.level-card {
+	background-color: black;
+}
+/* Forrest */
+.runes.level-card {
+	background-color: lime;
+}
+/* City */
+.desert.level-card {
 	background-color: yellow;
 }
 
+
 /*///////////////////////////////////////////////////////////////////////////// Combat Page */
+
+.combat-1.textbox-container {
+	display: none;
+	background-color: rgba(0,0,0,65);
+	color: white;
+}
+
+.combat-2.textbox-container {
+	display: none;
+	background-color: rgba(0,0,0,65);
+	color: white;
+}
 
 /* combat stage */
 
@@ -212,17 +260,13 @@ body {
     overflow: hidden;  
 }
 
-.combat.textbox-prompt {
-	background-color: rgba(0,0,0,65);
-	color: white;
-}
-
-#user-character {
+#hero-character {
     background-color: green;
     left: -150%;
 }
 
 #stage {
+	display: none;
     background-color: lime;
 }
 
