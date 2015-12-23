@@ -132,7 +132,7 @@ body {
 
 /* buttons */
 
-.play-button, .start-quest-button, .show-heroes-button, .show-levels-button, .combat-continue-button  {
+.play-button, .start-quest-button, .show-heroes-button, .show-levels-button {
 	width: 200px;
 	font-size: 18px;
 	padding: 14px;
@@ -236,16 +236,25 @@ body {
 
 /*///////////////////////////////////////////////////////////////////////////// Combat Page */
 
-.combat-1.textbox-container {
+.combat.textbox-prompt {
 	display: none;
-	background-color: rgba(0,0,0,65);
+	background-color: rgba(0, 0, 0, 0.35);
 	color: white;
 }
 
-.combat-2.textbox-container {
+.combat.textbox-container {
 	display: none;
-	background-color: rgba(0,0,0,65);
+}
+
+.combat-continue-button  {
+	display: none;
+	width: 200px;
+	font-size: 18px;
+	padding: 14px;
 	color: white;
+	margin: 25px auto;
+	background-color: #0088cc;
+	text-align: center;
 }
 
 /* combat stage */
@@ -260,14 +269,20 @@ body {
     overflow: hidden;  
 }
 
+.stage.combat-card {
+	display: none;
+	position: static;
+	height: 35px;
+	width: 235px;
+	margin: 0 auto;
+	padding-top: 10px;
+	font-size: 20px;
+	background-color: lime;
+}
+
 #hero-character {
     background-color: green;
     left: -150%;
-}
-
-#stage {
-	display: none;
-    background-color: lime;
 }
 
 #randomized-character {
@@ -275,7 +290,7 @@ body {
     left: 150%;
 }
 
-/* combat-card */
+/* combat-cards */
 
 .combat-card {
     position: absolute;
@@ -294,13 +309,6 @@ body {
     left: 25%;
     width: 50%;
     padding: 5px 0;
-}
-
-.stage.combat-card {
-	height: 35px;
-	padding-top: 10px;
-	font-size: 20px;
-	background-color: transparent;
 }
 
 .character-image {
@@ -328,11 +336,15 @@ body {
 
 .move-name, .move-counter {
 	width: 65%;
-    height: 100%;
+    height: 33px;
     float: left;
     margin: 0;
     padding-top: 12px;
     background-color: #008080;
+}
+
+.move-name:hover {
+	background-color: #014646;
 }
 
 .move-counter {
