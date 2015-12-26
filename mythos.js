@@ -23,7 +23,10 @@ $( 'a' ).on( ' click', slideDropdownMenuUp );
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select Hero functions
 
+var heroHealth = 5;
 var selectedHero;
+var selectedHeroIndex;
+
 
 function showHeroPanel () {
   $( '.first.section' ).hide();
@@ -49,38 +52,36 @@ function selectHero ( e ) {
 
 function getSelectedHero () {
   var $currentElement = $(this); // refers to the current element selected
-
   $currentElement.addClass( 'active' );
   
-
   if ( $( '.knight' ).hasClass( 'active' ) ) {
       selectedHero = 'Knight';
+      selectedHeroIndex = heroes[0];
       console.log( 'You have selected the ' + selectedHero );
-      return heroes[0];
     } 
     else if ( $( '.archer' ).hasClass( 'active' ) ) {
       selectedHero = 'Archer';
+      selectedHeroIndex = heroes[1];
       console.log( 'You have selected the ' + selectedHero );
-      return heroes[1];
     } 
     else if ( $( '.doctor' ).hasClass('active') ) {
       selectedHero = 'Witch Doctor';
+      selectedHeroIndex = heroes[2];
       console.log( 'You have selected the ' + selectedHero );
-      return heroes[2];
     } 
     else if ( $( '.templar' ).hasClass( 'active' ) ) {
       selectedHero = 'Templar';
+      selectedHeroIndex = heroes[3];
       console.log( 'You have selected the ' + selectedHero );
-      return heroes[3];
     }
     else if ( $( '.trapper' ).hasClass( 'active' ) ) {
       selectedHero = 'Trapper';
+      selectedHeroIndex = heroes[4];
       console.log( 'You have selected the ' + selectedHero );
-      return heroes[4];
     }
 
+    return selectedHeroIndex;
 }
-
 
 function displayHeroes () {
   var heroDisplayTemplate = [
@@ -93,7 +94,6 @@ function displayHeroes () {
   var compiledHTML = compiledTemplate( heroes );
   console.log( compiledHTML );
   $( '.js-character-selection' ).html( compiledHTML );
-
 }
 
 function addSelectedHeroToTextPrompts ( e ) {
@@ -112,8 +112,6 @@ $( document ).on( 'click', '.hero.character-card', getSelectedHero );
 $( document ).on( 'click', '.hero.character-card', addSelectedHeroToTextPrompts );
 
 displayHeroes();
-
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -173,7 +171,6 @@ displayLevels();
 
 var $SelectedHeroCharacterContainer = $( '.hero.combat-card' );
 
-
 // Use underscore with inlined template
 function addHeroCharacterWithTemplates () {
   var heroTemplate = [
@@ -185,7 +182,7 @@ function addHeroCharacterWithTemplates () {
     '<p class="hero counter-1 move-counter"><%= attacks[0].attackCounter %></p>',
     '</div>',
     '<div class="hero moves-button">',
-   '<p class="hero move-2 move-name"><%= attacks[1].attackName %></p>',
+    '<p class="hero move-2 move-name"><%= attacks[1].attackName %></p>',
     '<p class="hero counter-2 move-counter"><%= attacks[1].attackCounter %></p>',
     '</div>',
     '<div class="hero moves-button">',
@@ -200,7 +197,7 @@ function addHeroCharacterWithTemplates () {
     '</div>',
     ].join( '' );
 
-  var hero = getSelectedHero();
+  var hero = selectedHeroIndex;
   var compiledTemplate = _.template( heroTemplate );
   var compiledHTML = compiledTemplate( hero );
   console.log( compiledHTML );
@@ -211,7 +208,9 @@ function addHeroCharacterWithTemplates () {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Villain Functions
 
-var villain;
+var villainName;
+var villainIndex;
+var villainHealth;
 
 var $RandomizedVillainCharacterContainer = $( '.villain.combat-card' );
 
@@ -221,50 +220,50 @@ function getRandomVillainCharacter () {
 
   if ( randomizedVillain === villains[0] ) {
     console.log( 'A ' + villains[0].name + ' approaches' )
-    villain = 'Medusa';
+    villainName = 'Medusa';
+    villainIndex = villains[0];
     } 
   else if ( randomizedVillain === villains[1] ) {
     console.log('A ' +  villains[1].name + ' approaches' )
-    villain = 'Dragon';
+    villainName = 'Dragon';
+    villainIndex = villains[1];
     } 
   else if ( randomizedVillain === villains[2] ) {
     console.log( 'A ' + villains[2].name + ' approaches' )
-    villain = 'Cerberus';
+    villainName = 'Cerberus';
+    villainIndex = villains[2];
     } 
   else if ( randomizedVillain === villains[3] ) {
     console.log( 'A ' + villains[3].name + ' approaches' )
-    villain = 'Hydra';
+    villainName = 'Hydra';
+    villainIndex = villains[3];
     }
   else if ( randomizedVillain === villains[4] ) {
     console.log( 'A ' + villains[4].name + ' approaches' )
-    villain = 'Minotaur';
+    villainName = 'Minotaur';
+    villainIndex = villains[4];
     }
 
-  return randomizedVillain;
-
+  return villainIndex;
 }
 
 function getRandomVillainLevel () {
   // Returns a random integer between min and max [min = 10, max = 25]
-  return Math.floor(Math.random() * 5) * 10;
+  return Math.floor(Math.random() + 1 * 5) * 10;
 }
 
 function getRandomVillainHealth () {
-  return Math.floor(Math.random() * getRandomVillainLevel() + 100);
+  villainHealth = Math.floor(Math.random() * getRandomVillainLevel() + 100);
+  return villainHealth;
 }
 
 function villainAppears () {
-
   var villainLevel = getRandomVillainLevel();
   var villainHealth = getRandomVillainHealth();
 
-  alert( 'A Wild ' + villain + ' appears!' );
-  alert( villain + ' Stats : ' + 'Level : ' + villainLevel + ' ' + ' Health : ' + villainHealth);
-
-  playerTurn = true;
+  alert( 'A Wild ' + villainIndex.name + ' appears!' );
+  alert( villainIndex.name + ' Stats : ' + 'Level : ' + villainLevel + ' ' + ' Health : ' + villainHealth);
 }
-
-
 
 // Use underscore with inlined template
 function addRandomVillainCharacterWithTemplates () {
@@ -292,7 +291,7 @@ function addRandomVillainCharacterWithTemplates () {
     '</div>',
     ].join( '' );
 
-  var villain = getRandomVillainCharacter();
+  var villain = villainIndex;
   var compiledTemplate = _.template( villainTemplate );
   var compiledHTML = compiledTemplate( villain );
   console.log( compiledHTML );
@@ -307,7 +306,6 @@ function hideSelectionPanels () {
   $( '.character-selection.section' ).hide();
   $( '.level-selection.section' ).hide();
   $( '.pre-combat.section' ).hide();
-
 }
 
 function showFirstCombatText () {
@@ -330,100 +328,186 @@ function getCombatStage() {
 }
 
 // Start Quest Event bindings
-
+$( '.first.combat-continue-button ' ).on( 'click', showSecondCombatText );
+$( '.second.combat-continue-button ' ).on( 'click', function () {
+    villainAppears();
+    getCombatStage();
+});
 $( '.start-quest-button' ).on('click', function() {
     hideSelectionPanels();
     showFirstCombatText();
     getRandomVillainCharacter();
 });
 
-$( '.first.combat-continue-button ' ).on( 'click', showSecondCombatText );
-
-$( '.second.combat-continue-button ' ).on( 'click', function () {
-    villainAppears();
-    getCombatStage();
-});
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Combat-Stage functions
-
-$( '#stage' ).click(function() {
-  $( this ).hide();
-  $( '#hero-character' ).animate({left:'5%'}, 500 );
-
-});
-
-// toggle alternating combat cards between attacks
-
-$( '#hero-character' ).click(function() {
-  $( this ).animate({
-    left: '-150%',
-  }, 500 );
-  $( '#randomized-character' ).animate({
-    left: '5%',
-  }, 500 );
-
-});
-
-$( '#randomized-character' ).click(function() {
-  $( this ).animate({
-    left: '150%',
-  }, 500 );
-  $( '#hero-character' ).animate({
-    left: '5%',
-  }, 500 );
-
-});
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Launch Combat functions
-
-var HeroHealth = 175;
-
 var damage;
 
-function callHeroAttackDamage () {
-  damage = Math.floor(Math.random() * moves[callMoveid].basedmg + 3);
-  return damage;
+function startFight () {
+  $( '#stage' ).hide();
+  $( '#hero-character' ).animate( { left :'5%' }, 500 );
+  playerTurn = true;
+
+  addHeroCharacterWithTemplates();
+  addRandomVillainCharacterWithTemplates();
+  attackLoop();
 }
 
-function callVillainAttackDamage () {
-  damage = Math.floor(Math.random() * moves[callMoveid].basedmg + 3);
-  return damage;
+function attackLoop() {
+
+  if ( playerTurn === false ) {
+    switchToVillainCard();
+    playerTurn = true;
+  } 
+  else  { // if PlayerTurn === True
+    switchToHeroCard();
+    selectMove();
+    playerTurn = false;
+  }
 }
-
-// Start Fight 
-
-
 
 function selectMove () {
-
   var attack1 = $('.hero.move-1.move-name' ).html();
   var attack2 = $('.hero.move-2.move-name' ).html();
   var attack3 = $('.hero.move-3.move-name' ).html();
   var attack4 = $('.hero.move-4.move-name' ).html();
 
-  playerMove = alert( 'Your ' + selectedHero + ' has 4 moves: ' + attack1 + ', ' + attack2 + ', ' + attack3 + ' and ' + attack4 + ', Select the move you want to use!');
-
+  alert( 'Your ' + selectedHero + ' has 4 moves: ' + attack1 + ', ' + attack2 + ', ' + attack3 + ' and ' + attack4 + ', Select the move you want to use!');
 }
 
+function heroAttacks ( e ) {
+  var $currentElement = $( e.target ); // refers to the current element selected
+  var attack1 = selectedHeroIndex.attacks[0].attackName;
+  var attack2 = selectedHeroIndex.attacks[1].attackName;
+  var attack3 = selectedHeroIndex.attacks[2].attackName;
+  var attack4 = selectedHeroIndex.attacks[3].attackName;
+
+
+  if ( $currentElement.hasClass( 'move-1') ) {
+    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack1 + ' dealing ' + selectedHeroIndex.attacks[0].baseDmg + ' damage!');
+    damage = selectedHeroIndex.attacks[0].baseDmg;
+    } 
+  else if ( $currentElement.hasClass( 'move-2') ) {
+    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack2 + ' dealing ' + selectedHeroIndex.attacks[1].baseDmg + ' damage!');
+    damage = selectedHeroIndex.attacks[1].baseDmg;
+    } 
+  else if ( $currentElement.hasClass( 'move-3') ) {
+    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack3 + ' dealing ' + selectedHeroIndex.attacks[2].baseDmg + ' damage!');
+    damage = selectedHeroIndex.attacks[2].baseDmg;
+    } 
+  else if ( $currentElement.hasClass( 'move-4') ) {
+    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack4 + ' dealing ' + selectedHeroIndex.attacks[3].baseDmg + ' damage!');
+    damage = selectedHeroIndex.attacks[3].baseDmg;
+    }
+  else {
+    alert( 'Please Select an Attack' )
+    heroAttacks();
+    }
+
+  callHeroAttackDamage();
+}
+
+function callHeroAttackDamage () {
+
+  if ( villainHealth > 0 ) {
+    villainHealth = villainHealth - damage;
+    alert( 'The ' + villainName + ' has ' + villainHealth + ' health remaining!');
+    playerTurn = false;
+    }
+  else {
+      alert( 'The wild ' + villainIndex.name + ' was Defeated!' );
+    }
+
+  villainDefeated();
+}
+
+function villainAttacks () {
+  var randomAttackIndex = Math.floor(Math.random() * 4); // selects a value between 0-3
+  var randomVillainAttack = villainIndex.attacks[randomAttackIndex].attackName;
+  var attack1 = villainIndex.attacks[0].attackName;
+  var attack2 = villainIndex.attacks[1].attackName;
+  var attack3 = villainIndex.attacks[2].attackName;
+  var attack4 = villainIndex.attacks[3].attackName;
+
+  if ( randomVillainAttack === attack1 ) {
+    alert( 'The wild ' + villainIndex.name + ' uses ' + attack1 + ' dealing ' + villainIndex.attacks[0].baseDmg + ' damage!');
+    damage = villainIndex.attacks[0].baseDmg;
+    } 
+  else if ( randomVillainAttack === attack2 ) {
+    alert( 'The wild ' + villainIndex.name + ' uses ' + attack2 + ' dealing ' + villainIndex.attacks[1].baseDmg + ' damage!');
+    damage = villainIndex.attacks[1].baseDmg;
+    } 
+  else if ( randomVillainAttack === attack3 ) {
+    alert( 'The wild ' + villainIndex.name + ' uses ' + attack3 + ' dealing ' + villainIndex.attacks[2].baseDmg + ' damage!');
+    damage = villainIndex.attacks[2].baseDmg;
+    } 
+  else if ( randomVillainAttack === attack4 ) {
+    alert( 'The wild ' + villainIndex.name + ' uses ' + attack4 + ' dealing ' + villainIndex.attacks[3].baseDmg + ' damage!');
+    damage = villainIndex.attacks[3].baseDmg;
+    }
+  else {
+    alert( 'The wild ' + villainIndex.name + ' flinched!' );
+    attackLoop();
+    }
+
+    callVillainAttackDamage();
+}
+
+
+function callVillainAttackDamage () {
+
+  if ( heroHealth > 0 ) {
+    heroHealth = heroHealth - damage;
+    alert( 'Your ' + selectedHeroIndex.name + ' has ' + heroHealth + ' health remaining!');
+    playerTurn = true;
+    switchToHeroCard();
+    }
+  else {
+    alert( selectedHeroIndex.name + " has been defeated!");
+    }
+
+    heroDefeated();
+}
+
+function switchToVillainCard () {
+  $( '#hero-character').animate( { left : '-150%' }, 500 );
+  $( '#randomized-character').animate( { left : '5%' }, 500 );
+}
+
+function switchToHeroCard () {
+  $( '#randomized-character').animate( { left : '150%' }, 500 );
+  $( '#hero-character').animate( { left : '5%' }, 500 );
+}
+
+function villainDefeated () {
+
+  if ( villainHealth < 1) {
+    alert( villainIndex.name + " has been defeated!");
+    prompt( ' You WIN! want to play again?');
+  }
+  else {
+    attackLoop();
+  }
+}
+
+function heroDefeated () {
+
+  if ( heroHealth < 1) {
+    alert( 'Your ' + selectedHeroIndex.name + " has been defeated!");
+    prompt( 'You LOST! want to play again?');
+  }
+  else {
+    attackLoop();
+  }
+}
+
+// Combat Stage Event Bindings 
+$( '#stage' ).on( 'click', startFight );
+$( document ).on( 'click', '.hero.move-name', heroAttacks );
+$( document ).on( 'click', '.villain.combat-card', villainAttacks );
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Combat functions
-// Clicking initiates the FightLoop function and will 'load' the randomized enemy and 'load' the user selected hero for ensuing fight
-$( '.stage.combat-card' ).click(function() {
-
-  addHeroCharacterWithTemplates();
-  addRandomVillainCharacterWithTemplates();
-  selectMove();
-
-});
-
-
-
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }); // End of $(document).ready function
 
