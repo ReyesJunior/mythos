@@ -341,6 +341,9 @@ body {
     margin: 0 auto;
     top: 110px;
 }
+.villain.combat-card {
+    height: 545px;
+}
 
 /* Top content */
 
@@ -374,6 +377,30 @@ img {
 	overflow: hidden;
 }
 
+.villain.character-content-panel {
+	background-color: #003056;
+}
+
+.villain.character-description {
+	color: white;
+	height: 165px;
+	padding: 12px;
+	font-size: 16px;
+}
+
+.villain.tap-card-prompt {
+	position: absolute;
+	height: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    background-color: #D40000;
+    padding: 5px;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
 .moves-button {
 	height: 45px;
 	font-size: 15px;
@@ -395,11 +422,15 @@ img {
 
 .move-counter, .move-damage {
 	width: 25%;
-	float: right;
+	float: left;
 	color: white;
 	background-color: #003056;
 }
 
+.move-counter {
+	float: right;
+	background-color: #D40000;
+}
 
 @media (min-width: 610px) {
 	.textbox-prompt {
