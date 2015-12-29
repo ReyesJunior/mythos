@@ -1,6 +1,12 @@
 
 $(document).ready(function () { // When Document Loads
 
+function pageReload() {
+  window.location.reload();
+}
+
+$( '.restart.button' ).on( 'click', pageReload )
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Menu Functions
@@ -18,7 +24,6 @@ $( '.mobile-menu-button' ).on( 'click', toggleMenuDropdown );
 $( '.mobile-menu-item' ).on( 'click', toggleMenuDropdown );
 $( 'a' ).on( ' click', slideDropdownMenuUp );
 
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select Hero functions
@@ -32,7 +37,7 @@ function lightenHeroSelectionPanelBackground () {
   $( '.show-heroes.button' ).css( 'background-color', '#002E52' );
 }
 
-var heroHealth = 100;
+var heroHealth = 115;
 var selectedHero;
 var selectedHeroIndex;
 
@@ -96,8 +101,6 @@ function getSelectedHero () {
       selectedHeroIndex = heroes[5];
       console.log( 'You have selected the ' + selectedHero );
     }
-
-    return selectedHeroIndex;
 }
 
 function displayHeroes () {
@@ -289,8 +292,13 @@ function getRandomVillainCharacter () {
     villainIndex = villains[4];
     }
 
-  return villainIndex;
+  addRandomizedVillainToTextPrompts();
 }
+
+function addRandomizedVillainToTextPrompts () {  
+  $( '.randomized-villain').html( villainName );
+}
+
 
 function getRandomVillainLevel () {
   // Returns a random integer between min and max [min = 10, max = 25]
@@ -306,7 +314,7 @@ function villainAppears () {
   var villainLevel = getRandomVillainLevel();
   var villainHealth = getRandomVillainHealth();
 
-  alert( 'A Wild ' + villainIndex.name + ' approaches!' );
+  alert( 'The Wild ' + villainIndex.name + ' attacks!' );
   alert( villainIndex.name + ' Stats : ' + 'Level : ' + villainLevel + ' ' + ' Health : ' + villainHealth);
 }
 
@@ -391,6 +399,18 @@ function startFight () {
   addHeroCharacterWithTemplates();
   addRandomVillainCharacterWithTemplates();
   attackLoop();
+}
+
+function displayCombatVictory () {
+  $( '.victory.section' ).show();
+  $( '#randomized-character').animate( { left : '200%' }, 500 );
+  $( '#hero-character').animate( { left : '-200%' }, 500 );
+}
+
+function displayCombatDefeat () {
+  $( '.defeat.section' ).show();
+  $( '#randomized-character').animate( { left : '200%' }, 500 );
+  $( '#hero-character').animate( { left : '-200%' }, 500 );
 }
 
 function attackLoop() {
@@ -586,7 +606,7 @@ function villainDefeated () {
 
   if ( villainHealth < 1) {
     alert( villainIndex.name + " has been defeated!");
-    prompt( ' You WIN! want to play again? Type YES to continue or NO to quit.');
+    displayCombatVictory();
   }
   else {
     attackLoop();
@@ -597,7 +617,7 @@ function heroDefeated () {
 
   if ( heroHealth < 1) {
     alert( 'Your ' + selectedHeroIndex.name + " has been defeated!");
-    prompt( 'You LOST! want to play again? Type YES to continue or NO to quit.');
+    displayCombatDefeat();
   }
   else {
     switchToHeroCard();
