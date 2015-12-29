@@ -115,7 +115,8 @@ var villains = [
     ],
     background_image: [
     	new VillainImageItem('http://i.imgur.com/fTZOsnc.jpg?1')
-    ]
+    ],
+    villain_description: 'Medusa has venomous snakes for hair. She inspires fear and disgust to the mind\'s of onlookers. Her gaze turns her enemy\'s into stone.'
   },
   {
     name: 'Dragon',
@@ -127,7 +128,8 @@ var villains = [
     ],
     background_image: [
     	new VillainImageItem('http://i.imgur.com/dwG7U26.jpg?1')
-    ]
+    ],
+    villain_description: 'The Dragon\'s scales are as strong as plates of armor. It breathes fire and uses it\'s razor sharp claws and teeth to rip into prey.' 
   },
   {
     name: 'Cerberus',
@@ -139,7 +141,8 @@ var villains = [
     ],
     background_image: [
     	new VillainImageItem('http://i.imgur.com/6Xcn6Xx.jpg?1')
-    ]
+    ],
+    villain_description: 'A gigantic, three-headed hound that guards the gates of Haides. It uses it\'s three heads to simultaneously attack multiple enemies.'
   },
   {
     name: 'Hydra',
@@ -151,7 +154,8 @@ var villains = [
     ],
     background_image: [
     	new VillainImageItem('http://i.imgur.com/HFYfyUh.jpg?1')
-    ]
+    ],
+    villain_description: 'A gigantic monster with nine serpent-like heads, with the center head is immortal. When one is cut-off, two more grow in it\s place.'
   },
   {
     name: 'Minotaur',
@@ -163,7 +167,8 @@ var villains = [
     ],
     background_image: [
     	new VillainImageItem('http://i.imgur.com/zoscc5a.jpg?1')
-    ]
+    ],
+    villain_description: 'The Minotaur has the body of a man and the head of a bull. Brandishing an axe, it escaped it\'s labyrinth prison to seek retribution.'
   }
 ];
 
