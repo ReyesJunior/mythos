@@ -12,7 +12,6 @@
 				<div class="mobile-menu-button"></div>
 			</div> <!--End of Menu Container -->
 			<ul class="mobile-menu">
-				<a class="mobile-menu-anchor" href="#"><li class="mobile-menu-item">Restart Quest</li></a>
 				<a class="mobile-menu-anchor" href="#"><li class="mobile-menu-item">About Mythos</li></a>
 			</ul> <!-- End of mobile Drop Down Menu -->
 			<div class="top-menu-header">
@@ -21,53 +20,53 @@
 			</div>
 			<ul class="alternate menu">
 				<!-- anchor's will change to alternate anchors @ 1050px -->
-				<a class="alternate menu-anchor" href="#"><li class="alternate menu-item">Home Screen</li></a>
-				<a class="alternate menu-anchor" href="#"><li class="alternate menu-item">About</li></a>
+				<a class="alternate menu-anchor" href="#"><li class="alternate menu-item">About Mythos</li></a>
 			</ul> <!-- End of alternate menu -->
 		</div> <!-- End of fixed-top-menu-bar -->
 <!-- Play button -->
 		<div class="first section">
 			<div class="first textbox-container">
-				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below to begin ybour QUEST. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter in your adventure!</h4>
+				<h4 class="first textbox-prompt">It is a period of civil unrest and bloodshed. Several kingdoms fight a civil war over which kingdom should rule the realm. Your kingdom, MYTHOS, has been infiltrated by spies from the other kingdoms. Unable to trust the aid of the royal court, your King is succumbing to the hardships of war.</h4>
+				<h4 class=" first textbox-prompt">After several unsuccessful assassination attempts to the royal family, your King approaches you to undertake a dangerous quest. The King wants you to oversee and protect his only heir, as he is transported to a safer outpost, far from the reaches of the warring states.</h4>
 			</div>
-			<div class="play-button">Play</div>
+			<div class="play button">Play</div>
 		</div>
 <!-- Character-selection section -->
 		<div class="character-selection section">
 			<div class="character-select textbox-container">
-				<h4 class="textbox-prompt">Welcome to Mythos. please select a character from the following CHARACTER SELECTION PANEL below. Read the character's DOSSIER and CHARACTER ABILITY to make your choice. Who knows what which mythical beast you may encounter!</h4>
+				<h4 class="textbox-prompt">Please select a HERO from the following character selection panel below. Choose carefully, who knows what opposition you may encounter on this journey.</h4>
 			</div>
-			<div class="show-heroes-button">Show Heroes</div>
+			<div class="show-heroes button">Show Heroes</div>
 			<div class="character-selection-panel js-character-selection">
 			</div>
 		</div>
 <!-- Level-selection section -->
 		<div class="level-selection section">
 			<div class="level-select textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> . Please select a level from the following LEVEL SELECTION PANEL. Your Quest awaits!</h4>
+				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span>. None of the scouts that you have sent out have reported back. It is up to you to select the route you wish to take to the SAFE OUTPOST.</h4>
 			</div>
-			<div class="show-levels-button">Show Levels</div>
+			<div class="show-levels button">Show Routes</div>
 			<div class="level-selection-panel js-level-selection">
 			</div>
 		</div>
 <!-- pre-combat summary panel -->
 		<div class="pre-combat section">
 			<div class="pre-combat textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> and will travel to the <span class="selected-level"></span> . It is a dangerous quest, be wary of any mythical beasts that you may encounter!</h4>
+				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> and will travel through the <span class="selected-level"></span>. As you prepare to leave for your quest, a PALADIN informs you that your King has been killed. Rumor has it that an unspeakable beast has been sent to kill the heir. Be weary, stay sharp. Who knows lies in the road ahead.</h4>
 			</div>
-			<div class="start-quest-button">Begin Quest</div>
+			<div class="start-quest button">Begin the Quest</div>
 		</div> 
 <!-- combat cards -->
 		<div class="combat section">
-			<div class="combat textbox-container">
-				<h4 class="first combat textbox-prompt">Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 !</h4>
-				<div class="first combat-continue-button">Continue</div>
-				<h4 class="second combat textbox-prompt">Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1 Combat-1!</h4>
-				<div class="second combat-continue-button">Continue</div>
-			</div>
 			<div class="combat-stage">
+				<div class="combat textbox-container">
+					<h4 class="first combat textbox-prompt">As you start on your quest to protect and deliver the king's son, you begin to notice that the <span class="selected-level"></span> is riddled with fresh corpses, a clear sign that a large, recent battle had taken place here. You take a second to observe the carnage and realize how eerily quiet it is.</h4>
+					<div class="first combat-continue button">Continue</div>
+					<h4 class="second combat textbox-prompt">Among the fallen, you spot one of your scouts that you sent out to seek the safest route to the OUTPOST. It is clear to you why the scout never made it back. You make your way over to your fallen ally when you hear a loud roar exclaim, "This must be the heir to the throne of MYTHOS! I have come for you, BOY! Your time has come!"</h4>
+					<div class="second combat-continue button">Continue</div>
+			</div>
 <!-- Center Stage Card -->
-				<div id="stage" class="stage combat-card">Defend yourself!</div>
+				<div id="stage" class="stage button">Defend the heir!</div>
 <!-- User-Selected Character combat-card -->
 			    <div id="hero-character" class="hero combat-card"></div>
 <!-- Randomized Villain combat-card -->
