@@ -23,7 +23,16 @@ $( 'a' ).on( ' click', slideDropdownMenuUp );
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select Hero functions
 
-var heroHealth = 5;
+function darkenHeroSelectionPanelBackground () {
+  $( '.character-selection.section' ).css( "background-color", "#114269");
+  $( '.show-heroes.button' ).css( 'background-color', '#6B98BB' );
+}
+function lightenHeroSelectionPanelBackground () {
+  $( '.character-selection.section' ).css( "background-color", "#FFF");
+  $( '.show-heroes.button' ).css( 'background-color', '#002E52' );
+}
+
+var heroHealth = 100;
 var selectedHero;
 var selectedHeroIndex;
 
@@ -34,7 +43,7 @@ function showHeroPanel () {
 }
 
 function showHeroes () {
-  $( '.show-heroes-button' ).hide();
+  $( '.show-heroes.button' ).hide();
   $( '.character-select.textbox-container' ).show();
   $( '.character-selection-panel' ).slideDown();
 }
@@ -45,13 +54,16 @@ function selectHero ( e ) {
   var character = heroes[characterIndex];
 
   $( '.character-select.textbox-container' ).hide();
-  $( '.show-heroes-button' ).show();
+  $( '.show-heroes.button' ).show();
   $( '.character-selection-panel' ).slideUp();
   $( '.level-selection.section' ).slideDown();
 }
 
 function getSelectedHero () {
   var $currentElement = $(this); // refers to the current element selected
+  var $allElements = $( '.hero.character-card');
+
+  $allElements.removeClass( 'active' );
   $currentElement.addClass( 'active' );
   
   if ( $( '.knight' ).hasClass( 'active' ) ) {
@@ -79,6 +91,11 @@ function getSelectedHero () {
       selectedHeroIndex = heroes[4];
       console.log( 'You have selected the ' + selectedHero );
     }
+    else if ( $( '.savage' ).hasClass( 'active' ) ) {
+      selectedHero = 'Savage';
+      selectedHeroIndex = heroes[5];
+      console.log( 'You have selected the ' + selectedHero );
+    }
 
     return selectedHeroIndex;
 }
@@ -86,7 +103,9 @@ function getSelectedHero () {
 function displayHeroes () {
   var heroDisplayTemplate = [
     '<% for (var i = 0; i < heroes.length; i++) { %>',
-      '<div data-character="<%= i %>" class="hero <%= heroes[ i ].name.toLowerCase() %> character-card"><%= heroes[ i ].name %></div>',
+      '<div data-character="<%= i %>" class="hero <%= heroes[ i ].name.toLowerCase() %> character-card">',
+      '<div class="display-character-name"> <%= heroes[ i ].name %></div>',
+      '</div>',
     '<% } %>'
   ].join('');
 
@@ -105,11 +124,16 @@ function addSelectedHeroToTextPrompts ( e ) {
 }
 
 // Heroes Event bindings
-$( '.play-button' ).on( 'click', showHeroPanel );
-$( '.show-heroes-button' ).on( 'click', showHeroes );
+$( '.play.button' ).on( 'click', showHeroPanel );
+$( '.show-heroes.button' ).on( 'click', function () {
+    showHeroes();
+    lightenHeroSelectionPanelBackground();
+}); 
+
 $( document ).on( 'click', '.hero.character-card', selectHero );
 $( document ).on( 'click', '.hero.character-card', getSelectedHero );
 $( document ).on( 'click', '.hero.character-card', addSelectedHeroToTextPrompts );
+$( document ).on( 'click', '.hero.character-card', darkenHeroSelectionPanelBackground );
 
 displayHeroes();
 
@@ -117,8 +141,17 @@ displayHeroes();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select level functions
 
+function darkenLevelSelectionPanelBackground () {
+  $( '.level-selection.section' ).css( 'background-color', '#114269');
+  $( '.show-levels.button' ).css( 'background-color', '#6B98BB' );
+}
+function lightenLevelSelectionPanelBackground () {
+  $( '.level-selection.section' ).css( 'background-color', '#FFF' );
+  $( '.show-levels.button' ).css( 'background-color', '#002E52' );
+}
+
 function showLevels () {
-  $( '.show-levels-button' ).hide();
+  $( '.show-levels.button' ).hide();
   $( '.level-select.textbox-container' ).show();
   $( '.level-selection-panel' ).slideDown();
 }
@@ -127,20 +160,22 @@ function selectLevel ( e ) {
   var $currentElement = $( e.target ); // refers to the current element selected
   var levelIndex = $currentElement.attr( 'data-level' );
   var level = levels[levelIndex];
-  var selectedLevelBackground = $currentElement.css('background-color')
+  var selectedLevelBackground = level.background_image[0].src;
+  console.log(selectedLevelBackground);
 
   $( '.level-select.textbox-container' ).hide();
-  $( '.show-levels-button' ).show();
+  $( '.show-levels.button' ).show();
   $( '.level-selection-panel' ).slideUp();
   $( '.pre-combat.section' ).slideDown();
-  $( '.combat.section' ).css( 'background-color', selectedLevelBackground );
-  $( '.combat-stage' ).css( 'background-color', selectedLevelBackground );
+  $( '.combat-stage' ).css( 'background-image', 'url(' + selectedLevelBackground + ')' );
 }
 
 function displayLevels () {
   var levelDisplayTemplate = [
     '<% for (var i = 0; i < levels.length; i++) { %>',
-      '<div data-level="<%= i %>" class="level <%= levels[ i ].location.toLowerCase() %> level-card"><%= levels[ i ].location %></div>',
+      '<div data-level="<%= i %>" class="level <%= levels[ i ].location.toLowerCase() %> level-card">',
+      '<div class="display-level-name"> <%= levels[ i ].location %></div>',
+      '</div>',
     '<% } %>'
   ].join('');
 
@@ -159,9 +194,13 @@ function addSelectedLevelToTextPrompts ( e ) {
 }
 
 // Level Event bindings
-$( '.show-levels-button' ).click( showLevels );
+$( '.show-levels.button' ).on( 'click', function () {
+    showLevels();
+    lightenLevelSelectionPanelBackground();
+}); 
 $( document ).on( 'click', '.level.level-card', selectLevel );
 $( document ).on ('click', '.level.level-card', addSelectedLevelToTextPrompts );
+$( document ).on( 'click', '.level.level-card', darkenLevelSelectionPanelBackground );
 
 displayLevels();
 
@@ -174,27 +213,33 @@ var $SelectedHeroCharacterContainer = $( '.hero.combat-card' );
 // Use underscore with inlined template
 function addHeroCharacterWithTemplates () {
   var heroTemplate = [
-    '<div class="hero character-name"><%= name %></div>',
-    '<div class="hero character-image"><%= background_image %></div>',
+    '<div class="hero top-character-content">',
+      '<div class="hero character-name"><%= name %></div>',
+      '<img src="<%= background_image[0].src %>"/>',
+    '</div>',
     '<div class="hero character-content-panel">',
-    '<div class="hero moves-button">',
-    '<p class="hero move-1 move-name"><%= attacks[0].attackName %></p>',
-    '<p class="hero counter-1 move-counter"><%= attacks[0].attackCounter %></p>',
+      '<div class="hero moves-button">',
+        '<p class="hero move-1 move-name"><%= attacks[0].attackName %></p>',
+        '<p class="hero damage-1 move-damage"><%= attacks[0].baseDmg %> Dmg</p>',
+        '<p class="hero counter-1 move-counter"><%= attacks[0].attackCounter %> PP</p>',
+      '</div>',
+      '<div class="hero moves-button">',
+        '<p class="hero move-2 move-name"><%= attacks[1].attackName %></p>',
+        '<p class="hero damage-2 move-damage"><%= attacks[1].baseDmg %> Dmg</p>',
+        '<p class="hero counter-2 move-counter"><%= attacks[1].attackCounter %> PP</p>',
+      '</div>',
+      '<div class="hero moves-button">',
+        '<p class="hero move-3 move-name"><%= attacks[2].attackName %></p>',
+        '<p class="hero damage-3 move-damage"><%= attacks[2].baseDmg %> Dmg</p>',
+        '<p class="hero counter-3 move-counter"><%= attacks[2].attackCounter %> PP</p>',
+      '</div>',
+      '<div class="hero moves-button">',
+        '<p class="hero move-4 move-name"><%= attacks[3].attackName %></p>',
+        '<p class="hero damage-4 move-damage"><%= attacks[3].baseDmg %> Dmg</p>',
+        '<p class="hero counter-4 move-counter"><%= attacks[3].attackCounter %> PP</p>',
+      '</div>',
     '</div>',
-    '<div class="hero moves-button">',
-    '<p class="hero move-2 move-name"><%= attacks[1].attackName %></p>',
-    '<p class="hero counter-2 move-counter"><%= attacks[1].attackCounter %></p>',
-    '</div>',
-    '<div class="hero moves-button">',
-    '<p class="hero move-3 move-name"><%= attacks[2].attackName %></p>',
-    '<p class="hero counter-3 move-counter"><%= attacks[2].attackCounter %></p>',
-    '</div>',
-    '<div class="hero moves-button">',
-    '<p class="hero move-4 move-name"><%= attacks[3].attackName %></p>',
-    '<p class="hero counter-4 move-counter"><%= attacks[3].attackCounter %></p>',
-    '</div>',
-    '</div>',
-    '</div>',
+
     ].join( '' );
 
   var hero = selectedHeroIndex;
@@ -261,34 +306,36 @@ function villainAppears () {
   var villainLevel = getRandomVillainLevel();
   var villainHealth = getRandomVillainHealth();
 
-  alert( 'A Wild ' + villainIndex.name + ' appears!' );
+  alert( 'A Wild ' + villainIndex.name + ' approaches!' );
   alert( villainIndex.name + ' Stats : ' + 'Level : ' + villainLevel + ' ' + ' Health : ' + villainHealth);
 }
 
 // Use underscore with inlined template
 function addRandomVillainCharacterWithTemplates () {
   var villainTemplate = [
-    '<div class="villain character-name"><%= name %></div>',
-    '<div class="villain character-image"><%= background_image %></div>',
+    '<div class="villain top-character-content">',
+      '<div class="villain character-name"><%= name %></div>',
+      '<img src="<%= background_image[0].src %>"/>',
+    '</div>',
     '<div class="villain character-content-panel">',
-    '<div class="villain moves-button">',
-    '<p class="villain move-1 move-name"><%= attacks[0].attackName %></p>',
-    '<p class="villain counter-1 move-counter"><%= attacks[0].attackCounter %></p>',
+      '<div class="villain moves-button">',
+        '<p class="villain move-1 move-name"><%= attacks[0].attackName %></p>',
+        '<p class="villain counter-1 move-counter"><%= attacks[0].attackCounter %></p>',
+      '</div>',
+      '<div class="villain moves-button">',
+        '<p class="villain move-2 move-name"><%= attacks[1].attackName %></p>',
+        '<p class="villain counter-2 move-counter"><%= attacks[1].attackCounter %></p>',
+      '</div>',
+      '<div class="villain moves-button">',
+        '<p class="villain move-3 move-name"><%= attacks[2].attackName %></p>',
+        '<p class="villain counter-3 move-counter"><%= attacks[2].attackCounter %></p>',
+      '</div>',
+      '<div class="villain moves-button">',
+        '<p class="villain move-4 move-name"><%= attacks[3].attackName %></p>',
+        '<p class="villain counter-4 move-counter"><%= attacks[3].attackCounter %></p>',
+      '</div>',
     '</div>',
-    '<div class="villain moves-button">',
-   '<p class="villain move-2 move-name"><%= attacks[1].attackName %></p>',
-    '<p class="villain counter-2 move-counter"><%= attacks[1].attackCounter %></p>',
-    '</div>',
-    '<div class="villain moves-button">',
-    '<p class="villain move-3 move-name"><%= attacks[2].attackName %></p>',
-    '<p class="villain counter-3 move-counter"><%= attacks[2].attackCounter %></p>',
-    '</div>',
-    '<div class="villain moves-button">',
-    '<p class="villain move-4 move-name"><%= attacks[3].attackName %></p>',
-    '<p class="villain counter-4 move-counter"><%= attacks[3].attackCounter %></p>',
-    '</div>',
-    '</div>',
-    '</div>',
+
     ].join( '' );
 
   var villain = villainIndex;
@@ -312,28 +359,29 @@ function showFirstCombatText () {
   $( '.combat.section' ).show();
   $( '.combat.textbox-container' ).slideDown();
   $( '.first.combat.textbox-prompt' ).slideDown();
-  $( '.first.combat-continue-button' ).slideDown();
+  $( '.first.combat-continue.button' ).slideDown();
 }
 
 function showSecondCombatText () {
   $( '.first.combat.textbox-prompt' ).slideUp();
-  $( '.first.combat-continue-button' ).slideUp();
+  $( '.first.combat-continue.button' ).slideUp();
   $( '.second.combat.textbox-prompt' ).slideDown();
-  $( '.second.combat-continue-button' ).slideDown();
+  $( '.second.combat-continue.button' ).slideDown();
 }
 
 function getCombatStage() {
-  $( '.second.combat-continue-button' ).hide();
+  $( '.second.combat-continue.button' ).hide();
+  $( '.second.combat.textbox-prompt' ).slideUp();
   $( '#stage' ).show();
 }
 
 // Start Quest Event bindings
-$( '.first.combat-continue-button ' ).on( 'click', showSecondCombatText );
-$( '.second.combat-continue-button ' ).on( 'click', function () {
-    villainAppears();
+$( '.first.combat-continue.button ' ).on( 'click', showSecondCombatText );
+$( '.second.combat-continue.button ' ).on( 'click', function () {
     getCombatStage();
+    villainAppears();
 });
-$( '.start-quest-button' ).on('click', function() {
+$( '.start-quest.button' ).on('click', function() {
     hideSelectionPanels();
     showFirstCombatText();
     getRandomVillainCharacter();
@@ -346,7 +394,8 @@ var damage;
 
 function startFight () {
   $( '#stage' ).hide();
-  $( '#hero-character' ).animate( { left :'5%' }, 500 );
+  $( '.combat.textbox-container').hide();
+  $( '#hero-character' ).animate( { left :'0%' }, 500 );
   playerTurn = true;
 
   addHeroCharacterWithTemplates();
@@ -460,8 +509,8 @@ function callVillainAttackDamage () {
   if ( heroHealth > 0 ) {
     heroHealth = heroHealth - damage;
     alert( 'Your ' + selectedHeroIndex.name + ' has ' + heroHealth + ' health remaining!');
-    playerTurn = true;
     switchToHeroCard();
+    playerTurn = true;
     }
   else {
     alert( selectedHeroIndex.name + " has been defeated!");
@@ -471,20 +520,20 @@ function callVillainAttackDamage () {
 }
 
 function switchToVillainCard () {
-  $( '#hero-character').animate( { left : '-150%' }, 500 );
-  $( '#randomized-character').animate( { left : '5%' }, 500 );
+  $( '#hero-character').animate( { left : '-200%' }, 500 );
+  $( '#randomized-character').animate( { left : '0%' }, 500 );
 }
 
 function switchToHeroCard () {
-  $( '#randomized-character').animate( { left : '150%' }, 500 );
-  $( '#hero-character').animate( { left : '5%' }, 500 );
+  $( '#randomized-character').animate( { left : '200%' }, 500 );
+  $( '#hero-character').animate( { left : '0%' }, 500 );
 }
 
 function villainDefeated () {
 
   if ( villainHealth < 1) {
     alert( villainIndex.name + " has been defeated!");
-    prompt( ' You WIN! want to play again?');
+    prompt( ' You WIN! want to play again? Type YES to continue or NO to quit.');
   }
   else {
     attackLoop();
@@ -495,10 +544,10 @@ function heroDefeated () {
 
   if ( heroHealth < 1) {
     alert( 'Your ' + selectedHeroIndex.name + " has been defeated!");
-    prompt( 'You LOST! want to play again?');
+    prompt( 'You LOST! want to play again? Type YES to continue or NO to quit.');
   }
   else {
-    attackLoop();
+    switchToHeroCard();
   }
 }
 
