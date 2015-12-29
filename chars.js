@@ -4,6 +4,21 @@ function Attack ( attackName, baseDmg, attackCounter ) {
   this.attackCounter = attackCounter ;
 }
 
+function HeroImageItem ( src ) {
+	this.image = new Image ();
+	this.src = src;
+}
+
+function VillainImageItem ( src ) {
+	this.image = new Image ();
+	this.src = src;
+}
+
+function LevelImageItem ( src ) {
+	this.image = new Image ();
+	this.src = src;
+}
+
 // subtract attackCounter during AttackLoop function
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +34,9 @@ var heroes = [
     	new Attack('Death Stroke', 10, 5),
     	new Attack('Knight\'s Frenzy', 35, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/TNAFgZI.jpg?1')
+    ]
   },
   {
     name: 'Archer',
@@ -29,7 +46,9 @@ var heroes = [
     	new Attack('Hell-fire Arrow\'s', 15, 5),
     	new Attack('Archer\'s Wrath', 25, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/vwr5yTO.jpg?1')
+    ]
   },
   {
     name: 'Witch Doctor',
@@ -39,7 +58,9 @@ var heroes = [
     	new Attack('Inferno Blast', 15, 10),
     	new Attack('Conjourer\'s Rage', 25, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/gEuMU55.jpg?1')
+    ]
   },
   {
     name: 'Templar',
@@ -49,7 +70,9 @@ var heroes = [
     	new Attack('Desecrate', 5, 10),
     	new Attack('Templar\'s Vengance', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/QSPb1DL.png?1')
+    ]
   },
   {
     name: 'Trapper',
@@ -59,7 +82,21 @@ var heroes = [
     	new Attack('Spear Hook', 5, 10),
     	new Attack('Trapper\'s Smite', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/79qnZfO.jpg?1')
+    ]
+  },
+  {
+    name: 'Savage',
+    attacks: [
+    	new Attack('Spike Trap', 10, 5),
+    	new Attack('Blinding Light', 5, 10),
+    	new Attack('Spear Hook', 5, 10),
+    	new Attack('Trapper\'s Smite', 15, 1)
+    ],
+    background_image: [
+    	new HeroImageItem('http://i.imgur.com/msf53dF.jpg?1')
+    ]
   }
 ];
 
@@ -76,7 +113,9 @@ var villains = [
     	new Attack('Attack_3', 5, 10),
     	new Attack('Attack_4', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new VillainImageItem('http://i.imgur.com/fTZOsnc.jpg?1')
+    ]
   },
   {
     name: 'Dragon',
@@ -86,7 +125,9 @@ var villains = [
     	new Attack('Attack_3', 5, 10),
     	new Attack('Attack_4', 15, 1)
     ],
-    background_image: 'url',
+    background_image: [
+    	new VillainImageItem('http://i.imgur.com/dwG7U26.jpg?1')
+    ]
   },
   {
     name: 'Cerberus',
@@ -96,7 +137,9 @@ var villains = [
     	new Attack('Attack_3', 5, 10),
     	new Attack('Attack_4', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new VillainImageItem('http://i.imgur.com/6Xcn6Xx.jpg?1')
+    ]
   },
   {
     name: 'Hydra',
@@ -106,7 +149,9 @@ var villains = [
     	new Attack('Attack_3', 5, 10),
     	new Attack('Attack_4', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new VillainImageItem('http://i.imgur.com/HFYfyUh.jpg?1')
+    ]
   },
   {
     name: 'Minotaur',
@@ -116,7 +161,9 @@ var villains = [
     	new Attack('Attack_3', 5, 10),
     	new Attack('Attack_4', 15, 1)
     ],
-    background_image: 'url'
+    background_image: [
+    	new VillainImageItem('http://i.imgur.com/zoscc5a.jpg?1')
+    ]
   }
 ];
 
@@ -127,21 +174,40 @@ var villains = [
 var levels = [
 
 	{
-		location: 'Cave'
+		location: 'Cave',
+		background_image: [
+    	new LevelImageItem('http://www.xcrforum.com/forum/attachments/6426d1378946504-garden-edam-deer_cave_mulu_national_park_borneo_malaysia.jpg')
+    ]
 	},
 	{
-		location: 'Forrest'
+		location: 'Forest',
+		background_image: [
+    	new LevelImageItem('http://www.timberupdate.com/wp-content/uploads/2015/04/pine_forest.jpg')
+    ]
 	},
 	{
-		location: 'City'
+		location: 'City',
+		background_image: [
+    	new LevelImageItem('http://extrawall.net/images/wallpapers/171_1920x1080_medieval_town.jpg')
+    ]
 	},
 	{
-		location: 'Mountain'
+		location: 'Mountain',
+		background_image: [
+    	new LevelImageItem('http://images.summitpost.org/original/815426.jpg')
+    ]
 	},
 	{
-		location: 'Runes'
+		location: 'Ruins',
+		background_image: [
+    	new LevelImageItem('http://www.eggplante.com/wp-content/uploads/2014/10/The-Maze-Runner-Footage-7.jpg')
+    ]
 	},
 	{
-		location: 'Desert'
+		location: 'Desert',
+		background_image: [
+    	new LevelImageItem('http://images2.alphacoders.com/267/267032.jpg')
+    ]
 	}
 ];
+
