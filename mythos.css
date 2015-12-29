@@ -74,7 +74,7 @@ body {
 	width: 100%;
 	top: 44px;
 	left: 0;
-	background-color: white;
+	background-color: #FBFF00;
 	z-index: 998;
 }
 
@@ -83,9 +83,8 @@ body {
 	width: 100%;
 	margin-left: -40px;
 	padding: 15px;
-	color: white;
+	color: #002E52;
 	text-decoration: none;
-	border-bottom: 1px solid #364A5A;
 }
 
 .mobile-menu-item {
@@ -97,8 +96,7 @@ body {
 /* :hover */
 
 .mobile-menu-anchor:hover, .menu-anchor:hover {
-	color: #364A5A;
-	background-color: #FBFF00;
+	background-color: white;
 }
 
 /* -------------------------------------
@@ -142,6 +140,7 @@ body {
 	margin-top: 60px;
 	background-color: transparent;
 }
+
 
 /* -------------------------------------
  * Buttons
@@ -205,7 +204,7 @@ body {
 	color: white;
 }
 
-.selected-hero, .selected-level {
+.selected-hero, .selected-level, .randomized-villain {
 	color: #003056;
 	background-color: #FBFF00;
 	padding: 2px 5px;
@@ -387,6 +386,7 @@ img {
 	height: 165px;
 	padding: 12px;
 	font-size: 16px;
+	line-height: 22px;
 }
 
 .villain.tap-card-prompt {
@@ -432,6 +432,42 @@ img {
 	float: right;
 	background-color: #D40000;
 }
+
+/* -------------------------------------
+ * Victory/Defeat Sections
+ * ------------------------------------- */
+
+.victory.section, .defeat.section {
+	position: absolute;
+    height: 320px;
+    width: 85%;
+    max-width: 450px;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.65);
+    border: 2px solid #003056;
+}
+
+.victory.textbox-container, .defeat.textbox-container {
+    width: 70%;
+    height: 150px;
+    margin: 60px auto 0 auto;
+    color: #FFF;
+    line-height: 25px;
+    background-color: #6B98BB;
+    padding: 5%;
+}
+
+.restart.button {
+	margin: 20px auto;
+}
+
+/* -------------------------------------
+ * Media Queries
+ * ------------------------------------- */
+
 
 @media (min-width: 610px) {
 	.textbox-prompt {
