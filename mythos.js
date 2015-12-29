@@ -377,6 +377,10 @@ $( '.start-quest.button' ).on('click', function() {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Combat-Stage functions
 var damage;
+var newCounter1;
+var newCounter2;
+var newCounter3;
+var newCounter4;
 
 function startFight () {
   $( '#stage' ).hide();
@@ -411,6 +415,30 @@ function selectMove () {
   alert( 'Your ' + selectedHero + ' has 4 moves: ' + attack1 + ', ' + attack2 + ', ' + attack3 + ' and ' + attack4 + ', Select the move you want to use!');
 }
 
+function updateHeroAttackCounter1 () {
+  var $firstCounter = $( '.hero.counter-1.move-counter' );
+
+  $firstCounter.html( newCounter1 + ' PP');
+}
+
+function updateHeroAttackCounter2 () {
+  var $secondCounter = $( '.hero.counter-2.move-counter' );
+
+  $secondCounter.html( newCounter2 + ' PP');
+}
+
+function updateHeroAttackCounter3 () {
+  var $thirdCounter = $( '.hero.counter-3.move-counter' );
+
+  $thirdCounter.html( newCounter3 + ' PP');
+}
+
+function updateHeroAttackCounter4 () {
+  var $fourthCounter = $( '.hero.counter-4.move-counter' );
+
+  $fourthCounter.html( newCounter4 + ' PP');
+}
+
 function heroAttacks ( e ) {
   var $currentElement = $( e.target ); // refers to the current element selected
   var attack1 = selectedHeroIndex.attacks[0].attackName;
@@ -418,29 +446,68 @@ function heroAttacks ( e ) {
   var attack3 = selectedHeroIndex.attacks[2].attackName;
   var attack4 = selectedHeroIndex.attacks[3].attackName;
 
+  var $firstCounter = $( '.hero.counter-1.move-counter' );
+  var $secondCounter = $( '.hero.counter-2.move-counter' );
+  var $thirdCounter = $( '.hero.counter-3.move-counter' );
+  var $fourthCounter = $( '.hero.counter-4.move-counter' );
+
+  var $firstCounterValue = $firstCounter.html();
+  var $secondCounterValue = $secondCounter.html();
+  var $thirdCounterValue = $thirdCounter.html();
+  var $fourthCounterValue = $fourthCounter.html();
+
+
 
   if ( $currentElement.hasClass( 'move-1') ) {
-    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack1 + ' dealing ' + selectedHeroIndex.attacks[0].baseDmg + ' damage!');
-    damage = selectedHeroIndex.attacks[0].baseDmg;
-    } 
+    if ( $firstCounterValue === '0 PP' ) {
+      alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[0].attackName + ' Please Select another attack.' )
+    }
+    else {
+      alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[0].attackName + ' dealing ' + selectedHeroIndex.attacks[0].baseDmg + ' damage!');
+      damage = selectedHeroIndex.attacks[0].baseDmg;
+      newCounter1 = selectedHeroIndex.attacks[0].attackCounter -= 1;
+      callHeroAttackDamage();
+      updateHeroAttackCounter1();
+    }
+  } 
   else if ( $currentElement.hasClass( 'move-2') ) {
-    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack2 + ' dealing ' + selectedHeroIndex.attacks[1].baseDmg + ' damage!');
-    damage = selectedHeroIndex.attacks[1].baseDmg;
-    } 
+    if ( $secondCounterValue === '0 PP' ) {
+      alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[1].attackName + ' Please Select another attack.' )
+    }
+    else {
+      alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[1].attackName + ' dealing ' + selectedHeroIndex.attacks[1].baseDmg + ' damage!');
+      damage = selectedHeroIndex.attacks[1].baseDmg;
+      newCounter2 = selectedHeroIndex.attacks[1].attackCounter -= 1;
+      callHeroAttackDamage();
+      updateHeroAttackCounter2();
+    }
+  } 
   else if ( $currentElement.hasClass( 'move-3') ) {
-    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack3 + ' dealing ' + selectedHeroIndex.attacks[2].baseDmg + ' damage!');
-    damage = selectedHeroIndex.attacks[2].baseDmg;
-    } 
-  else if ( $currentElement.hasClass( 'move-4') ) {
-    alert( 'Your ' + selectedHeroIndex.name + ' uses ' + attack4 + ' dealing ' + selectedHeroIndex.attacks[3].baseDmg + ' damage!');
-    damage = selectedHeroIndex.attacks[3].baseDmg;
+    if ( $thirdCounterValue === '0 PP' ) {
+      alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[2].attackName + ' Please Select another attack.' )
     }
-  else {
-    alert( 'Please Select an Attack' )
-    heroAttacks();
+    else {
+      alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[2].attackName + ' dealing ' + selectedHeroIndex.attacks[2].baseDmg + ' damage!');
+      damage = selectedHeroIndex.attacks[2].baseDmg;
+      newCounter3 = selectedHeroIndex.attacks[2].attackCounter -= 1;
+      callHeroAttackDamage();
+      updateHeroAttackCounter3();
     }
+  } 
 
-  callHeroAttackDamage();
+  else if ( $currentElement.hasClass( 'move-4') ) {
+    if ( $fourthCounterValue === '0 PP' ) {
+        alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[3].attackName + ' Please Select another attack.' )
+        selectMove();
+    }
+    else {
+      alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[3].attackName + ' dealing ' + selectedHeroIndex.attacks[3].baseDmg + ' damage!');
+      damage = selectedHeroIndex.attacks[3].baseDmg;
+      newCounter4 = selectedHeroIndex.attacks[3].attackCounter -= 1;
+      callHeroAttackDamage();
+      updateHeroAttackCounter4();
+    }
+  }
 }
 
 function callHeroAttackDamage () {
