@@ -1,5 +1,10 @@
+/* -------------------------------------
+ * Global Variables
+ * ------------------------------------- */
 
-/* ------ global variables ------ */
+ html {
+ 	background-color: #114269;
+ }
 
 body {
 	font-family: arial;
@@ -11,17 +16,18 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
-	background-color: white;
 }
 
-/* fixed-top-menu-bar and menu-header(s) */
+/* -------------------------------------
+ * Fixed Top Bar, Menus
+ * ------------------------------------- */
 
 .fixed-top-menu-bar {
 	position: fixed;
 	height: 60px;
 	width: 100%;
 	top: 0px;
-	background-color: #364A5A;
+	background-color: #002E52;
 	z-index: 999;
 }
 
@@ -43,7 +49,9 @@ body {
 	display: none;
 }
 
-/* mobile menu */
+/* -------------------------------------
+ * Mobile Menu
+ * ------------------------------------- */
 
 .mobile-menu-button-container {
 	height: 50px;
@@ -66,7 +74,7 @@ body {
 	width: 100%;
 	top: 44px;
 	left: 0;
-	background-color: #455B6D;
+	background-color: white;
 	z-index: 998;
 }
 
@@ -90,26 +98,31 @@ body {
 
 .mobile-menu-anchor:hover, .menu-anchor:hover {
 	color: #364A5A;
-	background-color: #FEDA20;
+	background-color: #FBFF00;
 }
 
-/* Alternate Menu */
+/* -------------------------------------
+ * Alternate Menu
+ * ------------------------------------- */
 
 .alternate.menu, .alternate.menu-anchor, .alternate.menu-item {
 	display: none;
 }
 
-/* Mythos Sections */
+/* -------------------------------------
+ * Mythos Sections
+ * ------------------------------------- */
 
 .section {
 	display: none;
 	overflow: hidden;
-	border-bottom: 1px solid #CCCACA;
+	border-bottom: 1px solid #003056;
 }
 
 .first.section {
 	display: block;
 	margin-top: 60px;
+	border: none;
 }
 
 .character-selection.section {
@@ -130,45 +143,76 @@ body {
 	background-color: transparent;
 }
 
-/* buttons */
+/* -------------------------------------
+ * Buttons
+ * ------------------------------------- */
 
-.play-button, .start-quest-button, .show-heroes-button, .show-levels-button {
+.button {
 	width: 200px;
 	font-size: 18px;
 	padding: 14px;
-	color: white;
 	margin: 50px auto;
-	background-color: #0088cc;
+	background-color: #003056;
+	color: white;
 	text-align: center;
 }
 
-/* textboxes */
+.play.button {
+	font-size: 20px;
+	background-color: #6B98BB;
+}
 
-.textbox-container {
+.button:hover, .move-name:hover {
+	color: #003056;
+	background-color: #EDFD08;
+}
+
+.combat-continue.button  {
+	display: none;
 	margin: 25px auto;
 }
 
+.stage.button {
+	display: none;
+	position: static;
+}
+
+/* -------------------------------------
+ * Textbox containers, textbox prompts
+ * ------------------------------------- */
+
+.textbox-container {
+	margin-top: 50px;
+}
+
 .textbox-prompt {
+	width: 80%;
 	margin: 0 auto;
-	padding: 15px 25px 20px;
+	padding: 25px;
 	font-size: 16px;
-	color: #4C4C4C;
+	color: #003056;
 	line-height: 24px;
 }
 
-.selected-hero {
-	background-color: red;
+.first.textbox-prompt {
 	color: white;
+}
+
+.combat.textbox-prompt {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.75);
+	color: white;
+}
+
+.selected-hero, .selected-level {
+	color: #003056;
+	background-color: #FBFF00;
 	padding: 2px 5px;
 }
 
-.selected-level {
-	background-color: blue;
-	color: white;
-	padding: 2px 5px;
-}
-
-/* Character selection &  Level selection panel */
+/* -------------------------------------
+ * Selection Panels and character cards
+ * ------------------------------------- */
 
 .character-selection-panel, .level-selection-panel {
 	display: none;
@@ -178,83 +222,87 @@ body {
 }
 
 .character-card, .level-card {
-	height: 300px;
-	width: 250px;
+	height: 340px;
+	width: 275px;
 	margin: 10px auto;
+	color: white;
 }
 
-/* ///////////////////////////////////////////////////////////////////////////// Heroes */
+/* -------------------------------------
+ * Heroes
+ * ------------------------------------- */
+
+ .display-character-name, .display-level-name {
+ 	text-align: center;
+    color: white;
+    padding: 5px 0;
+    background-color: #003056;
+ }
 
 /* Knight */
 .knight.character-card {
-	background-color: red;
+	background-image: url('http://i.imgur.com/TNAFgZI.jpg?1');
 }
 /* Archer */
 .archer.character-card {
-	background-color: green;
+	background-image: url("http://i.imgur.com/vwr5yTO.jpg?1");
 }
-/* Mage */
+/* Witch Doctor */
 .doctor.character-card {
-	background-color: orange;
+	background-image: url("http://i.imgur.com/gEuMU55.jpg?1");
 }
-/* Knight */
+/* Templar */
 .templar.character-card {
-	background-color: red;
+	background-image: url("http://i.imgur.com/QSPb1DL.png?1");
 }
-/* Archer */
+/* Trapper */
 .trapper.character-card {
-	background-color: green;
+	background-image: url("http://i.imgur.com/79qnZfO.jpg?1");
+}
+/* Savage */
+.savage.character-card {
+	background-image: url("http://i.imgur.com/msf53dF.jpg?1");
 }
 
-/*///////////////////////////////////////////////////////////////////////////// Levels */
+/* -------------------------------------
+ * Levels
+ * ------------------------------------- */
 
+.level-card {
+	background-size: cover;
+}
 /* Cave */
 .cave.level-card {
-	background-color: black;
+	background-image: url("http://i.imgur.com/QFVqezH.jpg?1");
 }
 /* Forrest */
-.forrest.level-card {
-	background-color: lime;
+.forest.level-card {
+	background-image: url("http://i.imgur.com/lJobP0y.jpg?1");
 }
 /* City */
 .city.level-card {
-	background-color: yellow;
+	background-image: url("http://i.imgur.com/lCejclQ.jpg?1");
 }
 /* Cave */
 .mountain.level-card {
-	background-color: black;
+	background-image: url("http://i.imgur.com/HwSFUHq.jpg?1");
 }
 /* Forrest */
-.runes.level-card {
-	background-color: lime;
+.ruins.level-card {
+	background-image: url("http://i.imgur.com/9ej1kHG.jpg?1");
 }
 /* City */
 .desert.level-card {
-	background-color: yellow;
+	background-image: url("http://i.imgur.com/fvDlD8D.jpg?1");
 }
 
 
-/*///////////////////////////////////////////////////////////////////////////// Combat Page */
-
-.combat.textbox-prompt {
-	display: none;
-	background-color: rgba(0, 0, 0, 0.35);
-	color: white;
-}
+/* -------------------------------------
+ * Combat Section, combat stage
+ * ------------------------------------- */
 
 .combat.textbox-container {
 	display: none;
-}
-
-.combat-continue-button  {
-	display: none;
-	width: 200px;
-	font-size: 18px;
-	padding: 14px;
-	color: white;
-	margin: 25px auto;
-	background-color: #0088cc;
-	text-align: center;
 }
 
 /* combat stage */
@@ -265,62 +313,64 @@ body {
     padding: 0px;
     width: 100%;
     height: 100%;
-    background-color: transparent;
+    background-size: cover;
     overflow: hidden;  
 }
 
-.stage.combat-card {
-	display: none;
-	position: static;
-	height: 35px;
-	width: 235px;
-	margin: 0 auto;
-	padding-top: 10px;
-	font-size: 20px;
-	background-color: lime;
-}
-
 #hero-character {
-    background-color: green;
-    left: -150%;
+    left: -200%;
 }
 
 #randomized-character {
-    background-color: red;
-    left: 150%;
+    left: 200%;
 }
 
-/* combat-cards */
+/* -------------------------------------
+ * Combat cards
+ * ------------------------------------- */
 
 .combat-card {
     position: absolute;
-    width: 90%;
-    height: 485px;
+    width: 275px;
+    height: 544px;
     font-size: 18px;
     text-align: center;
-    border: 2px solid black;
-    left: 5%;
-    top: 50px;
+    border: 1px solid black;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 110px;
+}
+
+/* Top content */
+
+.hero.top-character-content, .villain.top-character-content {
+	height: 360px;
+	width: 100%;
 }
 
 .character-name {
 	position: absolute;
-    background-color: #00F;
+    background-color: #003056;
+    color: white;
     left: 25%;
+    top: 0;
     width: 50%;
     padding: 5px 0;
 }
 
-.character-image {
-	height: 300px;
+img {
+	height: 100%;
+	width: 100%;
 	margin: 0;
-    background-color: #8A2BE2;
+	padding: 0;
 }
+
+/* bottom content */
 
 .character-content-panel {
 	height: 185px;
 	margin: 0;
-	background-color: red;
 	overflow: hidden;
 }
 
@@ -328,34 +378,59 @@ body {
 	height: 45px;
 	font-size: 15px;
 	color: white;
-	margin: 1px auto;
-	background-color: #0088cc;
+	margin: 0 auto;
+	border-top: 1px solid black;
 	text-align: center;
 	overflow: hidden;
 }
 
-.move-name, .move-counter {
-	width: 65%;
+.move-name, .move-counter, .move-damage {
+	width: 50%;
     height: 33px;
     float: left;
     margin: 0;
     padding-top: 12px;
-    background-color: #008080;
+    background-color: #6B98BB;
 }
 
-.move-name:hover {
-	background-color: #014646;
-}
-
-.move-counter {
-	width: 35%;
+.move-counter, .move-damage {
+	width: 25%;
 	float: right;
-	background-color: orange;
+	color: white;
+	background-color: #003056;
 }
 
 
+@media (min-width: 610px) {
+	.textbox-prompt {
+		width: 525px;
+		font-size: 16px;
+	}
 
+.character-selection-panel, .level-selection-panel {
+	width: 610px;
+	margin: 0 auto;
+}
 
+.hero.character-card, .level.level-card {
+    display: inline-block;
+    margin: 15px;
+}
+}
+
+@media (min-width: 915px) {
+
+.textbox-prompt {
+	width: 550px;
+	font-size: 18px;
+}
+
+.character-selection-panel, .level-selection-panel {
+	width: 915px;
+	margin: 0 auto;
+}
+
+}
 
 
 
