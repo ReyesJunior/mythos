@@ -175,6 +175,7 @@ body {
 .stage.button {
 	display: none;
 	position: static;
+	margin-top: 200px;
 }
 
 /* -------------------------------------
