@@ -62,7 +62,7 @@
 				<div class="combat textbox-container">
 					<h4 class="first combat textbox-prompt">As you start on your quest to protect and deliver the king's son, you begin to notice that the <span class="selected-level"></span> is riddled with fresh corpses, a clear sign that a large, recent battle had taken place here. You take a second to observe the carnage and realize how eerily quiet it is.</h4>
 					<div class="first combat-continue button">Continue</div>
-					<h4 class="second combat textbox-prompt">Among the fallen, you spot one of your scouts that you sent out to seek the safest route to the OUTPOST. It is clear to you why the scout never made it back. You make your way over to your fallen ally when you hear a loud roar exclaim, "This must be the heir to the throne of MYTHOS! I have come for you, BOY! Your time has come!"</h4>
+					<h4 class="second combat textbox-prompt">Among the fallen, you spot one of your scouts that you sent out to seek the safest route to the OUTPOST. It is clear to you why the scout never made it back. You make your way over to your fallen ally when you hear a loud roar exclaim, "This must be the heir to the throne of MYTHOS!" You see a <span class="randomized-villain"></span> emerge from the wreckage. As it draws near, it growls out, "I have come for you, BOY! Your time has come!"</h4>
 					<div class="second combat-continue button">Continue</div>
 			</div>
 <!-- Center Stage Card -->
@@ -71,7 +71,19 @@
 			    <div id="hero-character" class="hero combat-card"></div>
 <!-- Randomized Villain combat-card -->
 			    <div id="randomized-character" class="villain combat-card"></div>
-			</div> <!-- End of Combat-stage -->    
+			</div> <!-- End of Combat-stage -->
+			<div class="victory section">
+				<div class="victory textbox-container">
+					<div class="victory textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been victorious! You WIN! want to play again?</div>
+					<div class="restart button">Play Again</div>
+				</div>
+			</div>
+			<div class="defeat section">
+				<div class="defeat textbox-container">
+					<div class="defeat textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been defeated! You LOST! want to play again?</div>
+					<div class="restart button">Try Again</div>
+				</div>
+			</div>    
 		</div><!-- End of Combat Section -->
 	</div><!-- End of homepage-wrapper -->
 
