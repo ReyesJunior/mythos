@@ -1,10 +1,6 @@
-/* -------------------------------------
- * Global Variables
- * ------------------------------------- */
-
- html {
- 	background-color: #114269;
- }
+html {
+	background-color: #114269;
+}
 
 body {
 	font-family: arial;
@@ -141,7 +137,6 @@ body {
 	margin-top: 60px;
 	background-color: transparent;
 }
-
 
 /* -------------------------------------
  * Buttons
@@ -471,34 +466,34 @@ img {
 
 
 @media (min-width: 610px) {
+
 	.textbox-prompt {
 		width: 525px;
 		font-size: 16px;
 	}
 
-.character-selection-panel, .level-selection-panel {
-	width: 610px;
-	margin: 0 auto;
-}
+	.character-selection-panel, .level-selection-panel {
+		width: 610px;
+		margin: 0 auto;
+	}
 
-.hero.character-card, .level.level-card {
-    display: inline-block;
-    margin: 15px;
-}
+	.hero.character-card, .level.level-card {
+	    display: inline-block;
+	    margin: 15px;
+	}
 }
 
 @media (min-width: 915px) {
 
-.textbox-prompt {
-	width: 550px;
-	font-size: 18px;
-}
+	.textbox-prompt {
+		width: 550px;
+		font-size: 18px;
+	}
 
-.character-selection-panel, .level-selection-panel {
-	width: 915px;
-	margin: 0 auto;
-}
-
+	.character-selection-panel, .level-selection-panel {
+		width: 915px;
+		margin: 0 auto;
+	}
 }
 
 
