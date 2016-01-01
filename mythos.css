@@ -54,6 +54,7 @@ body {
  * ------------------------------------- */
 
 .mobile-menu-button-container {
+	display: none;
 	height: 50px;
 	width: 50px;
 	margin: 5px auto;
@@ -162,8 +163,8 @@ body {
 }
 
 .button:hover, .move-name:hover {
-	color: #003056;
-	background-color: #EDFD08;
+	color: white;
+	background-color: #D40000;
 }
 
 .combat-continue.button  {
@@ -205,9 +206,9 @@ body {
 }
 
 .selected-hero, .selected-level, .randomized-villain {
-	color: #003056;
-	background-color: #FBFF00;
-	padding: 2px 5px;
+	color: white;
+	background-color: #D40000;
+	padding: 3px 6px;
 }
 
 /* -------------------------------------
