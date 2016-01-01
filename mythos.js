@@ -29,11 +29,11 @@ $( 'a' ).on( ' click', slideDropdownMenuUp );
 // Select Hero functions
 
 function darkenHeroSelectionPanelBackground () {
-  $( '.character-selection.section' ).css( "background-color", "#114269");
+  $( '.character-selection.section' ).css( 'background-color', '#114269' );
   $( '.show-heroes.button' ).css( 'background-color', '#6B98BB' );
 }
 function lightenHeroSelectionPanelBackground () {
-  $( '.character-selection.section' ).css( "background-color", "#FFF");
+  $( '.character-selection.section' ).css( 'background-color', '#FFF' );
   $( '.show-heroes.button' ).css( 'background-color', '#002E52' );
 }
 
@@ -74,33 +74,32 @@ function getSelectedHero () {
   if ( $( '.knight' ).hasClass( 'active' ) ) {
       selectedHero = 'Knight';
       selectedHeroIndex = heroes[0];
-      console.log( 'You have selected the ' + selectedHero );
-    } 
-    else if ( $( '.archer' ).hasClass( 'active' ) ) {
+  }
+
+  else if ( $( '.archer' ).hasClass( 'active' ) ) {
       selectedHero = 'Archer';
       selectedHeroIndex = heroes[1];
-      console.log( 'You have selected the ' + selectedHero );
-    } 
-    else if ( $( '.doctor' ).hasClass('active') ) {
+  }
+
+  else if ( $( '.doctor' ).hasClass( 'active' ) ) {
       selectedHero = 'Witch Doctor';
       selectedHeroIndex = heroes[2];
-      console.log( 'You have selected the ' + selectedHero );
-    } 
-    else if ( $( '.templar' ).hasClass( 'active' ) ) {
+  } 
+
+  else if ( $( '.templar' ).hasClass( 'active' ) ) {
       selectedHero = 'Templar';
       selectedHeroIndex = heroes[3];
-      console.log( 'You have selected the ' + selectedHero );
-    }
-    else if ( $( '.trapper' ).hasClass( 'active' ) ) {
+  }
+
+  else if ( $( '.trapper' ).hasClass( 'active' ) ) {
       selectedHero = 'Trapper';
       selectedHeroIndex = heroes[4];
-      console.log( 'You have selected the ' + selectedHero );
-    }
-    else if ( $( '.savage' ).hasClass( 'active' ) ) {
+  }
+
+  else if ( $( '.savage' ).hasClass( 'active' ) ) {
       selectedHero = 'Savage';
       selectedHeroIndex = heroes[5];
-      console.log( 'You have selected the ' + selectedHero );
-    }
+  }
 }
 
 function displayHeroes () {
@@ -114,7 +113,6 @@ function displayHeroes () {
 
   var compiledTemplate = _.template( heroDisplayTemplate );
   var compiledHTML = compiledTemplate( heroes );
-  console.log( compiledHTML );
   $( '.js-character-selection' ).html( compiledHTML );
 }
 
@@ -145,7 +143,7 @@ displayHeroes();
 // Select level functions
 
 function darkenLevelSelectionPanelBackground () {
-  $( '.level-selection.section' ).css( 'background-color', '#114269');
+  $( '.level-selection.section' ).css( 'background-color', '#114269' );
   $( '.show-levels.button' ).css( 'background-color', '#6B98BB' );
 }
 function lightenLevelSelectionPanelBackground () {
@@ -164,7 +162,6 @@ function selectLevel ( e ) {
   var levelIndex = $currentElement.attr( 'data-level' );
   var level = levels[levelIndex];
   var selectedLevelBackground = level.background_image[0].src;
-  console.log(selectedLevelBackground);
 
   $( '.level-select.textbox-container' ).hide();
   $( '.show-levels.button' ).show();
@@ -184,7 +181,6 @@ function displayLevels () {
 
   var compiledTemplate = _.template( levelDisplayTemplate );
   var compiledHTML = compiledTemplate( levels );
-  console.log( compiledHTML );
   $( '.js-level-selection' ).html( compiledHTML );
 }
 
@@ -201,6 +197,7 @@ $( '.show-levels.button' ).on( 'click', function () {
     showLevels();
     lightenLevelSelectionPanelBackground();
 }); 
+
 $( document ).on( 'click', '.level.level-card', selectLevel );
 $( document ).on ('click', '.level.level-card', addSelectedLevelToTextPrompts );
 $( document ).on( 'click', '.level.level-card', darkenLevelSelectionPanelBackground );
@@ -248,7 +245,6 @@ function addHeroCharacterWithTemplates () {
   var hero = selectedHeroIndex;
   var compiledTemplate = _.template( heroTemplate );
   var compiledHTML = compiledTemplate( hero );
-  console.log( compiledHTML );
   $SelectedHeroCharacterContainer.html( compiledHTML );
 }
 
@@ -259,54 +255,50 @@ function addHeroCharacterWithTemplates () {
 var villainName;
 var villainIndex;
 var villainHealth;
-
 var $RandomizedVillainCharacterContainer = $( '.villain.combat-card' );
 
 function getRandomVillainCharacter () {
-
   var randomizedVillain = villains[Math.floor(Math.random() * villains.length)];
 
   if ( randomizedVillain === villains[0] ) {
-    console.log( 'A ' + villains[0].name + ' approaches' )
     villainName = 'Medusa';
     villainIndex = villains[0];
-    } 
+  } 
+
   else if ( randomizedVillain === villains[1] ) {
-    console.log('A ' +  villains[1].name + ' approaches' )
     villainName = 'Dragon';
     villainIndex = villains[1];
-    } 
+  } 
+
   else if ( randomizedVillain === villains[2] ) {
-    console.log( 'A ' + villains[2].name + ' approaches' )
     villainName = 'Cerberus';
     villainIndex = villains[2];
-    } 
+  } 
+
   else if ( randomizedVillain === villains[3] ) {
-    console.log( 'A ' + villains[3].name + ' approaches' )
     villainName = 'Hydra';
     villainIndex = villains[3];
-    }
+  }
+
   else if ( randomizedVillain === villains[4] ) {
-    console.log( 'A ' + villains[4].name + ' approaches' )
     villainName = 'Minotaur';
     villainIndex = villains[4];
-    }
+  }
 
   addRandomizedVillainToTextPrompts();
 }
 
 function addRandomizedVillainToTextPrompts () {  
-  $( '.randomized-villain').html( villainName );
+  $( '.randomized-villain' ).html( villainName );
 }
-
 
 function getRandomVillainLevel () {
   // Returns a random integer between min and max [min = 10, max = 25]
-  return Math.floor(Math.random() + 1 * 5) * 10;
+  return Math.floor(Math.random() + 1 * 5 ) * 10;
 }
 
 function getRandomVillainHealth () {
-  villainHealth = Math.floor(Math.random() * getRandomVillainLevel() + 100);
+  villainHealth = Math.floor(Math.random() * getRandomVillainLevel() + 100 );
   return villainHealth;
 }
 
@@ -335,7 +327,6 @@ function addRandomVillainCharacterWithTemplates () {
   var villain = villainIndex;
   var compiledTemplate = _.template( villainTemplate );
   var compiledHTML = compiledTemplate( villain );
-  console.log( compiledHTML );
   $RandomizedVillainCharacterContainer.html( compiledHTML );
 }
 
@@ -375,7 +366,7 @@ $( '.second.combat-continue.button ' ).on( 'click', function () {
     getCombatStage();
     villainAppears();
 });
-$( '.start-quest.button' ).on('click', function() {
+$( '.start-quest.button' ).on( 'click', function() {
     hideSelectionPanels();
     showFirstCombatText();
     getRandomVillainCharacter();
@@ -392,8 +383,8 @@ var newCounter4;
 
 function startFight () {
   $( '#stage' ).hide();
-  $( '.combat.textbox-container').hide();
-  $( '#hero-character' ).animate( { left :'0%' }, 500 );
+  $( '.combat.textbox-container' ).hide();
+  $( '#hero-character' ).animate( { left : '0%' }, 500 );
   playerTurn = true;
 
   addHeroCharacterWithTemplates();
@@ -403,14 +394,14 @@ function startFight () {
 
 function displayCombatVictory () {
   $( '.victory.section' ).show();
-  $( '#randomized-character').animate( { left : '200%' }, 500 );
-  $( '#hero-character').animate( { left : '-200%' }, 500 );
+  $( '#randomized-character' ).animate( { left : '200%' }, 500 );
+  $( '#hero-character' ).animate( { left : '-200%' }, 500 );
 }
 
 function displayCombatDefeat () {
   $( '.defeat.section' ).show();
-  $( '#randomized-character').animate( { left : '200%' }, 500 );
-  $( '#hero-character').animate( { left : '-200%' }, 500 );
+  $( '#randomized-character' ).animate( { left : '200%' }, 500 );
+  $( '#hero-character' ).animate( { left : '-200%' }, 500 );
 }
 
 function attackLoop() {
@@ -419,6 +410,7 @@ function attackLoop() {
     switchToVillainCard();
     playerTurn = true;
   } 
+
   else  { // if PlayerTurn === True
     switchToHeroCard();
     selectMove();
@@ -427,10 +419,10 @@ function attackLoop() {
 }
 
 function selectMove () {
-  var attack1 = $('.hero.move-1.move-name' ).html();
-  var attack2 = $('.hero.move-2.move-name' ).html();
-  var attack3 = $('.hero.move-3.move-name' ).html();
-  var attack4 = $('.hero.move-4.move-name' ).html();
+  var attack1 = $( '.hero.move-1.move-name' ).html();
+  var attack2 = $( '.hero.move-2.move-name' ).html();
+  var attack3 = $( '.hero.move-3.move-name' ).html();
+  var attack4 = $( '.hero.move-4.move-name' ).html();
 
   alert( 'Your ' + selectedHero + ' has 4 moves: ' + attack1 + ', ' + attack2 + ', ' + attack3 + ' and ' + attack4 + ', Select the move you want to use!');
 }
@@ -438,25 +430,25 @@ function selectMove () {
 function updateHeroAttackCounter1 () {
   var $firstCounter = $( '.hero.counter-1.move-counter' );
 
-  $firstCounter.html( newCounter1 + ' PP');
+  $firstCounter.html( newCounter1 + ' PP' );
 }
 
 function updateHeroAttackCounter2 () {
   var $secondCounter = $( '.hero.counter-2.move-counter' );
 
-  $secondCounter.html( newCounter2 + ' PP');
+  $secondCounter.html( newCounter2 + ' PP' );
 }
 
 function updateHeroAttackCounter3 () {
   var $thirdCounter = $( '.hero.counter-3.move-counter' );
 
-  $thirdCounter.html( newCounter3 + ' PP');
+  $thirdCounter.html( newCounter3 + ' PP' );
 }
 
 function updateHeroAttackCounter4 () {
   var $fourthCounter = $( '.hero.counter-4.move-counter' );
 
-  $fourthCounter.html( newCounter4 + ' PP');
+  $fourthCounter.html( newCounter4 + ' PP' );
 }
 
 function heroAttacks ( e ) {
@@ -478,10 +470,12 @@ function heroAttacks ( e ) {
 
 
 
-  if ( $currentElement.hasClass( 'move-1') ) {
+  if ( $currentElement.hasClass( 'move-1' ) ) {
+
     if ( $firstCounterValue === '0 PP' ) {
       alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[0].attackName + ' Please Select another attack.' )
     }
+
     else {
       alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[0].attackName + ' dealing ' + selectedHeroIndex.attacks[0].baseDmg + ' damage!');
       damage = selectedHeroIndex.attacks[0].baseDmg;
@@ -490,10 +484,13 @@ function heroAttacks ( e ) {
       updateHeroAttackCounter1();
     }
   } 
-  else if ( $currentElement.hasClass( 'move-2') ) {
+
+  else if ( $currentElement.hasClass( 'move-2' ) ) {
+
     if ( $secondCounterValue === '0 PP' ) {
       alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[1].attackName + ' Please Select another attack.' )
     }
+
     else {
       alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[1].attackName + ' dealing ' + selectedHeroIndex.attacks[1].baseDmg + ' damage!');
       damage = selectedHeroIndex.attacks[1].baseDmg;
@@ -502,10 +499,12 @@ function heroAttacks ( e ) {
       updateHeroAttackCounter2();
     }
   } 
-  else if ( $currentElement.hasClass( 'move-3') ) {
+  else if ( $currentElement.hasClass( 'move-3' ) ) {
+
     if ( $thirdCounterValue === '0 PP' ) {
       alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[2].attackName + ' Please Select another attack.' )
     }
+
     else {
       alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[2].attackName + ' dealing ' + selectedHeroIndex.attacks[2].baseDmg + ' damage!');
       damage = selectedHeroIndex.attacks[2].baseDmg;
@@ -515,11 +514,13 @@ function heroAttacks ( e ) {
     }
   } 
 
-  else if ( $currentElement.hasClass( 'move-4') ) {
+  else if ( $currentElement.hasClass( 'move-4' ) ) {
+
     if ( $fourthCounterValue === '0 PP' ) {
         alert( 'Your Hero is unable to use ' + selectedHeroIndex.attacks[3].attackName + ' Please Select another attack.' )
         selectMove();
     }
+
     else {
       alert( 'Your ' + selectedHeroIndex.name + ' uses ' + selectedHeroIndex.attacks[3].attackName + ' dealing ' + selectedHeroIndex.attacks[3].baseDmg + ' damage!');
       damage = selectedHeroIndex.attacks[3].baseDmg;
@@ -536,10 +537,11 @@ function callHeroAttackDamage () {
     villainHealth = villainHealth - damage;
     alert( 'The ' + villainName + ' has ' + villainHealth + ' health remaining!');
     playerTurn = false;
-    }
+  }
+
   else {
       alert( 'The wild ' + villainIndex.name + ' was Defeated!' );
-    }
+  }
 
   villainDefeated();
 }
@@ -581,33 +583,35 @@ function callVillainAttackDamage () {
 
   if ( heroHealth > 0 ) {
     heroHealth = heroHealth - damage;
-    alert( 'Your ' + selectedHeroIndex.name + ' has ' + heroHealth + ' health remaining!');
+    alert( 'Your ' + selectedHeroIndex.name + ' has ' + heroHealth + ' health remaining!' );
     switchToHeroCard();
     playerTurn = true;
-    }
+  }
+
   else {
-    alert( selectedHeroIndex.name + " has been defeated!");
-    }
+    alert( selectedHeroIndex.name + ' has been defeated!' );
+  }
 
     heroDefeated();
 }
 
 function switchToVillainCard () {
-  $( '#hero-character').animate( { left : '-200%' }, 500 );
-  $( '#randomized-character').animate( { left : '0%' }, 500 );
+  $( '#hero-character' ).animate( { left : '-200%' }, 500 );
+  $( '#randomized-character' ).animate( { left : '0%' }, 500 );
 }
 
 function switchToHeroCard () {
-  $( '#randomized-character').animate( { left : '200%' }, 500 );
-  $( '#hero-character').animate( { left : '0%' }, 500 );
+  $( '#randomized-character' ).animate( { left : '200%' }, 500 );
+  $( '#hero-character' ).animate( { left : '0%' }, 500 );
 }
 
 function villainDefeated () {
 
   if ( villainHealth < 1) {
-    alert( villainIndex.name + " has been defeated!");
+    alert( villainIndex.name + ' has been defeated!' );
     displayCombatVictory();
   }
+
   else {
     attackLoop();
   }
@@ -616,9 +620,10 @@ function villainDefeated () {
 function heroDefeated () {
 
   if ( heroHealth < 1) {
-    alert( 'Your ' + selectedHeroIndex.name + " has been defeated!");
+    alert( 'Your ' + selectedHeroIndex.name + ' has been defeated!' );
     displayCombatDefeat();
   }
+
   else {
     switchToHeroCard();
   }
@@ -629,7 +634,6 @@ $( '#stage' ).on( 'click', startFight );
 $( document ).on( 'click', '.hero.move-name', heroAttacks );
 $( document ).on( 'click', '.villain.combat-card', villainAttacks );
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }); // End of $(document).ready function
 
