@@ -2,96 +2,39 @@
 <html>
 <head>
 	<title>Mythos</title>
-	<link rel="stylesheet" type="text/css" href="mythos.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Bootstrap CDN -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- custom CSS -->
+	<link rel="stylesheet" type="text/css" href="mythos.css">
 </head>
 <body>
-	<div class="homepage page-wrapper">
-		<div class="fixed-top-menu-bar">
-			<div class="mobile-menu-button-container">
-				<div class="mobile-menu-button"></div>
-			</div> <!--End of Menu Container -->
-			<ul class="mobile-menu">
-				<a class="mobile-menu-anchor" href="#"><li class="mobile-menu-item">About Mythos</li></a>
-			</ul> <!-- End of mobile Drop Down Menu -->
-			<div class="top-menu-header">
-				<p class="mobile-header">Mythos</p>
-				<p class="desktop-header">Mythos</p>
-			</div>
-			<ul class="alternate menu">
-				<!-- anchor's will change to alternate anchors @ 1050px -->
-				<a class="alternate menu-anchor" href="#"><li class="alternate menu-item">About Mythos</li></a>
-			</ul> <!-- End of alternate menu -->
-		</div> <!-- End of fixed-top-menu-bar -->
-<!-- Play button -->
-		<div class="first section">
-			<div class="first textbox-container">
-				<h4 class="first textbox-prompt">It is a period of civil unrest and bloodshed. Several kingdoms fight a civil war over which kingdom should rule the realm. Your kingdom, MYTHOS, has been infiltrated by spies from the other kingdoms. Unable to trust the aid of the royal court, your King is succumbing to the hardships of war.</h4>
-				<h4 class=" first textbox-prompt">After several unsuccessful assassination attempts to the royal family, your King approaches you to undertake a dangerous quest. The King wants you to oversee and protect his only heir, as he is transported to a safer outpost, far from the reaches of the warring states.</h4>
-			</div>
-			<div class="play button">Play</div>
-		</div>
-<!-- Character-selection section -->
-		<div class="character-selection section">
-			<div class="character-select textbox-container">
-				<h4 class="textbox-prompt">Please select a HERO from the following character selection panel below. Choose carefully, who knows what opposition you may encounter on this journey.</h4>
-			</div>
-			<div class="show-heroes button">Show Heroes</div>
-			<div class="character-selection-panel js-character-selection">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="landing-page background">
+			  <div class="image-overlay">
+			    <div class="jumbotron">
+				    <h2 id="game-title">Mythos</h2>
+				    <hr class="header-underline">			    
+				    <p class="play-button"><a class="btn btn-primary btn-lg" href="#" role="button">Play</a></p>
+			    </div>
+			  </div>
 			</div>
 		</div>
-<!-- Level-selection section -->
-		<div class="level-selection section">
-			<div class="level-select textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span>. None of the scouts that you have sent out have reported back. It is up to you to select the route you wish to take to the SAFE OUTPOST.</h4>
-			</div>
-			<div class="show-levels button">Show Routes</div>
-			<div class="level-selection-panel js-level-selection">
-			</div>
-		</div>
-<!-- pre-combat summary panel -->
-		<div class="pre-combat section">
-			<div class="pre-combat textbox-container">
-				<h4 class="textbox-prompt">You have selected the <span class="selected-hero"></span> and will travel through the <span class="selected-level"></span>. As you prepare to leave for your quest, a PALADIN informs you that your King has been killed. Rumor has it that an unspeakable beast has been sent to kill the heir. Be weary, stay sharp. Who knows lies in the road ahead.</h4>
-			</div>
-			<div class="start-quest button">Begin the Quest</div>
-		</div> 
-<!-- combat cards -->
-		<div class="combat section">
-			<div class="combat-stage">
-				<div class="combat textbox-container">
-					<h4 class="first combat textbox-prompt">As you start on your quest to protect and deliver the king's son, you begin to notice that the <span class="selected-level"></span> is riddled with fresh corpses, a clear sign that a large, recent battle had taken place here. You take a second to observe the carnage and realize how eerily quiet it is.</h4>
-					<div class="first combat-continue button">Continue</div>
-					<h4 class="second combat textbox-prompt">Among the fallen, you spot one of your scouts that you sent out to seek the safest route to the OUTPOST. It is clear to you why the scout never made it back. You make your way over to your fallen ally when you hear a loud roar exclaim, "This must be the heir to the throne of MYTHOS!" You see a <span class="randomized-villain"></span> emerge from the wreckage. As it draws near, it growls out, "I have come for you, BOY! Your time has come!"</h4>
-					<div class="second combat-continue button">Continue</div>
-			</div>
-<!-- Center Stage Card -->
-				<div id="stage" class="stage button">Defend the heir!</div>
-<!-- User-Selected Character combat-card -->
-			    <div id="hero-character" class="hero combat-card"></div>
-<!-- Randomized Villain combat-card -->
-			    <div id="randomized-character" class="villain combat-card"></div>
-			</div> <!-- End of Combat-stage -->
-			<div class="victory section">
-				<div class="victory textbox-container">
-					<div class="victory textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been victorious! You WIN! want to play again?</div>
-					<div class="restart button">Play Again</div>
-				</div>
-			</div>
-			<div class="defeat section">
-				<div class="defeat textbox-container">
-					<div class="defeat textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been defeated! You LOST! want to play again?</div>
-					<div class="restart button">Try Again</div>
-				</div>
-			</div>    
-		</div><!-- End of Combat Section -->
-	</div><!-- End of homepage-wrapper -->
+	</div>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- jQuery ui-->
 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
+	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+	<!-- underscoreJS -->
 	<script src="http://underscorejs.org/underscore-min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- Custom JS -->
 	<script type="text/javascript" src="chars.js"></script>
 	<script type="text/javascript" src="mythos.js"></script>
 </body>
