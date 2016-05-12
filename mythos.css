@@ -1,12 +1,179 @@
-html {
+
+/* /////---------------------
+
+	Global Variables
+
+/////---------------------- */
+
+/*html {
 	background-color: #114269;
-}
+}*/
 
 body {
 	font-family: arial;
 	margin: 0 auto;
 	padding: 0;
 }
+
+
+/* ///////////////////////////////////////////////// ------- Landingpage ------- ///////////////////////////////////////////////// */
+
+/* /////---------------------
+
+	background
+
+/////---------------------- */
+
+.landing-page.background {
+	position: relative;
+	height: 800px;
+	max-width: 1500px;
+	margin: 0;
+	padding: 0;
+	background-image: url(http://i.imgur.com/hUEzSFW.jpg?1);
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+
+/* /////---------------------
+
+	overlay + jumbotron
+
+/////---------------------- */
+
+.image-overlay {
+	position: absolute;
+	top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.25);
+}
+
+.jumbotron {
+	position: fixed;
+    height: 350px;
+    margin-top: 5%;
+    margin-left: 5%;
+    padding: 25px;
+    background-color: transparent;
+}
+
+/* game title */
+
+#game-title {
+	visibilty: hidden;
+	font-size: 50px;
+	margin-top: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	color: red;
+}
+
+.header-underline {
+	position: relative;
+	border: 0;
+}
+
+/* play button */
+
+.play-button {
+	margin: 75px auto 0 auto;
+    text-align: center;
+    width: 90px;
+    border-radius: 4px;
+}
+
+.play-button a {
+	padding: 10px 25px;
+	background-color: red;
+	border: 2px solid red;
+}
+
+/* /////---------------------
+
+	Transformations/Transitions + :hover effects
+
+/////---------------------- */
+
+.header-underline:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 10px;
+  background-color: red;
+  content: "";
+  transition: width 0.9s;
+}
+
+.play-button a:hover {
+	background-color: #880000;
+	border: 2px solid #880000;
+}
+
+.play-button.red-pulse {
+	color: #fff;
+	animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* /////---------------------
+
+	red-transformation + fire animation
+
+/////---------------------- */
+
+#game-title.red-transformation {
+	color: red;
+}
+
+#game-title.red-transformation + .header-underline:after {
+  width: 100%;
+}
+
+#game-title.fire-animation {
+	font-weight: 700;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	text-shadow: 0 0 20px #FEFCC9 , 10px -10px 30px rgb(254,236,133) , -20px -20px 40px rgb(255,174,52) , 20px -40px 50px rgb(236,118,12) , -20px -60px 60px rgb(205,70,6) , 0 -80px 70px rgb(151,55,22) , 10px -90px 80px rgb(69,27,14) ;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+	-webkit-transform: none;
+	transform: none;
+	-webkit-transform-origin: 50% 50% 0;
+	transform-origin: 50% 50% 0;
+	/*transition: text-shadow 3.5s ease-in-out;*/
+	animation: blur 9s infinite forwards ease-out 0s;
+	/* name, duration, iteration, direction, timing-function; fill-mode, delay */ 
+}
+
+@keyframes blur{
+  from{
+  		text-shadow: 0 0 0px #FEFCC9 , 0 0 0 rgb(254,236,133) , 0 0 0  rgb(255,174,52) , 0 0 0 rgb(236,118,12) , 0 0 0 rgb(205,70,6) , 0 0 0  rgb(151,55,22) , 0 0 0 rgb(69,27,14) ;
+  }
+}
+
+
+/* ///////////////////////////////////////////////// ------- Game Page ------- ///////////////////////////////////////////////// */
+
 
 .page-wrapper {
 	width: 100%;
