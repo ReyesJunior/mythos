@@ -5,10 +5,6 @@
 
 /////---------------------- */
 
-/*html {
-	background-color: #114269;
-}*/
-
 body {
 	font-family: arial;
 	margin: 0 auto;
@@ -30,7 +26,7 @@ body {
 	max-width: 1500px;
 	margin: 0;
 	padding: 0;
-	background-image: url(http://i.imgur.com/hUEzSFW.jpg?1);
+	background-image: url(http://i.imgur.com/hUEzSFW.jpg?1); /* 1440x873 */
 	background-size: cover;
 	background-position: center center;
 	background-attachment: fixed;
@@ -78,14 +74,14 @@ body {
 
 /* play button */
 
-.play-button {
+.play-button, .start-button {
 	margin: 75px auto 0 auto;
     text-align: center;
     width: 90px;
     border-radius: 4px;
 }
 
-.play-button a {
+.play-button a, .start-button a {
 	padding: 10px 25px;
 	background-color: red;
 	border: 2px solid red;
@@ -160,7 +156,6 @@ body {
 	transform: none;
 	-webkit-transform-origin: 50% 50% 0;
 	transform-origin: 50% 50% 0;
-	/*transition: text-shadow 3.5s ease-in-out;*/
 	animation: blur 9s infinite forwards ease-out 0s;
 	/* name, duration, iteration, direction, timing-function; fill-mode, delay */ 
 }
@@ -175,117 +170,128 @@ body {
 /* ///////////////////////////////////////////////// ------- Game Page ------- ///////////////////////////////////////////////// */
 
 
-.page-wrapper {
-	width: 100%;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-/* -------------------------------------
- * Fixed Top Bar, Menus
- * ------------------------------------- */
-
-.fixed-top-menu-bar {
-	position: fixed;
-	height: 60px;
-	width: 100%;
-	top: 0px;
-	background-color: #002E52;
-	z-index: 999;
-}
-
-.top-menu-header {
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-}
-
-.mobile-header, .desktop-header {
-	font-size: 28px;
-	margin: 0;
-	padding: 15px 20px 10px;
-	text-align: center;
-	color: white;
-}
-
-.desktop-header {
-	display: none;
-}
-
-/* -------------------------------------
- * Mobile Menu
- * ------------------------------------- */
-
-.mobile-menu-button-container {
-	display: none;
-	height: 50px;
-	width: 50px;
-	margin: 5px auto;
-	float: left;
-}
-
-.mobile-menu-button {
-	height: 100%;
-	width: 100%;
-	background-image: url('https://ddiostips.files.wordpress.com/2013/12/burger.png?w=470');
-	background-size: cover;
-	background-position: center;
-}
-
-.mobile-menu {
-	display: none;
-	position: absolute;
-	width: 100%;
-	top: 44px;
-	left: 0;
-	background-color: #FBFF00;
-	z-index: 998;
-}
-
-.mobile-menu-anchor, .menu-anchor {
-	display: block;
-	width: 100%;
-	margin-left: -40px;
-	padding: 15px;
-	color: #002E52;
-	text-decoration: none;
-}
-
-.mobile-menu-item {
-	font-size: 16px;
-	letter-spacing: 1px;
-	list-style: none;
-}
-
-/* :hover */
-
-.mobile-menu-anchor:hover, .menu-anchor:hover {
+.gamepage.container-fluid {
+	padding: 0;
 	background-color: white;
 }
 
-/* -------------------------------------
- * Alternate Menu
- * ------------------------------------- */
+/* /////---------------------
 
-.alternate.menu, .alternate.menu-anchor, .alternate.menu-item {
+	story-carousel
+
+/////---------------------- */
+
+.story-carousel {
 	display: none;
 }
 
-/* -------------------------------------
- * Mythos Sections
- * ------------------------------------- */
+.story-slide {
+	position: relative;
+	height: 700px;
+	max-width: 1500px;
+	margin: 0;
+	padding: 0;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
 
-.section {
+.first.story-slide {
+	background-image: url(http://i.imgur.com/VSHWVzD.jpg?1); /* 1440x873 */
+}
+
+.second.story-slide {
+	background-image: url(http://i.imgur.com/usvFfPa.jpg?1);
+
+}
+
+.carousel-caption {
+	top: 30%;
+}
+
+/* /////---------------------
+
+	Selection rows
+
+/////---------------------- */
+
+.hero-selection {
+/*	display: none;*/
+}
+
+.level-selection {
+	display:none;
+}
+
+.start-quest {
 	display: none;
+}
+
+.selection-well {
+	max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* /////---------------------
+
+	Selection accordion
+
+/////---------------------- */
+
+.panel-heading {
+	padding: 0;
+}
+
+.panel-heading a {
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+
+/* /////---------------------
+
+	Selection cards
+
+/////---------------------- */
+
+ .display-character-name, .display-level-name {
+ 	text-align: center;
+    color: white;
+    padding: 5px 0;
+    background-color: #003056;
+ }
+
+.character-card, .level-card {
+	padding: 0;
+	height: 340px;
+	margin: 10px auto;
+	color: white;
+}
+
+/* /////---------------------
+
+	Text-prompt
+
+/////---------------------- */
+
+.selected-hero, .selected-level {
+	background-color: yellow;
+}
+
+
+
+
+
+/*.page-wrapper {
+	width: 100%;
+	margin: 0 auto;
 	overflow: hidden;
-	border-bottom: 1px solid #003056;
 }
 
-.first.section {
-	display: block;
-	margin-top: 60px;
-	border: none;
-}
+
+
 
 .character-selection.section {
 	margin-top: 60px;
@@ -303,13 +309,13 @@ body {
 .combat.section {
 	margin-top: 60px;
 	background-color: transparent;
-}
+}*/
 
 /* -------------------------------------
  * Buttons
  * ------------------------------------- */
 
-.button {
+/*.button {
 	width: 200px;
 	font-size: 18px;
 	padding: 14px;
@@ -338,12 +344,12 @@ body {
 	display: none;
 	position: static;
 	margin-top: 200px;
-}
+}*/
 
 /* -------------------------------------
  * Textbox containers, textbox prompts
  * ------------------------------------- */
-
+/*
 .textbox-container {
 	margin-top: 50px;
 }
@@ -371,36 +377,24 @@ body {
 	color: white;
 	background-color: #D40000;
 	padding: 3px 6px;
-}
+}*/
 
 /* -------------------------------------
  * Selection Panels and character cards
  * ------------------------------------- */
 
-.character-selection-panel, .level-selection-panel {
+/*.character-selection-panel, .level-selection-panel {
 	display: none;
 	width: 100%;
 	margin: 25px auto 50px auto;
 	overflow: hidden;
-}
+}*/
 
-.character-card, .level-card {
-	height: 340px;
-	width: 275px;
-	margin: 10px auto;
-	color: white;
-}
 
 /* -------------------------------------
  * Heroes
  * ------------------------------------- */
 
- .display-character-name, .display-level-name {
- 	text-align: center;
-    color: white;
-    padding: 5px 0;
-    background-color: #003056;
- }
 
 /* Knight */
 .knight.character-card {
@@ -464,13 +458,13 @@ body {
  * Combat Section, combat stage
  * ------------------------------------- */
 
-.combat.textbox-container {
+/*.combat.textbox-container {
 	display: none;
 }
-
+*/
 /* combat stage */
 
-.combat-stage {
+/*.combat-stage {
     position: absolute;
     margin: 0px;
     padding: 0px;
@@ -486,13 +480,13 @@ body {
 
 #randomized-character {
     left: 200%;
-}
+}*/
 
 /* -------------------------------------
  * Combat cards
  * ------------------------------------- */
 
-.combat-card {
+/*.combat-card {
     position: absolute;
     width: 275px;
     height: 544px;
@@ -506,10 +500,10 @@ body {
 }
 .villain.combat-card {
     height: 545px;
-}
+}*/
 
 /* Top content */
-
+/*
 .hero.top-character-content, .villain.top-character-content {
 	height: 360px;
 	width: 100%;
@@ -530,11 +524,11 @@ img {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-}
+}*/
 
 /* bottom content */
 
-.character-content-panel {
+/*.character-content-panel {
 	height: 185px;
 	margin: 0;
 	overflow: hidden;
@@ -595,12 +589,12 @@ img {
 	float: right;
 	background-color: #D40000;
 }
-
+*/
 /* -------------------------------------
  * Victory/Defeat Sections
  * ------------------------------------- */
 
-.victory.section, .defeat.section {
+/*.victory.section, .defeat.section {
 	position: absolute;
     height: 320px;
     width: 85%;
@@ -626,11 +620,11 @@ img {
 .restart.button {
 	margin: 20px auto;
 }
-
+*/
 /* -------------------------------------
  * Media Queries
  * ------------------------------------- */
-
+/*
 
 @media (min-width: 610px) {
 
@@ -668,3 +662,4 @@ img {
 
 
 
+*/
