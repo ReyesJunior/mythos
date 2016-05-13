@@ -21,50 +21,58 @@ $('.play-button').hide().delay(500).fadeIn(500, function() {
 });
 
 
+
+var activeClassIndex = $( 'carousel-inner.item.active' ).index();
+
+function hideLeftCarouselControl() {
+
+
+  var totalSlides = $('.story-slide').length;
+  var lastSlide = totalSlides - 1;
+
+
+  activeClassIndex ++;
+
+      if ( activeClassIndex == (lastSlide - 1) ) {
+        $('.right.carousel-control').hide();
+      } else {
+        $('.right.carousel-control').show();
+      }
+  }
+
+$('.right.carousel-control').on('click', hideLeftCarouselControl );
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Menu Functions
-
-function toggleMenuDropdown () {
-  $( '.mobile-menu' ).animate( { height : 'toggle' }, 250, function () {});
+// Start Game
+function startGame() {
+  $('.story-carousel').slideUp().delay(500, function() {
+    $('.hero-selection').slideDown();
+  });
 }
 
-function slideDropdownMenuUp () {
-  $( '.mobile-menu' ).slideUp();
-}
+$('.start-game').on( 'click', startGame );
 
-// Menu Event bindings
-$( '.mobile-menu-button' ).on( 'click', toggleMenuDropdown );
-$( '.mobile-menu-item' ).on( 'click', toggleMenuDropdown );
-$( 'a' ).on( ' click', slideDropdownMenuUp );
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select Hero functions
 
-function darkenHeroSelectionPanelBackground () {
-  $( '.character-selection.section' ).css( 'background-color', '#114269' );
-  $( '.show-heroes.button' ).css( 'background-color', '#6B98BB' );
-}
-function lightenHeroSelectionPanelBackground () {
-  $( '.character-selection.section' ).css( 'background-color', '#FFF' );
-  $( '.show-heroes.button' ).css( 'background-color', '#002E52' );
-}
-
+// hero stats
 var heroHealth = 115;
 var selectedHero;
 var selectedHeroIndex;
 
-
-function showHeroPanel () {
-  $( '.first.section' ).hide();
-  $( '.character-selection.section' ).slideDown();
+//close hero-selection accordion 
+function transitionFromHeroSelectionToLevelSelection () {
+  $( '#collapseOne' ).removeClass( 'in' );
+  $( '.level-selection' ).slideDown();
 }
 
 function showHeroes () {
-  $( '.show-heroes.button' ).hide();
   $( '.character-select.textbox-container' ).show();
-  $( '.character-selection-panel' ).slideDown();
+  $( '.hero-selection-panel' ).slideDown();
 }
 
 function selectHero ( e ) {
@@ -119,8 +127,10 @@ function getSelectedHero () {
 function displayHeroes () {
   var heroDisplayTemplate = [
     '<% for (var i = 0; i < heroes.length; i++) { %>',
-      '<div data-character="<%= i %>" class="hero <%= heroes[ i ].name.toLowerCase() %> character-card">',
-      '<div class="display-character-name"> <%= heroes[ i ].name %></div>',
+      '<div class="col-xs-12 col-sm-6 col-md-4">',
+        '<div data-character="<%= i %>" class="hero <%= heroes[ i ].name.toLowerCase() %> character-card">',
+          '<div class="display-character-name"> <%= heroes[ i ].name %></div>',
+        '</div>',
       '</div>',
     '<% } %>'
   ].join('');
@@ -139,16 +149,14 @@ function addSelectedHeroToTextPrompts ( e ) {
 }
 
 // Heroes Event bindings
-$( '.play.button' ).on( 'click', showHeroPanel );
-$( '.show-heroes.button' ).on( 'click', function () {
+$( '.show-heroes' ).on( 'click', function () {
     showHeroes();
-    lightenHeroSelectionPanelBackground();
 }); 
 
 $( document ).on( 'click', '.hero.character-card', selectHero );
 $( document ).on( 'click', '.hero.character-card', getSelectedHero );
 $( document ).on( 'click', '.hero.character-card', addSelectedHeroToTextPrompts );
-$( document ).on( 'click', '.hero.character-card', darkenHeroSelectionPanelBackground );
+$( document ).on( 'click', '.hero.character-card', transitionFromHeroSelectionToLevelSelection );
 
 displayHeroes();
 
@@ -156,9 +164,9 @@ displayHeroes();
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Select level functions
 
-function darkenLevelSelectionPanelBackground () {
-  $( '.level-selection.section' ).css( 'background-color', '#114269' );
-  $( '.show-levels.button' ).css( 'background-color', '#6B98BB' );
+function transitionFromLevelSelectionToStartQuest () {
+  $('#collapseTwo').removeClass( 'in' );
+  $('.start-quest').slideDown();
 }
 function lightenLevelSelectionPanelBackground () {
   $( '.level-selection.section' ).css( 'background-color', '#FFF' );
@@ -187,8 +195,10 @@ function selectLevel ( e ) {
 function displayLevels () {
   var levelDisplayTemplate = [
     '<% for (var i = 0; i < levels.length; i++) { %>',
-      '<div data-level="<%= i %>" class="level <%= levels[ i ].location.toLowerCase() %> level-card">',
-      '<div class="display-level-name"> <%= levels[ i ].location %></div>',
+      '<div class="col-xs-12 col-sm-6 col-md-4">',
+        '<div data-level="<%= i %>" class="level <%= levels[ i ].location.toLowerCase() %> level-card">',
+        '<div class="display-level-name"> <%= levels[ i ].location %></div>',
+        '</div>',
       '</div>',
     '<% } %>'
   ].join('');
@@ -207,14 +217,14 @@ function addSelectedLevelToTextPrompts ( e ) {
 }
 
 // Level Event bindings
-$( '.show-levels.button' ).on( 'click', function () {
+$( '.show-levels' ).on( 'click', function () {
     showLevels();
     lightenLevelSelectionPanelBackground();
 }); 
 
 $( document ).on( 'click', '.level.level-card', selectLevel );
 $( document ).on ('click', '.level.level-card', addSelectedLevelToTextPrompts );
-$( document ).on( 'click', '.level.level-card', darkenLevelSelectionPanelBackground );
+$( document ).on( 'click', '.level.level-card', transitionFromLevelSelectionToStartQuest );
 
 displayLevels();
 
