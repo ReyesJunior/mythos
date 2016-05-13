@@ -11,8 +11,133 @@
 </head>
 <body>
 	<div class="gamepage container-fluid">
+	<!-- navbar -->
+		<div class="row">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+					<a class="navbar-brand" href="index.html">MYTHOS</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+<!-- story carousel -->
+		<div class="story-carousel row">
+			<div class="col-xs-12">
+				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+			<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					</ol>
+			<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+						<div class="item active first story-slide">
+							<div class="carousel-caption">
+							It is a period of civil unrest and bloodshed. Several kingdoms fight a civil war over which kingdom should rule the realm. Your kingdom, MYTHOS, has been infiltrated by spies from the other kingdoms. Unable to trust the aid of the royal court, your King is succumbing to the hardships of war.
+							</div>
+						</div>
+						<div class="item second story-slide">
+							<div class="carousel-caption">
+							After several unsuccessful assassination attempts to the royal family, your King approaches you to undertake a dangerous quest. The King wants you to oversee and protect his only heir, as he is transported to a safer outpost, far from the reaches of the warring states.
+							<p class="start-button"><a class="btn btn-primary btn-lg start-game" role="button">Start</a></p>
+							</div>
+						</div>
+					</div>
 
-	</div>
+				<!-- Controls -->
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+<!-- Hero-selection row -->
+		<div class="hero-selection row">
+			<div class="col-xs-12">
+				<div class="selection-well well">
+					<h3 class="selection-header"></h3>
+					<p class="selection-text">Please select a HERO from the following character selection panel below. Choose carefully, who knows what opposition you may encounter on this journey.</p>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+			<!-- Panel 1 -->
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<a class="show-heroes collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<h4 class="panel-title">
+									Show Heroes
+								</h4>
+							</a>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<div class="row">
+								<div class="hero-selection-panel js-character-selection"></div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- End of Hero-selection accordion -->
+			</div><!-- End of col-xs-12 accordion-wrapper -->
+		</div>
+<!-- Levels-selection row -->
+		<div class="level-selection row">
+			<div class="col-xs-12">
+				<div class="selection-well well">
+					<h3 class="selection-header">Selection HEADER</h3>
+					<p class="selection-text">You have selected the <span class="selected-hero"></span>. None of the scouts that you have sent out have reported back. It is up to you to select the route you wish to take to the SAFE OUTPOST.</p>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<!-- Panel 2 -->
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<a class="show-levels collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								<h4 class="panel-title">
+									Show Levels
+								</h4>
+							</a>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<div class="level-selection-panel js-level-selection"></div>
+							</div>
+						</div>
+					</div>
+				</div><!-- End of level-selection accordion -->
+			</div><!-- End of col-xs-12 accordion-wrapper -->
+		</div>
+<!-- Quest-start row -->
+		<div class="start-quest row">
+			<div class="col-xs-12">
+				<div class="selection-well well">
+					<h3 class="selection-header">Selection HEADER</h3>
+					<p class="selection-text">You have chosen to travel through the <span class="selected-level"></span>. As you prepare to leave for your quest, a PALADIN informs you that your King has been killed. Rumor has it that an unspeakable beast has been sent to kill the heir. Be weary, stay sharp. Who knows lies in the road ahead.</p>
+				</div>
+			</div>
+			<div class="col-xs-12">
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<!-- Panel 2 -->
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+							<a class="show-levels collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+								<h4 class="panel-title">
+									<p class="start-quest-button"><a class="btn btn-primary btn-lg start-game" role="button">Start</a></p>
+								</h4>
+							</a>
+						</div>
+					</div>
+				</div><!-- End of level-selection accordion -->
+			</div><!-- End of col-xs-12 accordion-wrapper -->
+		</div><!-- End of Quest-Start row -->
+
+
+
+	</div><!-- End of gamepage container-fluid -->
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
