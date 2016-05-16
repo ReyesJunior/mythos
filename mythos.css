@@ -11,8 +11,14 @@ body {
 	padding: 0;
 }
 
-
 /* ///////////////////////////////////////////////// ------- Landingpage ------- ///////////////////////////////////////////////// */
+
+.navbar.navbar-default {
+	margin-bottom: 0;
+}
+a.navbar-brand {
+	margin-left: 20px;
+}
 
 /* /////---------------------
 
@@ -281,41 +287,82 @@ body {
 }
 
 
+/* /////---------------------
 
+	Combat + selected-level-stage
 
+/////---------------------- */
 
-/*.page-wrapper {
-	width: 100%;
-	margin: 0 auto;
-	overflow: hidden;
-}
-
-
-
-
-.character-selection.section {
-	margin-top: 60px;
-	background-color: white;
-}
-
-.level-selection.section {
-	background-color: white;
-}
-
-.pre-combat.section {
-	background-color: white;
-}
-
-.combat.section {
-	margin-top: 60px;
+.combat {
 	background-color: transparent;
-}*/
+}
+
+.selected-level-stage {
+	display: none;
+	position: absolute;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.combat-story.carousel {
+    position: relative;
+/*    height: 300px;*/
+    background-color: rgba(128, 128, 128, 0.47);
+}
+.combat-slide {
+	height: 400px;
+    background-color: #0FF;
+}
+
+.combat.carousel-caption {
+    top: 20px;
+}
+
+.stage-prep-button {
+	margin-top: 25px;
+}
+
+.stage-button {
+	margin-top: 15px;
+}
+
+#stage {
+	display: none;
+	width: 100%;
+    background-color: #F00;
+    height: 300px;
+}
+
+.stage-relative {
+	display: none;
+	position: relative;
+}
+
+.start-quest-button, .start-fight-button {
+	font-size: 18px;
+	padding: 14px;
+	margin: 50px auto;
+	color: white;
+	text-align: center;
+}
+
+a.start-game {
+	background-color: red;
+}
+
+
+
+
 
 /* -------------------------------------
  * Buttons
  * ------------------------------------- */
 
-/*.button {
+.button {
 	width: 200px;
 	font-size: 18px;
 	padding: 14px;
@@ -344,12 +391,12 @@ body {
 	display: none;
 	position: static;
 	margin-top: 200px;
-}*/
+}
 
 /* -------------------------------------
  * Textbox containers, textbox prompts
  * ------------------------------------- */
-/*
+
 .textbox-container {
 	margin-top: 50px;
 }
@@ -377,18 +424,18 @@ body {
 	color: white;
 	background-color: #D40000;
 	padding: 3px 6px;
-}*/
+}
 
 /* -------------------------------------
  * Selection Panels and character cards
  * ------------------------------------- */
 
-/*.character-selection-panel, .level-selection-panel {
+.character-selection-panel, .level-selection-panel {
 	display: none;
 	width: 100%;
 	margin: 25px auto 50px auto;
 	overflow: hidden;
-}*/
+}
 
 
 /* -------------------------------------
@@ -458,20 +505,8 @@ body {
  * Combat Section, combat stage
  * ------------------------------------- */
 
-/*.combat.textbox-container {
+.combat.textbox-container {
 	display: none;
-}
-*/
-/* combat stage */
-
-/*.combat-stage {
-    position: absolute;
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    overflow: hidden;  
 }
 
 #hero-character {
@@ -480,13 +515,13 @@ body {
 
 #randomized-character {
     left: 200%;
-}*/
+}
 
 /* -------------------------------------
  * Combat cards
  * ------------------------------------- */
 
-/*.combat-card {
+.combat-card {
     position: absolute;
     width: 275px;
     height: 544px;
@@ -500,10 +535,10 @@ body {
 }
 .villain.combat-card {
     height: 545px;
-}*/
+}
 
 /* Top content */
-/*
+
 .hero.top-character-content, .villain.top-character-content {
 	height: 360px;
 	width: 100%;
@@ -524,11 +559,11 @@ img {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-}*/
+}
 
 /* bottom content */
 
-/*.character-content-panel {
+.character-content-panel {
 	height: 185px;
 	margin: 0;
 	overflow: hidden;
@@ -589,12 +624,16 @@ img {
 	float: right;
 	background-color: #D40000;
 }
-*/
+
 /* -------------------------------------
  * Victory/Defeat Sections
  * ------------------------------------- */
 
-/*.victory.section, .defeat.section {
+ .post-fight-section.row {
+ 	display: none;
+ }
+
+.victory.section, .defeat.section {
 	position: absolute;
     height: 320px;
     width: 85%;
@@ -620,7 +659,7 @@ img {
 .restart.button {
 	margin: 20px auto;
 }
-*/
+
 /* -------------------------------------
  * Media Queries
  * ------------------------------------- */
