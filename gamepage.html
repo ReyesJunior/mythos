@@ -31,7 +31,7 @@
 						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 					</ol>
 			<!-- Wrapper for slides -->
-					<div class="carousel-inner" role="listbox">
+					<div class="main-story-carousel carousel-inner" role="listbox">
 						<div class="item active first story-slide">
 							<div class="carousel-caption">
 							It is a period of civil unrest and bloodshed. Several kingdoms fight a civil war over which kingdom should rule the realm. Your kingdom, MYTHOS, has been infiltrated by spies from the other kingdoms. Unable to trust the aid of the royal court, your King is succumbing to the hardships of war.
@@ -46,7 +46,7 @@
 					</div>
 
 				<!-- Controls -->
-					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<a class="main-story-carousel right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						<span class="sr-only">Next</span>
 					</a>
@@ -55,9 +55,8 @@
 		</div>
 <!-- Hero-selection row -->
 		<div class="hero-selection row">
-			<div class="col-xs-12">
+			<div class="hero-selection-well col-xs-12">
 				<div class="selection-well well">
-					<h3 class="selection-header"></h3>
 					<p class="selection-text">Please select a HERO from the following character selection panel below. Choose carefully, who knows what opposition you may encounter on this journey.</p>
 				</div>
 			</div>
@@ -83,11 +82,11 @@
 				</div><!-- End of Hero-selection accordion -->
 			</div><!-- End of col-xs-12 accordion-wrapper -->
 		</div>
-<!-- Levels-selection row -->
+<!-- Level-selection row -->
 		<div class="level-selection row">
-			<div class="col-xs-12">
+			<div class="level-selection-well col-xs-12">
 				<div class="selection-well well">
-					<h3 class="selection-header">Selection HEADER</h3>
+					<h3 class="selection-header">It's all up to you</h3>
 					<p class="selection-text">You have selected the <span class="selected-hero"></span>. None of the scouts that you have sent out have reported back. It is up to you to select the route you wish to take to the SAFE OUTPOST.</p>
 				</div>
 			</div>
@@ -111,29 +110,95 @@
 				</div><!-- End of level-selection accordion -->
 			</div><!-- End of col-xs-12 accordion-wrapper -->
 		</div>
-<!-- Quest-start row -->
+<!-- Start-quest row -->
 		<div class="start-quest row">
 			<div class="col-xs-12">
 				<div class="selection-well well">
-					<h3 class="selection-header">Selection HEADER</h3>
+					<h3 class="selection-header">Route to Safe Outpost</h3>
 					<p class="selection-text">You have chosen to travel through the <span class="selected-level"></span>. As you prepare to leave for your quest, a PALADIN informs you that your King has been killed. Rumor has it that an unspeakable beast has been sent to kill the heir. Be weary, stay sharp. Who knows lies in the road ahead.</p>
 				</div>
 			</div>
 			<div class="col-xs-12">
-				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-		<!-- Panel 2 -->
-					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingThree">
-							<a class="show-levels collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-								<h4 class="panel-title">
-									<p class="start-quest-button"><a class="btn btn-primary btn-lg start-game" role="button">Start</a></p>
-								</h4>
+				<h4 class="panel-title">
+					<p class="start-quest-button"><a class="btn btn-primary btn-lg start-game" role="button">Start Quest</a></p>
+				</h4>
+			</div>
+		</div><!-- End of Quest-Start row -->
+<!-- Combat row -->
+		<div class="combat row">
+			<div class="selected-level-stage col-xs-12">
+	<!-- combat-story carousel -->
+				<div class="combat-story-carousel row">
+					<div class="col-xs-12">
+						<div id="combat-carousel" class="combat-story carousel slide" data-ride="carousel" data-interval="false">
+					<!-- Indicators -->
+							<ol class="carousel-indicators">
+								<li data-target="#combat-carousel" data-slide-to="0" class="active"></li>
+								<li data-target="#combat-carousel" data-slide-to="1"></li>
+							</ol>
+					<!-- Wrapper for slides -->
+							<div class="combat-story-carousel carousel-inner" role="listbox">
+								<div class="item active first combat-slide">
+									<div class="combat carousel-caption">
+									As you start on your quest to protect and deliver the king's son, you begin to notice that the <span class="selected-level"></span> is riddled with fresh corpses, a clear sign that a large, recent battle had taken place here. You take a second to observe the carnage and realize how eerily quiet it is.
+									</div>
+								</div>
+								<div class="item second combat-slide">
+									<div class="combat carousel-caption">
+									Among the fallen, you spot one of your scouts that you sent out to seek the safest route to the OUTPOST. It is clear to you why the scout never made it back. 									
+									</div>
+								</div>
+								<div class="item third combat-slide">
+									<div class="combat carousel-caption">
+									As, you make your way over to your fallen ally when you hear a loud roar exclaim, "This must be the heir to the throne of MYTHOS!" You see a <span class="randomized-villain"></span> emerge from the wreckage. As it draws near, it growls out, "I have come for you, BOY! Your time has come!"
+									<p><a class="btn btn-primary btn-lg stage-prep-button" role="button">Continue</a></p>
+									</div>
+								</div>
+							</div>
+					<!-- Controls -->
+							<a class="combat-story-carousel right carousel-control" href="#combat-carousel" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
 							</a>
 						</div>
 					</div>
-				</div><!-- End of level-selection accordion -->
-			</div><!-- End of col-xs-12 accordion-wrapper -->
-		</div><!-- End of Quest-Start row -->
+				</div><!-- End of combat-story-carousel -->
+	<!-- Combat center-stage -->
+				<div class="row">
+					<div class="stage-relative col-xs-12">						
+						<div id="#stage">
+							<h4 class="panel-title">
+								<p class="start-fight-button"><a class="btn btn-danger btn-lg start-fight" role="button">Defend the Heir</a></p>
+							</h4>
+						</div>
+	<!-- User-Selected Character combat-card -->
+			    		<div id="hero-character" class="hero combat-card"></div>
+	<!-- Randomized Villain combat-card -->
+			    		<div id="randomized-character" class="villain combat-card"></div>
+					</div><!-- End of stage-relative -->
+				</div>
+			</div><!-- End of selected-story-stage col-xs-12-->
+		</div><!-- End of combat row -->
+
+<!-- post-fight section -->
+		<div class="post-fight-section row">
+			<div class="col-xs-12">
+		<!-- victory-section -->
+				<div class="victory section">
+					<div class="victory textbox-container">
+						<div class="victory textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been victorious! You WIN! want to play again?</div>
+						<div class="restart button">Play Again</div>
+					</div>
+				</div>
+		<!-- defeat-section -->
+				<div class="defeat section">
+					<div class="defeat textbox-container">
+						<div class="defeat textbox prompt">After a vicious duel with the <span class="randomized-villain"></span>, you have been defeated! You LOST! want to play again?</div>
+						<div class="restart button">Try Again</div>
+					</div>
+				</div> 
+			</div><!-- End of col=xs-12 -->
+		</div><!-- end of post-fight-section row -->
 
 
 
