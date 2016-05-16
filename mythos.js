@@ -22,25 +22,46 @@ $('.play-button').hide().delay(500).fadeIn(500, function() {
 
 
 
-var activeClassIndex = $( 'carousel-inner.item.active' ).index();
+var storyCarouselActiveClassIndex = $( '.main-story-carousel.carousel-inner.item.active' ).index();
 
-function hideLeftCarouselControl() {
-
+function hideLeftCarouselControlForStoryCarousel() {
 
   var totalSlides = $('.story-slide').length;
   var lastSlide = totalSlides - 1;
 
 
-  activeClassIndex ++;
+  storyCarouselActiveClassIndex ++;
 
-      if ( activeClassIndex == (lastSlide - 1) ) {
+      if ( storyCarouselActiveClassIndex == (lastSlide - 1) ) {
         $('.right.carousel-control').hide();
       } else {
         $('.right.carousel-control').show();
       }
   }
 
-$('.right.carousel-control').on('click', hideLeftCarouselControl );
+$('.main-story-carousel.right.carousel-control').on('click', hideLeftCarouselControlForStoryCarousel );
+
+
+
+
+var combatCarouselActiveClassIndex = $( '.combat-story-carousel.carousel-inner.item.active' ).index();
+
+function hideLeftCarouselControlForCombatCarousel() {
+
+  var totalSlides = $('.combat-slide').length;
+  var lastSlide = totalSlides - 1;
+
+
+  combatCarouselActiveClassIndex ++;
+
+      if ( combatCarouselActiveClassIndex == (lastSlide - 1) ) {
+        $('.right.carousel-control').hide();
+      } else {
+        $('.right.carousel-control').show();
+      }
+  }
+
+$('.combat-story-carousel.right.carousel-control').on('click', hideLeftCarouselControlForCombatCarousel );
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,6 +88,7 @@ var selectedHeroIndex;
 //close hero-selection accordion 
 function transitionFromHeroSelectionToLevelSelection () {
   $( '#collapseOne' ).removeClass( 'in' );
+  $('.hero-selection-well').slideUp();
   $( '.level-selection' ).slideDown();
 }
 
@@ -166,11 +188,8 @@ displayHeroes();
 
 function transitionFromLevelSelectionToStartQuest () {
   $('#collapseTwo').removeClass( 'in' );
+  $('.level-selection-well').slideUp();
   $('.start-quest').slideDown();
-}
-function lightenLevelSelectionPanelBackground () {
-  $( '.level-selection.section' ).css( 'background-color', '#FFF' );
-  $( '.show-levels.button' ).css( 'background-color', '#002E52' );
 }
 
 function showLevels () {
@@ -185,11 +204,7 @@ function selectLevel ( e ) {
   var level = levels[levelIndex];
   var selectedLevelBackground = level.background_image[0].src;
 
-  $( '.level-select.textbox-container' ).hide();
-  $( '.show-levels.button' ).show();
-  $( '.level-selection-panel' ).slideUp();
-  $( '.pre-combat.section' ).slideDown();
-  $( '.combat-stage' ).css( 'background-image', 'url(' + selectedLevelBackground + ')' );
+  $( '.selected-level-stage' ).css( 'background-image', 'url(' + selectedLevelBackground + ')' );
 }
 
 function displayLevels () {
@@ -219,7 +234,6 @@ function addSelectedLevelToTextPrompts ( e ) {
 // Level Event bindings
 $( '.show-levels' ).on( 'click', function () {
     showLevels();
-    lightenLevelSelectionPanelBackground();
 }); 
 
 $( document ).on( 'click', '.level.level-card', selectLevel );
@@ -356,44 +370,36 @@ function addRandomVillainCharacterWithTemplates () {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Launch Quest functions
+// Start-quest functions
 
-function hideSelectionPanels () {
-  $( '.character-selection.section' ).hide();
-  $( '.level-selection.section' ).hide();
-  $( '.pre-combat.section' ).hide();
+function hideAllNonCombatRows () {
+  $( '.hero-selection.row' ).slideUp();
+  $( '.level-selection.row' ).slideUp();
+  $( '.start-quest.row' ).slideUp();
 }
 
-function showFirstCombatText () {
-  $( '.combat.section' ).show();
-  $( '.combat.textbox-container' ).slideDown();
-  $( '.first.combat.textbox-prompt' ).slideDown();
-  $( '.first.combat-continue.button' ).slideDown();
-}
-
-function showSecondCombatText () {
-  $( '.first.combat.textbox-prompt' ).slideUp();
-  $( '.first.combat-continue.button' ).slideUp();
-  $( '.second.combat.textbox-prompt' ).slideDown();
-  $( '.second.combat-continue.button' ).slideDown();
+function revealCombatRowandSelectedLevelStage () {
+  $( '.combat.row' ).slideDown();  
+  $( '.selected-level-stage' ).delay(500).slideDown();
 }
 
 function getCombatStage() {
-  $( '.second.combat-continue.button' ).hide();
-  $( '.second.combat.textbox-prompt' ).slideUp();
-  $( '#stage' ).show();
+  $( '.combat-story-carousel.row' ).slideUp();
+  $( '#stage' ).delay(100).slideDown();
+  $( '.stage-relative' ).delay(100).slideDown();
 }
 
 // Start Quest Event bindings
-$( '.first.combat-continue.button ' ).on( 'click', showSecondCombatText );
-$( '.second.combat-continue.button ' ).on( 'click', function () {
+$( '.stage-prep-button ' ).on( 'click', function () {
     getCombatStage();
     villainAppears();
 });
-$( '.start-quest.button' ).on( 'click', function() {
-    hideSelectionPanels();
-    showFirstCombatText();
+$( '.start-quest-button' ).on( 'click', function() {
+    hideAllNonCombatRows();
+    revealCombatRowandSelectedLevelStage();
     getRandomVillainCharacter();
+    addHeroCharacterWithTemplates();
+    addRandomVillainCharacterWithTemplates();
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -406,23 +412,23 @@ var newCounter3;
 var newCounter4;
 
 function startFight () {
-  $( '#stage' ).hide();
-  $( '.combat.textbox-container' ).hide();
-  $( '#hero-character' ).animate( { left : '0%' }, 500 );
+  $( '#stage' ).slideUp();
+  $( '.start-fight-button' ).slideUp();
+  $( '#hero-character' ).delay(250).animate( { left : '0%' }, 500 );
   playerTurn = true;
 
-  addHeroCharacterWithTemplates();
-  addRandomVillainCharacterWithTemplates();
   attackLoop();
 }
 
 function displayCombatVictory () {
+  $( '.post-fight-section').slideDown();
   $( '.victory.section' ).show();
   $( '#randomized-character' ).animate( { left : '200%' }, 500 );
   $( '#hero-character' ).animate( { left : '-200%' }, 500 );
 }
 
 function displayCombatDefeat () {
+  $( '.post-fight-section').slideDown();
   $( '.defeat.section' ).show();
   $( '#randomized-character' ).animate( { left : '200%' }, 500 );
   $( '#hero-character' ).animate( { left : '-200%' }, 500 );
@@ -654,7 +660,7 @@ function heroDefeated () {
 }
 
 // Combat Stage Event Bindings 
-$( '#stage' ).on( 'click', startFight );
+$( '.start-fight' ).on( 'click', startFight );
 $( document ).on( 'click', '.hero.move-name', heroAttacks );
 $( document ).on( 'click', '.villain.combat-card', villainAttacks );
 
