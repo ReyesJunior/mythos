@@ -6,25 +6,79 @@
 /////---------------------- */
 
 body {
-	font-family: arial;
+	font-family: "Lucida Console", Monaco, monospace;
 	margin: 0 auto;
 	padding: 0;
 }
 
-/* ///////////////////////////////////////////////// ------- Landingpage ------- ///////////////////////////////////////////////// */
-
-.navbar.navbar-default {
-	margin-bottom: 0;
+.row {
+	margin-left: 0;
+	margin-right: 0;
 }
-a.navbar-brand {
-	margin-left: 20px;
+
+.landing-page.row, .main-story-carousel.row, .combat-story-carousel.row {
+	margin-left: -15px;
+    margin-right: -15px;
 }
 
 /* /////---------------------
 
-	background
+	Nav-bar
 
 /////---------------------- */
+
+.navbar.navbar-default {
+	margin-bottom: 0;
+	background-color: #002E52;
+	border: 0;
+	border-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+	margin-left: 20px;
+ 	color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: red;
+}
+
+/* /////---------------------
+
+	Game buttons
+
+/////---------------------- */
+
+.main-title-play-button {
+	color: #fff;
+	background-color: red;
+	border-color: red;
+}
+
+.button-container {
+	margin: 45px auto 10px auto;
+}
+
+.button-container a {
+	background-color: red;
+	border-color: red;
+}
+
+.restart.button {
+	width: 75%;
+	margin: 20px auto;
+	border-radius: 4px;
+	font-size: 18px;
+	padding: 14px;
+	background-color: #003056;
+	color: white;
+	text-align: center;
+}
+.restart.button:hover {
+	background-color: red;
+}
+
+/* ///////////////////////////////////////////////// ------- Landing page ------- ///////////////////////////////////////////////// */
 
 .landing-page.background {
 	position: relative;
@@ -40,7 +94,7 @@ a.navbar-brand {
 
 /* /////---------------------
 
-	overlay + jumbotron
+	Jumbotron
 
 /////---------------------- */
 
@@ -78,21 +132,6 @@ a.navbar-brand {
 	border: 0;
 }
 
-/* play button */
-
-.play-button, .start-button {
-	margin: 75px auto 0 auto;
-    text-align: center;
-    width: 90px;
-    border-radius: 4px;
-}
-
-.play-button a, .start-button a {
-	padding: 10px 25px;
-	background-color: red;
-	border: 2px solid red;
-}
-
 /* /////---------------------
 
 	Transformations/Transitions + :hover effects
@@ -111,13 +150,12 @@ a.navbar-brand {
   transition: width 0.9s;
 }
 
-.play-button a:hover {
+.main-title-play-button a:hover {
 	background-color: #880000;
 	border: 2px solid #880000;
 }
 
-.play-button.red-pulse {
-	color: #fff;
+.main-title-play-button.red-pulse {
 	animation: pulse 1s infinite;
 }
 
@@ -163,7 +201,6 @@ a.navbar-brand {
 	-webkit-transform-origin: 50% 50% 0;
 	transform-origin: 50% 50% 0;
 	animation: blur 9s infinite forwards ease-out 0s;
-	/* name, duration, iteration, direction, timing-function; fill-mode, delay */ 
 }
 
 @keyframes blur{
@@ -175,7 +212,6 @@ a.navbar-brand {
 
 /* ///////////////////////////////////////////////// ------- Game Page ------- ///////////////////////////////////////////////// */
 
-
 .gamepage.container-fluid {
 	padding: 0;
 	background-color: white;
@@ -183,15 +219,16 @@ a.navbar-brand {
 
 /* /////---------------------
 
-	story-carousel
+	Main-story-carousel
 
 /////---------------------- */
 
-.story-carousel {
-	display: none;
+.carousel-image-overlay {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.35);
 }
 
-.story-slide {
+.main-story-slide {
 	position: relative;
 	height: 700px;
 	max-width: 1500px;
@@ -202,48 +239,58 @@ a.navbar-brand {
 	background-attachment: fixed;
 }
 
-.first.story-slide {
+.carousel-caption {
+	top: 10%;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.main-story-slide:first-child {
 	background-image: url(http://i.imgur.com/VSHWVzD.jpg?1); /* 1440x873 */
 }
 
-.second.story-slide {
+.main-story-slide:nth-child(2) {
 	background-image: url(http://i.imgur.com/usvFfPa.jpg?1);
-
-}
-
-.carousel-caption {
-	top: 30%;
 }
 
 /* /////---------------------
 
-	Selection rows
+	Selection Panels
 
 /////---------------------- */
 
+.hero-panel-group {
+	margin-top: 20px;
+}
+
+a:focus, a:hover {
+    text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	background-color: #6B98BB;
+}
+
 .hero-selection {
-/*	display: none;*/
+	display: none;
 }
 
 .level-selection {
 	display:none;
 }
 
-.start-quest {
-	display: none;
-}
+/* Well */
 
 .selection-well {
 	max-width: 400px;
     margin: 20px auto;
     text-align: center;
+    font-size: 16px;
+    line-height: 24px;
 }
 
-/* /////---------------------
-
-	Selection accordion
-
-/////---------------------- */
+/* Accordion */
 
 .panel-heading {
 	padding: 0;
@@ -255,6 +302,16 @@ a.navbar-brand {
     padding: 10px 15px;
 }
 
+.highlighted-text, .red-highlighted-text {
+	padding: 3px 5px;
+	background-color: #6B98BB;
+	border-radius: 4px;
+	color: white;
+}
+
+.red-highlighted-text {
+	background-color: red;
+}
 
 /* /////---------------------
 
@@ -262,38 +319,107 @@ a.navbar-brand {
 
 /////---------------------- */
 
- .display-character-name, .display-level-name {
+.display-character-name, .display-level-name {
  	text-align: center;
     color: white;
     padding: 5px 0;
-    background-color: #003056;
- }
+    background-color: #6B98BB;
+}
 
 .character-card, .level-card {
 	padding: 0;
 	height: 340px;
 	margin: 10px auto;
-	color: white;
+	background-size: cover;
+}
+
+.character-card:hover > .display-character-name, .level-card:hover > .display-level-name {
+ 	background-color: red;
+}
+
+.character-card:hover, .level-card:hover {
+	transform: scale(1.1);
 }
 
 /* /////---------------------
 
-	Text-prompt
+	Hero-Characters (width: 768px)
 
 /////---------------------- */
 
-.selected-hero, .selected-level {
-	background-color: yellow;
+/* Knight */
+.knight.character-card {
+	background-image: url(http://i.imgur.com/zpUepnZ.jpg?1);
 }
-
+/* Archer */
+.archer.character-card {
+	background-image: url(http://i.imgur.com/B6HJ0e1.jpg?1);
+}
+/* Witch Doctor */
+.doctor.character-card {
+	background-image: url(http://i.imgur.com/VKz6KPH.jpg?1);
+}
+/* Templar */
+.templar.character-card {
+	background-image: url(http://i.imgur.com/KgYw8gJ.jpg?1);
+}
+/* Trapper */
+.trapper.character-card {
+	background-image: url(http://i.imgur.com/slxD39g.jpg?1);
+}
+/* Savage */
+.savage.character-card {
+	background-image: url(http://i.imgur.com/SbRRcQL.jpg?1);
+}
 
 /* /////---------------------
 
-	Combat + selected-level-stage
+	Levels (width: 768px)
 
 /////---------------------- */
 
-.combat {
+/* Cave */
+.cave.level-card {
+	background-image: url(http://i.imgur.com/ut19nmy.jpg?1);
+}
+/* Forrest */
+.forest.level-card {
+	background-image: url(http://i.imgur.com/BOoK1NP.jpg?1);
+}
+/* City */
+.city.level-card {
+	background-image: url(http://i.imgur.com/iEX6XJF.jpg?2);
+}
+/* Cave */
+.mountain.level-card {
+	background-image: url(http://i.imgur.com/6VVerXN.jpg?1);
+}
+/* Forrest */
+.ruins.level-card {
+	background-image: url(http://i.imgur.com/c49hzro.jpg?1);
+}
+/* City */
+.desert.level-card {
+	background-image: url(http://i.imgur.com/jRJye3g.jpg?1);
+}
+
+/* /////---------------------
+
+	Start Quest
+
+/////---------------------- */
+
+.start-quest {
+	display: none;
+}
+
+/* /////---------------------
+
+	Combat Panel
+
+/////---------------------- */
+
+.combat.row {
 	background-color: transparent;
 }
 
@@ -308,26 +434,28 @@ a.navbar-brand {
     overflow: hidden;
 }
 
+/* Combat Carousel */
+
 .combat-story.carousel {
     position: relative;
-/*    height: 300px;*/
-    background-color: rgba(128, 128, 128, 0.47);
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.45);
 }
-.combat-slide {
+
+.combat-story-slide {
 	height: 400px;
-    background-color: #0FF;
 }
 
 .combat.carousel-caption {
     top: 20px;
 }
 
-.stage-prep-button {
-	margin-top: 25px;
-}
+/* Stage-relative */
 
-.stage-button {
-	margin-top: 15px;
+.stage-relative {
+	display: none;
+	position: relative;
+	text-align: center;
 }
 
 #stage {
@@ -337,177 +465,27 @@ a.navbar-brand {
     height: 300px;
 }
 
-.stage-relative {
-	display: none;
-	position: relative;
+
+/* /////---------------------
+
+	Combat Cards
+
+/////---------------------- */
+
+.combat-card {
+    position: absolute;
+    width: 275px;
+    height: 542px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid black;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 110px;
 }
 
-.start-quest-button, .start-fight-button {
-	font-size: 18px;
-	padding: 14px;
-	margin: 50px auto;
-	color: white;
-	text-align: center;
-}
-
-a.start-game {
-	background-color: red;
-}
-
-
-
-
-
-/* -------------------------------------
- * Buttons
- * ------------------------------------- */
-
-.button {
-	width: 200px;
-	font-size: 18px;
-	padding: 14px;
-	margin: 50px auto;
-	background-color: #003056;
-	color: white;
-	text-align: center;
-}
-
-.play.button {
-	font-size: 20px;
-	background-color: #6B98BB;
-}
-
-.button:hover, .move-name:hover {
-	color: white;
-	background-color: #D40000;
-}
-
-.combat-continue.button  {
-	display: none;
-	margin: 25px auto;
-}
-
-.stage.button {
-	display: none;
-	position: static;
-	margin-top: 200px;
-}
-
-/* -------------------------------------
- * Textbox containers, textbox prompts
- * ------------------------------------- */
-
-.textbox-container {
-	margin-top: 50px;
-}
-
-.textbox-prompt {
-	width: 80%;
-	margin: 0 auto;
-	padding: 25px;
-	font-size: 16px;
-	color: #003056;
-	line-height: 24px;
-}
-
-.first.textbox-prompt {
-	color: white;
-}
-
-.combat.textbox-prompt {
-	display: none;
-	background-color: rgba(0, 0, 0, 0.75);
-	color: white;
-}
-
-.selected-hero, .selected-level, .randomized-villain {
-	color: white;
-	background-color: #D40000;
-	padding: 3px 6px;
-}
-
-/* -------------------------------------
- * Selection Panels and character cards
- * ------------------------------------- */
-
-.character-selection-panel, .level-selection-panel {
-	display: none;
-	width: 100%;
-	margin: 25px auto 50px auto;
-	overflow: hidden;
-}
-
-
-/* -------------------------------------
- * Heroes
- * ------------------------------------- */
-
-
-/* Knight */
-.knight.character-card {
-	background-image: url('http://i.imgur.com/TNAFgZI.jpg?1');
-}
-/* Archer */
-.archer.character-card {
-	background-image: url("http://i.imgur.com/vwr5yTO.jpg?1");
-}
-/* Witch Doctor */
-.doctor.character-card {
-	background-image: url("http://i.imgur.com/gEuMU55.jpg?1");
-}
-/* Templar */
-.templar.character-card {
-	background-image: url("http://i.imgur.com/QSPb1DL.png?1");
-}
-/* Trapper */
-.trapper.character-card {
-	background-image: url("http://i.imgur.com/79qnZfO.jpg?1");
-}
-/* Savage */
-.savage.character-card {
-	background-image: url("http://i.imgur.com/msf53dF.jpg?1");
-}
-
-/* -------------------------------------
- * Levels
- * ------------------------------------- */
-
-.level-card {
-	background-size: cover;
-}
-/* Cave */
-.cave.level-card {
-	background-image: url("http://i.imgur.com/QFVqezH.jpg?1");
-}
-/* Forrest */
-.forest.level-card {
-	background-image: url("http://i.imgur.com/lJobP0y.jpg?1");
-}
-/* City */
-.city.level-card {
-	background-image: url("http://i.imgur.com/lCejclQ.jpg?1");
-}
-/* Cave */
-.mountain.level-card {
-	background-image: url("http://i.imgur.com/HwSFUHq.jpg?1");
-}
-/* Forrest */
-.ruins.level-card {
-	background-image: url("http://i.imgur.com/9ej1kHG.jpg?1");
-}
-/* City */
-.desert.level-card {
-	background-image: url("http://i.imgur.com/fvDlD8D.jpg?1");
-}
-
-
-/* -------------------------------------
- * Combat Section, combat stage
- * ------------------------------------- */
-
-.combat.textbox-container {
-	display: none;
-}
+/* Character-card locations */
 
 #hero-character {
     left: -200%;
@@ -517,22 +495,6 @@ a.start-game {
     left: 200%;
 }
 
-/* -------------------------------------
- * Combat cards
- * ------------------------------------- */
-
-.combat-card {
-    position: absolute;
-    width: 275px;
-    height: 544px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid black;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    top: 110px;
-}
 .villain.combat-card {
     height: 545px;
 }
@@ -564,7 +526,7 @@ img {
 /* bottom content */
 
 .character-content-panel {
-	height: 185px;
+	height: 184px;
 	margin: 0;
 	overflow: hidden;
 }
@@ -583,7 +545,7 @@ img {
 
 .villain.tap-card-prompt {
 	position: absolute;
-	height: 20px;
+	height: 30px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -596,7 +558,7 @@ img {
 
 .moves-button {
 	height: 45px;
-	font-size: 15px;
+	font-size: 14px;
 	color: white;
 	margin: 0 auto;
 	border-top: 1px solid black;
@@ -606,7 +568,7 @@ img {
 
 .move-name, .move-counter, .move-damage {
 	width: 50%;
-    height: 33px;
+    height: 45px;
     float: left;
     margin: 0;
     padding-top: 12px;
@@ -625,44 +587,42 @@ img {
 	background-color: #D40000;
 }
 
-/* -------------------------------------
- * Victory/Defeat Sections
- * ------------------------------------- */
+.move-name:hover {
+	color: white;
+	background-color: #D40000;
+}
 
- .post-fight-section.row {
+/* /////---------------------
+
+	Victory/Defeat Panels
+
+/////---------------------- */
+
+.post-fight-section.row {
  	display: none;
- }
+}
 
 .victory.section, .defeat.section {
-	position: absolute;
+	display: none;
+	position: static;
     height: 320px;
-    width: 85%;
     max-width: 450px;
-    top: 150px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    margin: 100px auto;
     background-color: rgba(0, 0, 0, 0.65);
     border: 2px solid #003056;
 }
 
 .victory.textbox-container, .defeat.textbox-container {
-    width: 70%;
-    height: 150px;
-    margin: 60px auto 0 auto;
+    width: 80%;
+    margin: 10% auto 0 auto;
     color: #FFF;
     line-height: 25px;
     background-color: #6B98BB;
     padding: 5%;
+    text-align: center;
 }
 
-.restart.button {
-	margin: 20px auto;
-}
-
-/* -------------------------------------
- * Media Queries
- * ------------------------------------- */
+/* ///////////////////////////////////////////////// ------- Media Queries ------- ///////////////////////////////////////////////// */
 /*
 
 @media (min-width: 610px) {
