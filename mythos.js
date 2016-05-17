@@ -33,9 +33,9 @@ function hideLeftCarouselControlForStoryCarousel() {
   storyCarouselActiveClassIndex ++;
 
       if ( storyCarouselActiveClassIndex == (lastSlide - 1) ) {
-        $('.right.carousel-control').hide();
+        $('.main-story-carousel.right.carousel-control').hide();
       } else {
-        $('.right.carousel-control').show();
+        $('.main-story-carousel.right.carousel-control').show();
       }
   }
 
@@ -55,9 +55,9 @@ function hideLeftCarouselControlForCombatCarousel() {
   combatCarouselActiveClassIndex ++;
 
       if ( combatCarouselActiveClassIndex == (lastSlide - 1) ) {
-        $('.right.carousel-control').hide();
+        $('.combat-story-carousel.right.carousel-control').hide();
       } else {
-        $('.right.carousel-control').show();
+        $('.combat-story-carousel.right.carousel-control').show();
       }
   }
 
@@ -68,8 +68,8 @@ $('.combat-story-carousel.right.carousel-control').on('click', hideLeftCarouselC
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Start Game
 function startGame() {
-  $('.story-carousel').slideUp().delay(500, function() {
-    $('.hero-selection').slideDown();
+  $('.main-story-carousel').slideUp().delay(500, function() {
+    $('.hero-selection').delay(250).slideDown();
   });
 }
 
@@ -390,11 +390,11 @@ function getCombatStage() {
 }
 
 // Start Quest Event bindings
-$( '.stage-prep-button ' ).on( 'click', function () {
+$( '.stage-prep ' ).on( 'click', function () {
     getCombatStage();
     villainAppears();
 });
-$( '.start-quest-button' ).on( 'click', function() {
+$( '.start-quest' ).on( 'click', function() {
     hideAllNonCombatRows();
     revealCombatRowandSelectedLevelStage();
     getRandomVillainCharacter();
@@ -413,7 +413,7 @@ var newCounter4;
 
 function startFight () {
   $( '#stage' ).slideUp();
-  $( '.start-fight-button' ).slideUp();
+  $( '.start-fight' ).slideUp();
   $( '#hero-character' ).delay(250).animate( { left : '0%' }, 500 );
   playerTurn = true;
 
