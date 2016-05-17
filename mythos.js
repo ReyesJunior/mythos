@@ -15,9 +15,9 @@ $('#game-title').fadeIn(500, function() {
 
 });
 
-$('.play-button').hide().delay(500).fadeIn(500, function() {
+$('.main-title-play-button').hide().delay(500).fadeIn(500, function() {
   $('#game-title').addClass('fire-animation');
-  $('.play-button').addClass('red-pulse');
+  $('.main-title-play-button').addClass('red-pulse');
 });
 
 
