@@ -26,7 +26,7 @@ var storyCarouselActiveClassIndex = $( '.main-story-carousel.carousel-inner.item
 
 function hideLeftCarouselControlForStoryCarousel() {
 
-  var totalSlides = $('.story-slide').length;
+  var totalSlides = $('.main-story-slide').length;
   var lastSlide = totalSlides - 1;
 
 
@@ -48,7 +48,7 @@ var combatCarouselActiveClassIndex = $( '.combat-story-carousel.carousel-inner.i
 
 function hideLeftCarouselControlForCombatCarousel() {
 
-  var totalSlides = $('.combat-slide').length;
+  var totalSlides = $('.combat-story-slide').length;
   var lastSlide = totalSlides - 1;
 
 
