@@ -175,43 +175,44 @@ var villains = [
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Level Data
+// 2000x1500
 
 var levels = [
 
 	{
 		location: 'Cave',
 		background_image: [
-    	new LevelImageItem('http://www.xcrforum.com/forum/attachments/6426d1378946504-garden-edam-deer_cave_mulu_national_park_borneo_malaysia.jpg')
+    	new LevelImageItem('http://i.imgur.com/LgKo4gQ.jpg?1')
     ]
 	},
 	{
 		location: 'Forest',
 		background_image: [
-    	new LevelImageItem('http://www.timberupdate.com/wp-content/uploads/2015/04/pine_forest.jpg')
+    	new LevelImageItem('http://i.imgur.com/ozWDTnP.jpg?1')
     ]
 	},
 	{
 		location: 'City',
 		background_image: [
-    	new LevelImageItem('http://extrawall.net/images/wallpapers/171_1920x1080_medieval_town.jpg')
+    	new LevelImageItem('http://i.imgur.com/iEX6XJF.jpg?1')
     ]
 	},
 	{
 		location: 'Mountain',
 		background_image: [
-    	new LevelImageItem('http://images.summitpost.org/original/815426.jpg')
+    	new LevelImageItem('http://i.imgur.com/mfjcz4H.jpg?1')
     ]
 	},
 	{
 		location: 'Ruins',
 		background_image: [
-    	new LevelImageItem('http://www.eggplante.com/wp-content/uploads/2014/10/The-Maze-Runner-Footage-7.jpg')
+    	new LevelImageItem('http://i.imgur.com/CEJ1e5f.jpg?1')
     ]
 	},
 	{
 		location: 'Desert',
 		background_image: [
-    	new LevelImageItem('http://images2.alphacoders.com/267/267032.jpg')
+    	new LevelImageItem('http://i.imgur.com/6j28Wch.jpg?1')
     ]
 	}
 ];
