@@ -422,14 +422,14 @@ function startFight () {
 
 function displayCombatVictory () {
   $( '.post-fight-section').slideDown();
-  $( '.victory.section' ).show();
+  $( '.victory.section' ).delay(250).show();
   $( '#randomized-character' ).animate( { left : '200%' }, 500 );
   $( '#hero-character' ).animate( { left : '-200%' }, 500 );
 }
 
 function displayCombatDefeat () {
   $( '.post-fight-section').slideDown();
-  $( '.defeat.section' ).show();
+  $( '.defeat.section' ).delay(250).show();
   $( '#randomized-character' ).animate( { left : '200%' }, 500 );
   $( '#hero-character' ).animate( { left : '-200%' }, 500 );
 }
