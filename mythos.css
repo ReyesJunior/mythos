@@ -74,6 +74,7 @@ body {
 	color: white;
 	text-align: center;
 }
+
 .restart.button:hover {
 	background-color: red;
 }
@@ -230,7 +231,7 @@ body {
 
 .main-story-slide {
 	position: relative;
-	height: 700px;
+	height: 730px;
 	max-width: 1500px;
 	margin: 0;
 	padding: 0;
@@ -240,9 +241,9 @@ body {
 }
 
 .carousel-caption {
-	top: 10%;
-	font-size: 16px;
-	line-height: 24px;
+	top: 5%;
+	font-size: 18px;
+	line-height: 27px;
 }
 
 .main-story-slide:first-child {
@@ -259,25 +260,28 @@ body {
 
 /////---------------------- */
 
+.panel-default {
+	border: 0;
+}
+
 .hero-panel-group {
 	margin-top: 20px;
 }
 
-a:focus, a:hover {
-    text-decoration: none;
-}
-
-a:hover {
+.show-heroes, .show-levels {
 	color: white;
-	background-color: #6B98BB;
+	background-color: #002E52;
 }
 
-.hero-selection {
+.show-heroes:focus, .show-heroes:hover, .show-levels:focus, .show-levels:hover {
+	color: white;
+    text-decoration: none;
+    background-color: red;
+}
+
+.hero-selection, .level-selection {
 	display: none;
-}
-
-.level-selection {
-	display:none;
+	background-color: #6B98BB;
 }
 
 /* Well */
@@ -411,6 +415,7 @@ a:hover {
 
 .start-quest {
 	display: none;
+	background-color: #6B98BB;
 }
 
 /* /////---------------------
@@ -438,16 +443,14 @@ a:hover {
 
 .combat-story.carousel {
     position: relative;
-    height: 450px;
-    background-color: rgba(0, 0, 0, 0.45);
 }
 
 .combat-story-slide {
-	height: 400px;
+	height: 785px;
 }
 
 .combat.carousel-caption {
-    top: 20px;
+    top: 40px;
 }
 
 /* Stage-relative */
