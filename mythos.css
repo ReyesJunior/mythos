@@ -16,6 +16,10 @@ body {
 	margin-right: 0;
 }
 
+.col-xs-12 {
+	padding: 0;
+}
+
 .landing-page.row, .main-story-carousel.row, .combat-story-carousel.row {
 	margin-left: -15px;
     margin-right: -15px;
